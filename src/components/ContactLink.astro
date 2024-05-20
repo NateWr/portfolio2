@@ -1,0 +1,29 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props
+---
+
+<a
+  class="
+    flex
+    items-center
+    gap-2
+    focus-visible:outline-black
+    focus-visible:outline-2
+    focus-visible:outline-offset-2
+  "
+  href={href}
+>
+  <div
+    class="
+      w-8
+      shrink-0
+    "
+  >
+    <slot name="svg" />
+  </div>
+  <slot />
+</a>

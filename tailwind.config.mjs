@@ -1,0 +1,45 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	theme: {
+		fontFamily: {
+			sans: '"Work Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+			mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+		},
+		extend: {
+			colors: {
+				blue: '#2187FF',
+			},
+			fontSize: {
+				'xs-vw': '3.3333333vw',
+				'sm-vw': '3.8888889vw',
+				'base-vw': '4.4444444vw',
+				'lg-vw': '5vw',
+				'xl-vw': '5.5555556vw',
+				'2xl-vw': '6.6666667vw',
+			},
+			spacing: {
+				'4-vw': '4.4444444vw',
+				'6-vw': '6.6666667vw',
+				'8-vw': '8.8888889vw',
+				'12-vw': '13.333333vw',
+			}
+		},
+	},
+	plugins: [
+		function ({ addComponents, theme }) {
+      addComponents({
+        '.link': {
+					'font-weight': '700',
+					'text-decoration': 'underline',
+					'text-decoration-thickness': '0.15em',
+					'&:focus-visible': {
+						'text-decoration': 'none',
+						'outline': '0.15em solid',
+						'outline-offset': '0.15em',
+					}
+				},
+      });
+    },
+	],
+}

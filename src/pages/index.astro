@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import profileImage from '../images/profile.png';
+---
+
+<Layout
+	title="Nate Wright, Senior Full-stack Developer"
+	description="I build beautiful websites, easy-to-use apps, and engaging digital stories for journalists, researchers, and activists."
+	nav={[
+		{
+			href: '#what-i-do',
+			text: 'What I Do',
+		},
+		{
+			href: '#experience',
+			text: 'Experience',
+		},
+		{
+			href: '#contact',
+			text: 'Contact',
+		}
+	]}
+>
+	<div
+		class="
+			absolute
+			top-0
+			left-0
+			w-full
+			-z-10
+		"
+		slot="header-image"
+		aria-hidden="true"
+	>
+		<Image src={profileImage} alt="" />
+	</div>
+	<main>
+		<section
+			class="
+				mx-6-vw
+				mt-[75vw]
+				flex
+				flex-col
+				gap-6
+				text-lg-vw
+				leading-relaxed
+			"
+		>
+			<h1 class="sr-only">Introduction</h1>
+			<p class="
+				text-2xl-vw
+				font-semibold
+				leading-normal
+			">
+				My name is Nate Wright and I’ve been building websites and apps for more than 20 years. If it’s on the web, I can build it and make it accessible to anyone on any device.
+			</p>
+			<p>
+				I had a previous career in journalism and I’m interested in working on projects at the intersection of information, communication, and social change.
+			</p>
+			<p>
+				See what I do and how I do it below and <a class="link" href="#contact">contact me</a> if you think I can help with something you are working on.
+			</p>
+		</section>
+	</main>
+</Layout>
+
+<style>
+
+</style>
