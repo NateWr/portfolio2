@@ -100,7 +100,7 @@ const { title, description, nav } = Astro.props;
 			class="
 				relative
 				overflow-hidden
-				pb-[30vw]
+				pb-[10vw]
 			"
 		>
 			<div
@@ -115,7 +115,11 @@ const { title, description, nav } = Astro.props;
 				"
 				aria-hidden="true"
 			>
-				<Image src={dots3Image} alt="" />
+				<Image
+					class="w-full"
+					src={dots3Image}
+					alt=""
+				/>
 			</div>
 			<h2 class="sr-only">Contact</h2>
 			<div

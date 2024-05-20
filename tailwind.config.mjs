@@ -1,3 +1,5 @@
+import defaultTheme  from 'tailwindcss/defaultTheme'
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -5,6 +7,16 @@ export default {
 		fontFamily: {
 			sans: '"Work Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
 			mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+		},
+		screens: {
+			'sm': defaultTheme.screens.sm,
+			'sm-landscape': {'raw': '(orientation: landscape) and (min-width: 640px)'},
+			'md': defaultTheme.screens.md,
+			'md-landscape': {'raw': '(orientation: landscape) and (min-width: 768px)'},
+			'lg': defaultTheme.screens.lg,
+			'lg-landscape': {'raw': '(orientation: landscape) and (min-width: 1024px)'},
+			'xl': defaultTheme.screens.xl,
+			'2xl': defaultTheme.screens['2xl'],
 		},
 		extend: {
 			colors: {
