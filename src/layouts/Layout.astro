@@ -101,6 +101,7 @@ const { title, description, nav } = Astro.props;
 				relative
 				overflow-hidden
 				pb-[10vw]
+				sm-landscape:pb-[20vw]
 			"
 		>
 			<div
@@ -126,6 +127,9 @@ const { title, description, nav } = Astro.props;
 				id="contact"
 				class="
 					mx-6-vw
+					flex
+					flex-col
+					items-center
 				"
 			>
 				<div
@@ -133,6 +137,10 @@ const { title, description, nav } = Astro.props;
 						text-center
 						text-2xl-vw
 						leading-normal
+						sm-landscape:max-w-sm
+						sm-landscape:text-2xl
+						sm-landscape:leading-normal
+						sm:text-lg-vw
 					"
 				>
 					Ready <strong>for a chat?</strong>
@@ -145,8 +153,9 @@ const { title, description, nav } = Astro.props;
 						flex
 						flex-col
 						gap-6-vw
-						text-base-vw
-						font-semibold
+						sm-landscape:my-12
+						sm-landscape:mx-4
+						sm-landscape:gap-6
 					"
 				>
 					<ContactLink href="mailto:natew+work@notthisway.com">

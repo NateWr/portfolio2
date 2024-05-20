@@ -10,17 +10,23 @@ const { href } = Astro.props
   class="
     flex
     items-center
-    gap-2
+    gap-4-vw
+    text-base-vw
+    font-semibold
     focus-visible:outline-black
     focus-visible:outline-2
     focus-visible:outline-offset-2
+    sm-landscape:text-base
+    sm-landscape:gap-4
+    sm:text-sm-vw
   "
   href={href}
 >
   <div
     class="
-      w-8
+      w-8-vw
       shrink-0
+      sm-landscape:w-8
     "
   >
     <slot name="svg" />
