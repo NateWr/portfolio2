@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  image: ImageMetadata;
+  alt?: string;
+}
+
+const { image, alt = '' } = Astro.props;
+---
+
+<div
+  class="
+    border
+    border-black
+    overflow-hidden
+    rounded-[12px]
+    bg-var-color
+  "
+>
+  <div
+    class="
+      flex
+      px-3
+      py-2
+      gap-0.5
+    "
+  >
+    <div class="w-2 h-2 rounded-full bg-amber-600 "></div>
+    <div class="w-2 h-2 rounded-full bg-emerald-600"></div>
+    <div class="w-2 h-2 rounded-full bg-blue"></div>
+  </div>
+  <div
+    class="
+      screenshot-border
+      border
+      rounded-b-[11px]
+    "
+    style="
+      border-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.5) 0%, rgba(255,255,255,0.25) 40%, rgba(0, 0, 0, 0.5) 60%) 30;
+    "
+  >
+    <Image
+      src={image}
+      alt={alt}
+      class={`
+        h-[300px]
+        w-auto
+        m-px
+        rounded-b-[10px]
+      `}
+      style={`
+        background-color: var(--color);
+      `}
+    />
+  </div>
+</div>

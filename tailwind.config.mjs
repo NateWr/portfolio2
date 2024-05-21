@@ -21,6 +21,7 @@ export default {
 		extend: {
 			colors: {
 				blue: '#2187FF',
+				'var-color': 'var(--color)',
 			},
 			fontSize: {
 				'xs-vw': '3.3333333vw',
@@ -31,6 +32,7 @@ export default {
 				'2xl-vw': '6.6666667vw',
 			},
 			spacing: {
+				'2-vw': '2.2222222vw',
 				'4-vw': '4.4444444vw',
 				'6-vw': '6.6666667vw',
 				'8-vw': '8.8888889vw',

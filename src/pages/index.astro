@@ -1,7 +1,17 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import ScrollCarousel from '../components/ScrollCarousel.astro';
+import PortfolioItem from '../components/PortfolioItem.astro';
 import profileImage from '../images/profile.png';
+import dotsImage from '../images/dots.png';
+import dots2Image from '../images/dots-2.png';
+import killerAiImage from '../images/killerai.png';
+import uiLibraryImage from '../images/ui-library-submission.png';
+import journalFiImage from '../images/journalfi-homepage.png';
+import lawfareImage from '../images/lawfare-homepage.png';
+import weHadDreamsImage from '../images/wehaddreams.png';
+import wpImage from '../images/wp-augustan.png';
 ---
 
 <Layout
@@ -75,6 +85,76 @@ import profileImage from '../images/profile.png';
 				See what I do and how I do it below and <a class="link" href="#contact">contact me</a> if you think I can help with something you are working on.
 			</p>
 		</section>
+		<ScrollCarousel
+			title="Stories"
+			background={dotsImage}
+		>
+			<p slot="description">
+				I make <strong>engaging digital stories</strong> for journalists, campaigners and activists that have real impact.
+			</p>
+			<PortfolioItem
+				title="Stop Killer AI"
+				client="Visualizing Palestine"
+				date="May 2024"
+				url="/killer-ai"
+				image={killerAiImage}
+				color="#4D0016"
+				alt="Graphic showing families under a watching eye and the text: Israel's Killer AI"
+			/>
+			<PortfolioItem
+				title="Open Journal Systems"
+				client="Public Knowledge Project"
+				date="2018-2023"
+				url="/ui-library"
+				image={uiLibraryImage}
+				color="#002C40"
+				alt="Screenshot of the step-by-step workflow to make a new journal submission"
+			/>
+			<PortfolioItem
+				title="We Had Dreams"
+				client="Visualizing Palestine"
+				date="Nov 2023"
+				url="https://wehaddreams.com"
+				image={weHadDreamsImage}
+				color="#211202"
+				alt="Graphic showing a nightime city skyline with explosions and the text: We Had Dreams, Palestinians living and dying under seige"
+			/>
+		</ScrollCarousel>
+		<ScrollCarousel
+			title="Websites"
+			background={dots2Image}
+		>
+			<p slot="description">
+				I produce <strong>beautiful websites</strong> that are easy for anyone to use on any device.
+			</p>
+			<PortfolioItem
+				title="Journal.fi and Edition.fi"
+				client="Federation of Finnish Learned Societies"
+				date="Coming Soon"
+				url="/finnish-journals"
+				image={journalFiImage}
+				color="#8F00FF"
+				alt="Screenshot of the homepage for journal.fi with text that says Access 100+ Finnish Scholarly Journals"
+			/>
+			<PortfolioItem
+				title="Lawfare Data Hub"
+				client="Foundation for Middle East Peace"
+				date="Sep 2023"
+				url="/lawfare"
+				image={lawfareImage}
+				color="#1F274C"
+				alt="Screenshot of the homepage of lawfare.fmep.org that says FMEP's research and documentation on the campaign to exploit US laws."
+			/>
+			<PortfolioItem
+				title="WordPress Themes"
+				client="Theme of the Crop"
+				date="2014-2018"
+				url="/wordpress"
+				image={wpImage}
+				color="#002222"
+				alt="Screenshot of the Augustan theme for  WordPress."
+			/>
+		</ScrollCarousel>
 	</main>
 </Layout>
 
