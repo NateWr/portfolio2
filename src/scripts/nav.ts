@@ -27,7 +27,7 @@ export default () => {
   }
 
   const set = () => {
-    if (window.scrollY < window.innerHeight ) {
+    if (window.scrollY < (window.innerHeight / 1.5) ) {
       hide()
     } else {
       show()
