@@ -23,9 +23,6 @@ const { title, client, date, url, image, color, alt = '' } = Astro.props;
     relative
     shrink-0
     p-16
-    flex
-    flex-col
-    items-start
     sm-landscape:py-2
     sm-landscape:px-8
   "
@@ -33,49 +30,59 @@ const { title, client, date, url, image, color, alt = '' } = Astro.props;
   style={`
     --color: ${color};
   `}
+  data-blur="true"
 >
-  <Screenshot
-    image={image}
-    alt={alt}
-  />
   <div
     class="
-      mt-4
+      portfolio-item-blur
       flex
-      items-center
-      gap-4
-      w-full
-      text-base
-      leading-tight
-      3xl:text-lg
-      3xl:leading-tight
+      flex-col
+      items-start
     "
   >
-    <div>
-      <h3
-        class="
-          font-bold
-        "
-      >
-        {title}
-      </h3>
-      <div>{client}</div>
+    <Screenshot
+      image={image}
+      alt={alt}
+    />
+    <div
+      class="
+        mt-4
+        flex
+        items-center
+        gap-4
+        w-full
+        text-base
+        leading-tight
+        3xl:text-lg
+        3xl:leading-tight
+      "
+    >
+      <div>
+        <h3
+          class="
+            font-bold
+          "
+        >
+          {title}
+        </h3>
+        <div>{client}</div>
+      </div>
+      <div class="relative flex-grow">
+        <Arrow />
+      </div>
     </div>
-    <div class="relative flex-grow">
-      <Arrow />
+    <div
+      class="
+        mt-2
+        text-sm
+        font-bold
+        uppercase
+        3xl:text-base
+        3xl:leading-tight
+      "
+    >
+      {date}
     </div>
-  </div>
-  <div
-    class="
-      mt-2
-      text-sm
-      font-bold
-      uppercase
-      3xl:text-base
-      3xl:leading-tight
-    "
-  >
-    {date}
   </div>
 </a>
 
@@ -92,4 +99,26 @@ const { title, client, date, url, image, color, alt = '' } = Astro.props;
     mask: radial-gradient(farthest-side, black 75%, transparent);
     backdrop-filter: blur(3px);
   }
+
+  .portfolio-item-blur {
+    transition: all 0.5s;
+    filter: blur(0);
+    transform: scale(1);
+    transform-origin: center bottom;
+  }
+
+  .portfolio-item[data-blur="true"] {
+
+    &:after {
+      mask: none;
+      backdrop-filter: none;
+    }
+
+    & .portfolio-item-blur {
+      transition: all 0.5s;
+      filter: blur(10px);
+      transform: scale(0.8);
+    }
+  }
+
 </style>
