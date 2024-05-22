@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import ScrollCarousel from '../components/ScrollCarousel.astro';
 import PortfolioItem from '../components/PortfolioItem.astro';
 import profileImage from '../images/profile.png';
+import dogsImage from '../images/dogs.png';
 import dotsImage from '../images/dots.png';
 import dots2Image from '../images/dots-2.png';
 import killerAiImage from '../images/killerai.png';
@@ -60,7 +61,6 @@ import wpImage from '../images/wp-augustan.png';
 				sm:text-sm-vw
 				sm-landscape:mt-[20vw]
 				sm-landscape:max-w-[55vw]
-				sm-landscape:justify-end
 				sm-landscape:ml-auto
 				sm-landscape:mr-24
 				sm-landscape:gap-6
@@ -73,7 +73,7 @@ import wpImage from '../images/wp-augustan.png';
 				3xl:leading-relaxed
 			"
 		>
-			<h1 class="sr-only">Introduction</h1>
+			<h1 class="sr-only">About Me</h1>
 			<p class="
 				text-2xl-vw
 				font-semibold
@@ -219,6 +219,89 @@ import wpImage from '../images/wp-augustan.png';
 				alt="Screenshot of the Augustan theme for  WordPress."
 			/>
 		</ScrollCarousel>
+		<section
+			class="
+				relative
+				my-[30vh]
+			"
+		>
+			<div
+				class="
+					absolute
+					top-0
+					right-0
+					w-[120vw]
+					-z-10
+					sm-landscape:w-[60vw]
+				"
+				aria-hidden="true"
+			>
+				<Image src={dogsImage} alt="" />
+				<div
+					class="
+						absolute
+						right-0
+						top-[40vw]
+						bg-white
+						px-2
+						py-1
+						font-mono
+						font-bold
+						text-xs
+						sm-landscape:top-[15vw]
+						xl:top-[20vw]
+					"
+				>
+					My dogs Bella and Peanut
+				</div>
+			</div>
+			<h2 class="sr-only">Experience</h2>
+			<div
+				class="
+					mx-6-vw
+					pt-[120vw]
+					flex
+					flex-col
+					gap-6-vw
+					text-lg-vw
+					leading-relaxed
+					sm:text-sm-vw
+					sm-landscape:pt-[30vw]
+					sm-landscape:max-w-[45vw]
+					sm-landscape:mr-auto
+					sm-landscape:ml-16
+					sm-landscape:gap-6
+					sm-landscape:text-lg
+					sm-landscape:leading-relaxed
+					xl:max-w-md
+					xl:mr-[50vw]
+					xl:ml-auto
+					3xl:max-w-xl
+					3xl:text-2xl
+					3xl:leading-relaxed
+				"
+			>
+				<p class="
+					text-2xl-vw
+					font-semibold
+					leading-normal
+					text-balance
+					sm:text-lg-vw
+					sm-landscape:text-2xl
+					sm-landscape:leading-normal
+					3xl:text-3xl
+					3xl:leading-normal
+				">
+					In my career, I’ve worn all sorts of hats.
+				</p>
+				<p>
+					I’ve worked alone and in teams, led on frontend and backend tasks, and taken on documentation and developer relations.
+				</p>
+				<p>
+					I’m comfortable working across the full stack, from design to database and everything in between. Take a closer look at my technical experience below.
+				</p>
+			</div>
+		</section>
 	</main>
 </Layout>
 
