@@ -17,6 +17,7 @@ const { image, alt = '' } = Astro.props;
     overflow-hidden
     rounded-[12px]
     bg-var-color
+    opacity-90
   "
 >
   <div
@@ -25,6 +26,8 @@ const { image, alt = '' } = Astro.props;
       px-3
       py-2
       gap-0.5
+      sm-landscape:hidden
+      md:flex
     "
   >
     <div class="w-2 h-2 rounded-full bg-amber-600 "></div>
@@ -33,7 +36,6 @@ const { image, alt = '' } = Astro.props;
   </div>
   <div
     class="
-      screenshot-border
       border
       rounded-b-[11px]
     "
@@ -45,10 +47,12 @@ const { image, alt = '' } = Astro.props;
       src={image}
       alt={alt}
       class={`
-        h-[300px]
+      screenshot-image
         w-auto
         m-px
         rounded-b-[10px]
+        h-[25vh]
+        xs:h-[30vh]
       `}
       style={`
         background-color: var(--color);

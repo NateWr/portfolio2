@@ -88,6 +88,10 @@ import wpImage from '../images/wp-augustan.png';
 		<ScrollCarousel
 			title="Stories"
 			background={dotsImage}
+			classes={`
+				h-[250vh]
+				lg:h-[200vh]
+			`}
 		>
 			<p slot="description">
 				I make <strong>engaging digital stories</strong> for journalists, campaigners and activists that have real impact.
@@ -123,13 +127,17 @@ import wpImage from '../images/wp-augustan.png';
 		<ScrollCarousel
 			title="Websites"
 			background={dots2Image}
+			classes={`
+				h-[250vh]
+				lg:h-[200vh]
+			`}
 		>
 			<p slot="description">
 				I produce <strong>beautiful websites</strong> that are easy for anyone to use on any device.
 			</p>
 			<PortfolioItem
 				title="Journal.fi and Edition.fi"
-				client="Federation of Finnish Learned Societies"
+				client="Finnish Learned Societies"
 				date="Coming Soon"
 				url="/finnish-journals"
 				image={journalFiImage}
@@ -138,7 +146,7 @@ import wpImage from '../images/wp-augustan.png';
 			/>
 			<PortfolioItem
 				title="Lawfare Data Hub"
-				client="Foundation for Middle East Peace"
+				client="FMEP"
 				date="Sep 2023"
 				url="/lawfare"
 				image={lawfareImage}

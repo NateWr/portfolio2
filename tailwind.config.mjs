@@ -9,6 +9,7 @@ export default {
 			mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 		},
 		screens: {
+			'xs': '460px',
 			'sm': defaultTheme.screens.sm,
 			'sm-landscape': {'raw': '(orientation: landscape) and (min-width: 640px)'},
 			'md': defaultTheme.screens.md,
@@ -17,6 +18,7 @@ export default {
 			'lg-landscape': {'raw': '(orientation: landscape) and (min-width: 1024px)'},
 			'xl': defaultTheme.screens.xl,
 			'2xl': defaultTheme.screens['2xl'],
+			'3xl': '1920px',
 		},
 		extend: {
 			colors: {
@@ -37,6 +39,7 @@ export default {
 				'6-vw': '6.6666667vw',
 				'8-vw': '8.8888889vw',
 				'12-vw': '13.333333vw',
+				'16-vw': '17.777778vw',
 			}
 		},
 	},
