@@ -40,6 +40,7 @@ import wpImage from '../images/wp-augustan.png';
 			w-full
 			-z-10
 			sm-landscape:w-1/2
+			xl:w-2/3
 		"
 		slot="header-image"
 		aria-hidden="true"
@@ -56,6 +57,7 @@ import wpImage from '../images/wp-augustan.png';
 				gap-6-vw
 				text-lg-vw
 				leading-relaxed
+				sm:text-sm-vw
 				sm-landscape:mt-[20vw]
 				sm-landscape:max-w-[55vw]
 				sm-landscape:justify-end
@@ -64,7 +66,11 @@ import wpImage from '../images/wp-augustan.png';
 				sm-landscape:gap-6
 				sm-landscape:text-lg
 				sm-landscape:leading-relaxed
-				sm:text-sm-vw
+				xl:max-w-md
+				xl:ml-[50vw]
+				3xl:max-w-xl
+				3xl:text-2xl
+				3xl:leading-relaxed
 			"
 		>
 			<h1 class="sr-only">Introduction</h1>
@@ -72,9 +78,11 @@ import wpImage from '../images/wp-augustan.png';
 				text-2xl-vw
 				font-semibold
 				leading-normal
+				sm:text-lg-vw
 				sm-landscape:text-2xl
 				sm-landscape:leading-normal
-				sm:text-lg-vw
+				3xl:text-3xl
+				3xl:leading-normal
 			">
 				My name is Nate Wright and I’ve been building websites and apps for more than 20 years. If it’s on the web, I can build it and make it accessible to anyone on any device.
 			</p>
@@ -82,7 +90,7 @@ import wpImage from '../images/wp-augustan.png';
 				I had a previous career in journalism and I’m interested in working on projects at the intersection of information, communication, and social change.
 			</p>
 			<p>
-				See what I do and how I do it below and <a class="link" href="#contact">contact me</a> if you think I can help with something you are working on.
+				See what I do below and <a class="link" href="#contact">contact me</a> if you think I can help with something you are working on.
 			</p>
 		</section>
 		<ScrollCarousel
