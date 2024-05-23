@@ -23,6 +23,13 @@ export default {
 		extend: {
 			colors: {
 				blue: '#2187FF',
+				'code-dark-grey': '#556362',
+				'code-fuscia': '#D33681',
+				'code-grey': '#81917A',
+				'code-orange': '#FFCC2E',
+				'code-teal': '#2AA197',
+				'code-teal-dark': '#002B36',
+				'code-teal-very-dark': '#00141A',
 				'var-color': 'var(--color)',
 			},
 			fontSize: {

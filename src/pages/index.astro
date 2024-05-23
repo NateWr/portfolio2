@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import ScrollCarousel from '../components/ScrollCarousel.astro';
 import PortfolioItem from '../components/PortfolioItem.astro';
+import StaggeredTiles from '../components/StaggeredTiles.astro';
 import profileImage from '../images/profile.png';
 import dogsImage from '../images/dogs.png';
 import dotsImage from '../images/dots.png';
@@ -13,6 +14,58 @@ import journalFiImage from '../images/journalfi-homepage.png';
 import lawfareImage from '../images/lawfare-homepage.png';
 import weHadDreamsImage from '../images/wehaddreams.png';
 import wpImage from '../images/wp-augustan.png';
+import type { CodeTile } from '../scripts/tiles';
+
+const experience: CodeTile[] = [
+	{
+		path: '~/projects/pkp',
+		branch: 'stable-3_4_0',
+		commit: 'b1aaa1 Mon Apr 29 13:38',
+		title: 'Code Modernization',
+		description: 'I helped refactor and modernize a legacy PHP/jQuery application with type hints, automatic code formatting and Vue.js.',
+		url: '/code-modernization',
+	},
+	{
+		path: '~/projects/ui-library',
+		branch: 'stable-3_4_0',
+		commit: '8c6e20 Fri Apr 19 15:05',
+		title: 'UI Component Library',
+		description: "I designed and built a Vue.js component library for the world's most widely used scholarly publishing software.",
+		url: '/ui-library',
+	},
+	{
+		path: '~/projects/antiboycott',
+		branch: 'main',
+		commit: '2a14f2 Mon May 6 10:04',
+		title: 'Scrollytelling with Vue.js',
+		description: 'How I managed CPU usage in an interactive, scroll-based story using a reactive framework like Vue.js.',
+		url: '/antiboycott',
+	},
+	{
+		path: '~/projects/pkp',
+		branch: 'stable-3_4_0',
+		commit: 'b1aaa1 Mon Apr 29 13:38',
+		title: 'Code Modernization',
+		description: 'I helped refactor and modernize a legacy PHP/jQuery application with type hints, automatic code formatting and Vue.js.',
+		url: '/code-modernization',
+	},
+	{
+		path: '~/projects/ui-library',
+		branch: 'stable-3_4_0',
+		commit: '8c6e20 Fri Apr 19 15:05',
+		title: 'UI Component Library',
+		description: "I designed and built a Vue.js component library for the world's most widely used scholarly publishing software.",
+		url: '/ui-library',
+	},
+	{
+		path: '~/projects/antiboycott',
+		branch: 'main',
+		commit: '2a14f2 Mon May 6 10:04',
+		title: 'Scrollytelling with Vue.js',
+		description: 'How I managed CPU usage in an interactive, scroll-based story using a reactive framework like Vue.js.',
+		url: '/antiboycott',
+	},
+]
 ---
 
 <Layout
@@ -300,6 +353,21 @@ import wpImage from '../images/wp-augustan.png';
 				<p>
 					I’m comfortable working across the full stack, from design to database and everything in between. Take a closer look at my technical experience below.
 				</p>
+			</div>
+			<div
+				class="
+					mx-6-vw
+					my-12-vw
+					sm-landscape:mt-12
+					sm-landscape:mx-auto
+					sm-landscape:max-w-[80vw]
+					lg:max-w-[90vw]
+					xl:max-w-[80vw]
+					2xl:max-w-screen-lg
+					3xl:max-w-screen-xl
+				"
+			>
+				<StaggeredTiles tiles={experience} />
 			</div>
 		</section>
 	</main>

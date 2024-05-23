@@ -1,0 +1,33 @@
+---
+import TileBlock from './CodeTile.astro';
+import type { CodeTile } from '../scripts/tiles'
+
+interface Props {
+  tiles: CodeTile[];
+}
+
+const { tiles } = Astro.props
+---
+
+<div
+  class="
+    grid
+    grid-cols-1
+    auto-rows-fr
+    gap-4-vw
+    md:grid-cols-2
+    md:gap-4
+    3xl:gap-8
+  "
+>
+  {tiles.map((tile, i) => {
+    return i
+      ? (
+        <TileBlock item={tile} />
+      )
+      : (
+        <TileBlock item={tile} />
+        <div class="hidden md:block md:row-span-1 md:min-h-[100px]" aria-hidden="true" />
+      )
+  })}
+</div>

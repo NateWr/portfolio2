@@ -1,0 +1,121 @@
+---
+import type { CodeTile } from '../scripts/tiles'
+
+interface Props {
+  item: CodeTile;
+}
+
+const { item } = Astro.props
+---
+
+<div
+  class="
+    row-span-2
+    flex
+    flex-col
+    border
+    border-black
+    overflow-hidden
+    rounded-[12px]
+    bg-code-teal-dark
+    text-white/[0.85]
+  "
+  data-blur="true"
+>
+  <div
+    class="
+      flex
+      px-3
+      py-2
+      gap-0.5
+      bg-code-teal-very-dark
+      md:flex
+    "
+  >
+    <div class="w-2 h-2 rounded-full bg-amber-600 "></div>
+    <div class="w-2 h-2 rounded-full bg-emerald-600"></div>
+    <div class="w-2 h-2 rounded-full bg-blue"></div>
+  </div>
+  <div
+    class="
+      flex
+      flex-col
+      grow
+      gap-6-vw
+      p-6-vw
+      font-mono
+      sm-landscape:p-6
+      sm-landscape:gap-6
+      md:p-6
+      md:gap-6
+    "
+  >
+    <div
+      class="
+        text-xs-vw
+        font-bold
+        sm-landscape:text-xs
+        md:text-xs
+        3xl:text-sm
+      "
+    >
+      <span class="text-code-teal">{item.path}</span>
+      <span class="text-code-grey">on</span>
+      <span class="text-code-fuscia">{item.branch}</span>
+      <span class="text-code-dark-grey">{item.commit}</span>
+    </div>
+    <div
+      class="
+        text-lg-vw
+        font-bold
+        sm-landscape:text-lg
+        md:text-lg
+        3xl:text-xl
+      "
+    >
+      # {item.title}
+    </div>
+    <div
+      class="
+        text-base-vw
+        sm-landscape:text-base
+        md:text-base
+        3xl:text-lg
+      "
+    >
+      {item.description}
+    </div>
+    <div class="mt-auto">
+      <a
+        href={item.url}
+        class="
+          text-base-vw
+          font-bold
+          text-code-orange
+          sm-landscape:text-base
+          md:text-base
+          3xl:text-lg
+        "
+      >
+        [ Learn More ]
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  [data-blur] {
+    transition: all 0.5s;
+    transform-origin: center;
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  [data-blur="true"] {
+    filter: blur(10px);
+    transform: scale(0.8);
+    opacity: 0;
+  }
+</style>
