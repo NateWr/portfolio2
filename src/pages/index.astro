@@ -8,64 +8,10 @@ import profileImage from '../images/profile.png';
 import dogsImage from '../images/dogs.png';
 import dotsImage from '../images/dots.png';
 import dots2Image from '../images/dots-2.png';
-import killerAiImage from '../images/killerai.png';
-import uiLibraryImage from '../images/ui-library-submission.png';
-import journalFiImage from '../images/journalfi-homepage.png';
-import lawfareImage from '../images/lawfare-homepage.png';
-import weHadDreamsImage from '../images/wehaddreams.png';
-import wpImage from '../images/wp-augustan.png';
-import type { CodeTile } from '../scripts/tiles';
-
-const experience: CodeTile[] = [
-	{
-		path: '~/projects/pkp',
-		branch: 'stable-3_4_0',
-		commit: 'b1aaa1 Mon Apr 29 13:38',
-		title: 'Code Modernization',
-		description: 'I helped refactor and modernize a legacy PHP/jQuery application with type hints, automatic code formatting and Vue.js.',
-		url: '/code-modernization',
-	},
-	{
-		path: '~/projects/ui-library',
-		branch: 'stable-3_4_0',
-		commit: '8c6e20 Fri Apr 19 15:05',
-		title: 'UI Component Library',
-		description: "I designed and built a Vue.js component library for the world's most widely used scholarly publishing software.",
-		url: '/ui-library',
-	},
-	{
-		path: '~/projects/antiboycott',
-		branch: 'main',
-		commit: '2a14f2 Mon May 6 10:04',
-		title: 'Scrollytelling with Vue.js',
-		description: 'How I managed CPU usage in an interactive, scroll-based story using a reactive framework like Vue.js.',
-		url: '/antiboycott',
-	},
-	{
-		path: '~/projects/pkp',
-		branch: 'stable-3_4_0',
-		commit: 'b1aaa1 Mon Apr 29 13:38',
-		title: 'Code Modernization',
-		description: 'I helped refactor and modernize a legacy PHP/jQuery application with type hints, automatic code formatting and Vue.js.',
-		url: '/code-modernization',
-	},
-	{
-		path: '~/projects/ui-library',
-		branch: 'stable-3_4_0',
-		commit: '8c6e20 Fri Apr 19 15:05',
-		title: 'UI Component Library',
-		description: "I designed and built a Vue.js component library for the world's most widely used scholarly publishing software.",
-		url: '/ui-library',
-	},
-	{
-		path: '~/projects/antiboycott',
-		branch: 'main',
-		commit: '2a14f2 Mon May 6 10:04',
-		title: 'Scrollytelling with Vue.js',
-		description: 'How I managed CPU usage in an interactive, scroll-based story using a reactive framework like Vue.js.',
-		url: '/antiboycott',
-	},
-]
+import stories from '../data/stories';
+import websites from '../data/websites';
+import experience from '../data/experience';
+import apps from '../data/apps';
 ---
 
 <Layout
@@ -157,33 +103,17 @@ const experience: CodeTile[] = [
 			<p slot="description">
 				I make <strong>engaging digital stories</strong> for journalists, campaigners and activists that have real impact.
 			</p>
-			<PortfolioItem
-				title="Stop Killer AI"
-				client="Visualizing Palestine"
-				date="May 2024"
-				url="/killer-ai"
-				image={killerAiImage}
-				color="#4D0016"
-				alt="Graphic showing families under a watching eye and the text: Israel's Killer AI"
-			/>
-			<PortfolioItem
-				title="Open Journal Systems"
-				client="Public Knowledge Project"
-				date="2018-2023"
-				url="/ui-library"
-				image={uiLibraryImage}
-				color="#002C40"
-				alt="Screenshot of the step-by-step workflow to make a new journal submission"
-			/>
-			<PortfolioItem
-				title="We Had Dreams"
-				client="Visualizing Palestine"
-				date="Nov 2023"
-				url="https://wehaddreams.com"
-				image={weHadDreamsImage}
-				color="#211202"
-				alt="Graphic showing a nightime city skyline with explosions and the text: We Had Dreams, Palestinians living and dying under seige"
-			/>
+			{stories.map(story => (
+				<PortfolioItem
+					title={story.title}
+					client={story.client}
+					date={story.date}
+					url={story.url}
+					image={story.image}
+					color={story.color}
+					alt={story.alt}
+				/>
+			))}
 		</ScrollCarousel>
 		<ScrollCarousel
 			title="Websites"
@@ -196,33 +126,17 @@ const experience: CodeTile[] = [
 			<p slot="description">
 				I produce <strong>beautiful websites</strong> that are easy for anyone to use on any device.
 			</p>
-			<PortfolioItem
-				title="Journal.fi and Edition.fi"
-				client="Finnish Learned Societies"
-				date="Coming Soon"
-				url="/finnish-journals"
-				image={journalFiImage}
-				color="#8F00FF"
-				alt="Screenshot of the homepage for journal.fi with text that says Access 100+ Finnish Scholarly Journals"
-			/>
-			<PortfolioItem
-				title="Lawfare Data Hub"
-				client="FMEP"
-				date="Sep 2023"
-				url="/lawfare"
-				image={lawfareImage}
-				color="#1F274C"
-				alt="Screenshot of the homepage of lawfare.fmep.org that says FMEP's research and documentation on the campaign to exploit US laws."
-			/>
-			<PortfolioItem
-				title="WordPress Themes"
-				client="Theme of the Crop"
-				date="2014-2018"
-				url="/wordpress"
-				image={wpImage}
-				color="#002222"
-				alt="Screenshot of the Augustan theme for  WordPress."
-			/>
+			{websites.map(website => (
+				<PortfolioItem
+					title={website.title}
+					client={website.client}
+					date={website.date}
+					url={website.url}
+					image={website.image}
+					color={website.color}
+					alt={website.alt}
+				/>
+			))}
 		</ScrollCarousel>
 		<ScrollCarousel
 			title="Websites"
@@ -235,42 +149,17 @@ const experience: CodeTile[] = [
 			<p slot="description">
 				I build <strong>reliable apps</strong> that help individuals and organisations collect, manage and analyse data.
 			</p>
-			<PortfolioItem
-				title="Open Journal Systems"
-				client="Public Knowledge Project"
-				date="2018-2023"
-				url="/ui-library"
-				image={uiLibraryImage}
-				color="#002C40"
-				alt="Screenshot of the step-by-step workflow to make a new journal submission"
-			/>
-			<PortfolioItem
-				title="Journal.fi and Edition.fi"
-				client="Finnish Learned Societies"
-				date="Coming Soon"
-				url="/finnish-journals"
-				image={journalFiImage}
-				color="#8F00FF"
-				alt="Screenshot of the homepage for journal.fi with text that says Access 100+ Finnish Scholarly Journals"
-			/>
-			<PortfolioItem
-				title="Lawfare Data Hub"
-				client="FMEP"
-				date="Sep 2023"
-				url="/lawfare"
-				image={lawfareImage}
-				color="#1F274C"
-				alt="Screenshot of the homepage of lawfare.fmep.org that says FMEP's research and documentation on the campaign to exploit US laws."
-			/>
-			<PortfolioItem
-				title="WordPress Themes"
-				client="Theme of the Crop"
-				date="2014-2018"
-				url="/wordpress"
-				image={wpImage}
-				color="#002222"
-				alt="Screenshot of the Augustan theme for  WordPress."
-			/>
+			{apps.map(app => (
+				<PortfolioItem
+					title={app.title}
+					client={app.client}
+					date={app.date}
+					url={app.url}
+					image={app.image}
+					color={app.color}
+					alt={app.alt}
+				/>
+			))}
 		</ScrollCarousel>
 		<section
 			class="
