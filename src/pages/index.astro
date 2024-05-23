@@ -12,25 +12,27 @@ import stories from '../data/stories';
 import websites from '../data/websites';
 import experience from '../data/experience';
 import apps from '../data/apps';
+
+const nav = [
+	{
+		href: '#what-i-do',
+		text: 'What I Do',
+	},
+	{
+		href: '#experience',
+		text: 'Experience',
+	},
+	{
+		href: '#contact',
+		text: 'Contact',
+	}
+]
 ---
 
 <Layout
 	title="Nate Wright, Senior Full-stack Developer"
 	description="I build beautiful websites, easy-to-use apps, and engaging digital stories for journalists, researchers, and activists."
-	nav={[
-		{
-			href: '#what-i-do',
-			text: 'What I Do',
-		},
-		{
-			href: '#experience',
-			text: 'Experience',
-		},
-		{
-			href: '#contact',
-			text: 'Contact',
-		}
-	]}
+	nav={nav}
 >
 	<div
 		class="
@@ -47,220 +49,218 @@ import apps from '../data/apps';
 	>
 		<Image src={profileImage} alt="" />
 	</div>
-	<main>
-		<section
+	<section
+		class="
+			mx-6-vw
+			mt-[75vw]
+			flex
+			flex-col
+			gap-6-vw
+			text-lg-vw
+			leading-relaxed
+			sm:text-sm-vw
+			sm-landscape:mt-[20vw]
+			sm-landscape:max-w-[55vw]
+			sm-landscape:ml-auto
+			sm-landscape:mr-24
+			sm-landscape:gap-6
+			sm-landscape:text-lg
+			sm-landscape:leading-relaxed
+			xl:max-w-md
+			xl:ml-[50vw]
+			3xl:max-w-xl
+			3xl:text-2xl
+			3xl:leading-relaxed
+		"
+	>
+		<h1 class="sr-only">About Me</h1>
+		<p class="
+			text-2xl-vw
+			font-semibold
+			leading-normal
+			sm:text-lg-vw
+			sm-landscape:text-2xl
+			sm-landscape:leading-normal
+			3xl:text-3xl
+			3xl:leading-normal
+		">
+			My name is Nate Wright and I’ve been building websites and apps for more than 20 years. If it’s on the web, I can build it and make it accessible to anyone on any device.
+		</p>
+		<p>
+			I had a previous career in journalism and I’m interested in working on projects at the intersection of information, communication, and social change.
+		</p>
+		<p>
+			See what I do below and <a class="link" href="#contact">contact me</a> if you think I can help with something you are working on.
+		</p>
+	</section>
+	<ScrollCarousel
+		id="what-i-do"
+		title="Stories"
+		background={dotsImage}
+		classes={`
+			h-[250vh]
+			lg:h-[200vh]
+		`}
+	>
+		<p slot="description">
+			I make <strong>engaging digital stories</strong> for journalists, campaigners and activists that have real impact.
+		</p>
+		{stories.map(story => (
+			<PortfolioItem
+				title={story.title}
+				client={story.client}
+				date={story.date}
+				url={story.url}
+				image={story.image}
+				color={story.color}
+				alt={story.alt}
+			/>
+		))}
+	</ScrollCarousel>
+	<ScrollCarousel
+		title="Websites"
+		background={dots2Image}
+		classes={`
+			h-[250vh]
+			lg:h-[200vh]
+		`}
+	>
+		<p slot="description">
+			I produce <strong>beautiful websites</strong> that are easy for anyone to use on any device.
+		</p>
+		{websites.map(website => (
+			<PortfolioItem
+				title={website.title}
+				client={website.client}
+				date={website.date}
+				url={website.url}
+				image={website.image}
+				color={website.color}
+				alt={website.alt}
+			/>
+		))}
+	</ScrollCarousel>
+	<ScrollCarousel
+		title="Websites"
+		background={dots2Image}
+		classes={`
+			h-[250vh]
+			lg:h-[200vh]
+		`}
+	>
+		<p slot="description">
+			I build <strong>reliable apps</strong> that help individuals and organisations collect, manage and analyse data.
+		</p>
+		{apps.map(app => (
+			<PortfolioItem
+				title={app.title}
+				client={app.client}
+				date={app.date}
+				url={app.url}
+				image={app.image}
+				color={app.color}
+				alt={app.alt}
+			/>
+		))}
+	</ScrollCarousel>
+	<section
+		class="
+			relative
+			my-[30vh]
+		"
+	>
+		<div
+			class="
+				absolute
+				top-0
+				right-0
+				w-[120vw]
+				-z-10
+				sm-landscape:w-[60vw]
+			"
+			aria-hidden="true"
+		>
+			<Image src={dogsImage} alt="" />
+			<div
+				class="
+					absolute
+					right-0
+					top-[40vw]
+					bg-white
+					px-2
+					py-1
+					font-mono
+					font-bold
+					text-xs
+					sm-landscape:top-[15vw]
+					xl:top-[20vw]
+				"
+			>
+				My dogs Bella and Peanut
+			</div>
+		</div>
+		<h2 id="experience" class="sr-only">Experience</h2>
+		<div
 			class="
 				mx-6-vw
-				mt-[75vw]
+				pt-[120vw]
 				flex
 				flex-col
 				gap-6-vw
 				text-lg-vw
 				leading-relaxed
 				sm:text-sm-vw
-				sm-landscape:mt-[20vw]
-				sm-landscape:max-w-[55vw]
-				sm-landscape:ml-auto
-				sm-landscape:mr-24
+				sm-landscape:pt-[30vw]
+				sm-landscape:max-w-[45vw]
+				sm-landscape:mr-auto
+				sm-landscape:ml-16
 				sm-landscape:gap-6
 				sm-landscape:text-lg
 				sm-landscape:leading-relaxed
 				xl:max-w-md
-				xl:ml-[50vw]
+				xl:mr-[50vw]
+				xl:ml-auto
 				3xl:max-w-xl
 				3xl:text-2xl
 				3xl:leading-relaxed
 			"
 		>
-			<h1 class="sr-only">About Me</h1>
 			<p class="
 				text-2xl-vw
 				font-semibold
 				leading-normal
+				text-balance
 				sm:text-lg-vw
 				sm-landscape:text-2xl
 				sm-landscape:leading-normal
 				3xl:text-3xl
 				3xl:leading-normal
 			">
-				My name is Nate Wright and I’ve been building websites and apps for more than 20 years. If it’s on the web, I can build it and make it accessible to anyone on any device.
+				In my career, I’ve worn all sorts of hats.
 			</p>
 			<p>
-				I had a previous career in journalism and I’m interested in working on projects at the intersection of information, communication, and social change.
+				I’ve worked alone and in teams, led on frontend and backend tasks, and taken on documentation and developer relations.
 			</p>
 			<p>
-				See what I do below and <a class="link" href="#contact">contact me</a> if you think I can help with something you are working on.
+				I’m comfortable working across the full stack, from design to database and everything in between. Take a closer look at my technical experience below.
 			</p>
-		</section>
-		<ScrollCarousel
-			id="what-i-do"
-			title="Stories"
-			background={dotsImage}
-			classes={`
-				h-[250vh]
-				lg:h-[200vh]
-			`}
-		>
-			<p slot="description">
-				I make <strong>engaging digital stories</strong> for journalists, campaigners and activists that have real impact.
-			</p>
-			{stories.map(story => (
-				<PortfolioItem
-					title={story.title}
-					client={story.client}
-					date={story.date}
-					url={story.url}
-					image={story.image}
-					color={story.color}
-					alt={story.alt}
-				/>
-			))}
-		</ScrollCarousel>
-		<ScrollCarousel
-			title="Websites"
-			background={dots2Image}
-			classes={`
-				h-[250vh]
-				lg:h-[200vh]
-			`}
-		>
-			<p slot="description">
-				I produce <strong>beautiful websites</strong> that are easy for anyone to use on any device.
-			</p>
-			{websites.map(website => (
-				<PortfolioItem
-					title={website.title}
-					client={website.client}
-					date={website.date}
-					url={website.url}
-					image={website.image}
-					color={website.color}
-					alt={website.alt}
-				/>
-			))}
-		</ScrollCarousel>
-		<ScrollCarousel
-			title="Websites"
-			background={dots2Image}
-			classes={`
-				h-[250vh]
-				lg:h-[200vh]
-			`}
-		>
-			<p slot="description">
-				I build <strong>reliable apps</strong> that help individuals and organisations collect, manage and analyse data.
-			</p>
-			{apps.map(app => (
-				<PortfolioItem
-					title={app.title}
-					client={app.client}
-					date={app.date}
-					url={app.url}
-					image={app.image}
-					color={app.color}
-					alt={app.alt}
-				/>
-			))}
-		</ScrollCarousel>
-		<section
+		</div>
+		<div
 			class="
-				relative
-				my-[30vh]
+				mx-6-vw
+				my-12-vw
+				sm-landscape:mt-12
+				sm-landscape:mx-auto
+				sm-landscape:max-w-[80vw]
+				lg:max-w-[90vw]
+				xl:max-w-[80vw]
+				2xl:max-w-screen-lg
+				3xl:max-w-screen-xl
 			"
 		>
-			<div
-				class="
-					absolute
-					top-0
-					right-0
-					w-[120vw]
-					-z-10
-					sm-landscape:w-[60vw]
-				"
-				aria-hidden="true"
-			>
-				<Image src={dogsImage} alt="" />
-				<div
-					class="
-						absolute
-						right-0
-						top-[40vw]
-						bg-white
-						px-2
-						py-1
-						font-mono
-						font-bold
-						text-xs
-						sm-landscape:top-[15vw]
-						xl:top-[20vw]
-					"
-				>
-					My dogs Bella and Peanut
-				</div>
-			</div>
-			<h2 id="experience" class="sr-only">Experience</h2>
-			<div
-				class="
-					mx-6-vw
-					pt-[120vw]
-					flex
-					flex-col
-					gap-6-vw
-					text-lg-vw
-					leading-relaxed
-					sm:text-sm-vw
-					sm-landscape:pt-[30vw]
-					sm-landscape:max-w-[45vw]
-					sm-landscape:mr-auto
-					sm-landscape:ml-16
-					sm-landscape:gap-6
-					sm-landscape:text-lg
-					sm-landscape:leading-relaxed
-					xl:max-w-md
-					xl:mr-[50vw]
-					xl:ml-auto
-					3xl:max-w-xl
-					3xl:text-2xl
-					3xl:leading-relaxed
-				"
-			>
-				<p class="
-					text-2xl-vw
-					font-semibold
-					leading-normal
-					text-balance
-					sm:text-lg-vw
-					sm-landscape:text-2xl
-					sm-landscape:leading-normal
-					3xl:text-3xl
-					3xl:leading-normal
-				">
-					In my career, I’ve worn all sorts of hats.
-				</p>
-				<p>
-					I’ve worked alone and in teams, led on frontend and backend tasks, and taken on documentation and developer relations.
-				</p>
-				<p>
-					I’m comfortable working across the full stack, from design to database and everything in between. Take a closer look at my technical experience below.
-				</p>
-			</div>
-			<div
-				class="
-					mx-6-vw
-					my-12-vw
-					sm-landscape:mt-12
-					sm-landscape:mx-auto
-					sm-landscape:max-w-[80vw]
-					lg:max-w-[90vw]
-					xl:max-w-[80vw]
-					2xl:max-w-screen-lg
-					3xl:max-w-screen-xl
-				"
-			>
-				<StaggeredTiles tiles={experience} />
-			</div>
-		</section>
-	</main>
+			<StaggeredTiles tiles={experience} />
+		</div>
+	</section>
 </Layout>
 
 <style>
