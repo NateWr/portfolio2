@@ -11,10 +11,14 @@ import ImageLink from "../components/ImageLink.astro";
 ---
 
 <PageLayout
-  title="Stop Killer AI"
+  title="Stop Killer AI Killer AI Stop Killer AI Stop Killer AI "
   description="I designed and built a web-based explainer about Israel's killing machine for Visualizing Palestine."
 >
   <Fragment slot="links">
+    <a class="button" href="https://stopkiller.ai">
+      View Story
+      <Fragment set:html={linkIcon} />
+    </a>
     <a class="button" href="https://stopkiller.ai">
       View Story
       <Fragment set:html={linkIcon} />
@@ -25,6 +29,10 @@ import ImageLink from "../components/ImageLink.astro";
 			mx-6-vw
       sm-landscape:mx-8
       lg:mx-8
+      xl:max-w-screen-lg
+      xl:mx-auto
+      2xl:max-w-screen-xl
+      3xl:max-w-screen-2xl
     "
     style="--color: #4D0016;"
   >
@@ -33,6 +41,7 @@ import ImageLink from "../components/ImageLink.astro";
         flex
         flex-col
         gap-6-vw
+        sm-landscape:gap-6
       "
     >
       <ImageLink href={openGraphImage.src}>
@@ -41,19 +50,13 @@ import ImageLink from "../components/ImageLink.astro";
           alt="Graphic showing families under a watching eye and the text: Israel's Killer AI"
         />
       </ImageLink>
-      <p
-        class="
-          font-medium
-        "
-      >
-        The story uses the visual metaphor of a shell, a common interface to remote servers, in order to place readers "in the system" as they learn how surveillance data is collected that leads to whole families being targeted.
-      </p>
       <div
         class="
           flex
           gap-6-vw
           flex-row
           space-between
+          sm-landscape:gap-6
         "
       >
         <ImageLink href={dataImage.src}>
@@ -75,7 +78,13 @@ import ImageLink from "../components/ImageLink.astro";
           alt="Screenshot of the animated bombin effect in the story"
         />
       </ImageLink>
-      <div class="flex justify-center">
+      <div
+        class="
+          flex
+          justify-center
+          xl:text-xl
+        "
+      >
         <a class="button" href="https://stopkiller.ai">
           View Story
           <Fragment set:html={linkIcon} />

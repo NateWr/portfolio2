@@ -68,6 +68,13 @@ const nav = [
         flex-col
         gap-6-vw
         text-center
+        sm-landscape:max-w-screen-sm
+        sm-landscape:mx-auto
+        sm-landscape:py-12
+        sm-landscape:gap-6
+        xl:max-w-screen-md
+        xl:py-24
+        xl:gap-12
       "
     >
       <h1>
@@ -81,6 +88,9 @@ const nav = [
             font-black
             text-3xl-vw
             leading-tight
+            sm-landscape:text-3xl
+            xl:text-7xl
+            xl:leading-none
           "
         >
           {title}
@@ -89,6 +99,9 @@ const nav = [
       <div
         class="
           text-xl-vw
+          sm-landscape:text-xl
+          xl:text-3xl
+          xl:leading-relaxed
         "
       >
         {description}
@@ -102,9 +115,11 @@ const nav = [
           items-center
           gap-4-vw
           text-lg-vw
+          sm-landscape:mt-4
           md:flex-row
           md:gap-4
           md:text-xl
+          xl:gap-6
         "
       >
         <slot name="links"></slot>
