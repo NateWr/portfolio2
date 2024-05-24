@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import Layout from './Layout.astro';
+import dotsImage from '../images/dots.png';
+
+interface Props {
+	title: string;
+	description: string;
+  technical?: boolean;
+}
+
+const { title, description, technical = false } = Astro.props;
+
+const nav = [
+	{
+		href: '/',
+		text: 'Home',
+    isHome: true,
+	},
+	{
+		href: '#contact',
+		text: 'Contact',
+	}
+]
+---
+<Layout
+  title={title}
+  description={description}
+  nav={nav}
+>
+  <div
+    class="
+      absolute
+      top-0
+      left-1/2
+      w-full
+      overflow-hidden
+      h-16-vw
+      -z-10
+      -translate-x-1/2
+    "
+    slot="header-image"
+    aria-hidden="true"
+  >
+    <div
+      class="
+        absolute
+        -bottom-8-vw
+        left-1/2
+        w-[200vw]
+        -translate-x-1/2
+      "
+    >
+      <Image class="w-full" src={dotsImage} alt="" />
+    </div>
+  </div>
+  <article
+    class="
+      mt-16-vw
+      mb-[50vw]
+    "
+  >
+    <header
+      class="
+        mx-6-vw
+        py-12-vw
+        flex
+        flex-col
+        gap-6-vw
+        text-center
+      "
+    >
+      <h1>
+        {technical && (
+          <span>
+            How I Built It
+          </span>
+        )}
+        <span
+          class="
+            font-black
+            text-3xl-vw
+            leading-tight
+          "
+        >
+          {title}
+        </span>
+      </h1>
+      <div
+        class="
+          text-xl-vw
+        "
+      >
+        {description}
+      </div>
+      <div
+        class="
+          mt-4-vw
+          flex
+          flex-col
+          justify-center
+          items-center
+          gap-4-vw
+          text-lg-vw
+          md:flex-row
+          md:gap-4
+          md:text-xl
+        "
+      >
+        <slot name="links"></slot>
+      </div>
+    </header>
+    <div>
+      <slot />
+    </div>
+  </article>
+</Layout>

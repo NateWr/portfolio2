@@ -1,0 +1,20 @@
+---
+
+interface Props {
+  href: string;
+  classes?: string;
+}
+
+const { href, classes = '' } = Astro.props;
+---
+
+<a
+  class:list={[
+    'link',
+    classes
+  ]}
+  href={href}
+  data-image
+>
+  <slot />
+</a>

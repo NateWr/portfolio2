@@ -1,0 +1,86 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Screenshot from "../components/Screenshot.astro";
+import linkIcon from "../images/link-icon.svg?raw";
+import openGraphImage from "../images/killerai.png"
+import dataImage from "../images/killerai-data.png"
+import familiesImage from "../images/killerai-families.png"
+import bombImage from "../images/killerai-bomb-landscape.png"
+import ImageLink from "../components/ImageLink.astro";
+
+---
+
+<PageLayout
+  title="Stop Killer AI"
+  description="I designed and built a web-based explainer about Israel's killing machine for Visualizing Palestine."
+>
+  <Fragment slot="links">
+    <a class="button" href="https://stopkiller.ai">
+      View Story
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <div
+    class="
+			mx-6-vw
+      sm-landscape:mx-8
+      lg:mx-8
+    "
+    style="--color: #4D0016;"
+  >
+    <div
+      class="
+        flex
+        flex-col
+        gap-6-vw
+      "
+    >
+      <ImageLink href={openGraphImage.src}>
+        <Screenshot
+          image={openGraphImage}
+          alt="Graphic showing families under a watching eye and the text: Israel's Killer AI"
+        />
+      </ImageLink>
+      <p
+        class="
+          font-medium
+        "
+      >
+        The story uses the visual metaphor of a shell, a common interface to remote servers, in order to place readers "in the system" as they learn how surveillance data is collected that leads to whole families being targeted.
+      </p>
+      <div
+        class="
+          flex
+          gap-6-vw
+          flex-row
+          space-between
+        "
+      >
+        <ImageLink href={dataImage.src}>
+          <Screenshot
+            image={dataImage}
+            alt="Screenshot of the Lavender app in the story, showing circuitry connected to types of surveillance data"
+          />
+        </ImageLink>
+        <ImageLink href={familiesImage.src}>
+          <Screenshot
+            image={familiesImage}
+            alt="Screenshot of the Where's Daddy? app in the story, showing families under a surveillance spotlight"
+          />
+        </ImageLink>
+      </div>
+      <ImageLink href={bombImage.src}>
+        <Screenshot
+          image={bombImage}
+          alt="Screenshot of the animated bombin effect in the story"
+        />
+      </ImageLink>
+      <div class="flex justify-center">
+        <a class="button" href="https://stopkiller.ai">
+          View Story
+          <Fragment set:html={linkIcon} />
+        </a>
+      </div>
+    </div>
+  </div>
+</PageLayout>

@@ -39,6 +39,7 @@ export default {
 				'lg-vw': '5vw',
 				'xl-vw': '5.5555556vw',
 				'2xl-vw': '6.6666667vw',
+				'3xl-vw': '8.8888889vw',
 			},
 			spacing: {
 				'2-vw': '2.2222222vw',
@@ -62,6 +63,23 @@ export default {
 						'outline': '0.15em solid',
 						'outline-offset': '0.15em',
 					}
+				},
+        '.button': {
+					'display': 'flex',
+					'justify-content': 'center',
+					'align-items': 'center',
+					'gap': '0.5em',
+					'border': '2px solid',
+					'border-radius': '9999px',
+					'line-height': '2',
+					'padding': '0.25em 1em',
+					'white-space': 'nowrap',
+					'font-weight': '600',
+					'text-decoration': 'none',
+				},
+				'.button > svg': {
+					'width': '1.5em',
+					'height': '1.5em',
 				},
       });
     },

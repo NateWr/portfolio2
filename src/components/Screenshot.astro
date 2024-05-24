@@ -5,9 +5,11 @@ import type { ImageMetadata } from 'astro';
 interface Props {
   image: ImageMetadata;
   alt?: string;
+  color?: string;
+  fixedHeight?: boolean
 }
 
-const { image, alt = '' } = Astro.props;
+const { image, alt = '', color = '', fixedHeight = false } = Astro.props;
 ---
 
 <div
@@ -19,6 +21,7 @@ const { image, alt = '' } = Astro.props;
     bg-var-color
     opacity-90
   "
+  style={color ? `--color: ${color}` : ''}
 >
   <div
     class="
@@ -50,9 +53,14 @@ const { image, alt = '' } = Astro.props;
         w-auto
         m-px
         rounded-b-[10px]
-        h-[25vh]
-        xs:h-[30vh]
-        lg:h-[40vh]
+        ${fixedHeight
+          ? `
+            h-[25vh]
+            xs:h-[30vh]
+            lg:h-[40vh]
+          `
+          : ''
+        }
       `}
       style={`
         background-color: var(--color);
