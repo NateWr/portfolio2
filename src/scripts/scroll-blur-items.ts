@@ -10,6 +10,6 @@ export default () => {
   }
 
   const items = <HTMLElement[]>[...document.querySelectorAll(SELECTOR)]
-  const ob = new IntersectionObserver(callback, {threshold: 0.4})
+  const ob = new IntersectionObserver(callback, {threshold: 0.5})
   items.forEach(item => ob.observe(item))
 }
