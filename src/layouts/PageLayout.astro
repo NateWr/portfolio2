@@ -7,9 +7,10 @@ interface Props {
 	title: string;
 	description: string;
   technical?: boolean;
+  color?: string;
 }
 
-const { title, description, technical = false } = Astro.props;
+const { title, description, technical = false, color = '#000' } = Astro.props;
 
 const nav = [
 	{
@@ -57,7 +58,7 @@ const nav = [
   <article
     class="
       mt-16-vw
-      mb-[50vw]
+      mb-[50vh]
     "
   >
     <header
@@ -125,7 +126,18 @@ const nav = [
         <slot name="links"></slot>
       </div>
     </header>
-    <div>
+    <div
+      class="
+        mx-6-vw
+        sm-landscape:mx-8
+        lg:mx-8
+        xl:max-w-screen-lg
+        xl:mx-auto
+        2xl:max-w-screen-xl
+        3xl:max-w-screen-2xl
+      "
+      style=`--color: ${color};`
+    >
       <slot />
     </div>
   </article>

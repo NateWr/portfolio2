@@ -7,85 +7,67 @@ import dataImage from "../images/killerai-data.png"
 import familiesImage from "../images/killerai-families.png"
 import bombImage from "../images/killerai-bomb-landscape.png"
 import ImageLink from "../components/ImageLink.astro";
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
 
+const url = `https://stopkiller.ai`
 ---
 
 <PageLayout
   title="Stop Killer AI"
   description="I designed and built a web-based explainer about Israel's killing machine for Visualizing Palestine."
+  color="#4D0016"
 >
   <Fragment slot="links">
-    <a class="button" href="https://stopkiller.ai">
+    <a class="button" href={url}>
       View Story
       <Fragment set:html={linkIcon} />
     </a>
   </Fragment>
-  <div
-    class="
-			mx-6-vw
-      sm-landscape:mx-8
-      lg:mx-8
-      xl:max-w-screen-lg
-      xl:mx-auto
-      2xl:max-w-screen-xl
-      3xl:max-w-screen-2xl
-    "
-    style="--color: #4D0016;"
-  >
-    <div
-      class="
-        flex
-        flex-col
-        gap-6-vw
-        sm-landscape:gap-6
-      "
-    >
-      <a class="tab-focus" href="https://stopkiller.ai">
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <a class="tab-focus" href={url}>
         <Screenshot
           image={openGraphImage}
           alt="Graphic showing families under a watching eye and the text: Israel's Killer AI"
         />
       </a>
-      <div
-        class="
-          flex
-          gap-6-vw
-          flex-row
-          space-between
-          sm-landscape:gap-6
-        "
-      >
-        <ImageLink href={dataImage.src}>
-          <Screenshot
-            image={dataImage}
-            alt="Screenshot of the Lavender app in the story, showing circuitry connected to types of surveillance data"
-          />
-        </ImageLink>
-        <ImageLink href={familiesImage.src}>
-          <Screenshot
-            image={familiesImage}
-            alt="Screenshot of the Where's Daddy? app in the story, showing families under a surveillance spotlight"
-          />
-        </ImageLink>
-      </div>
+    </div>
+    <div class="col-span-2">
+      <ImageLink href={dataImage.src}>
+        <Screenshot
+          image={dataImage}
+          alt="Screenshot of the Lavender app in the story, showing circuitry connected to types of surveillance data"
+        />
+      </ImageLink>
+    </div>
+    <div class="col-span-2">
+      <ImageLink href={familiesImage.src}>
+        <Screenshot
+          image={familiesImage}
+          alt="Screenshot of the Where's Daddy? app in the story, showing families under a surveillance spotlight"
+        />
+      </ImageLink>
+    </div>
+    <div class="col-span-4">
       <ImageLink href={bombImage.src}>
         <Screenshot
           image={bombImage}
           alt="Screenshot of the animated bombin effect in the story"
         />
       </ImageLink>
-      <div
-        class="
-          flex
-          justify-center
-          xl:text-xl
-        "
-      >
-        <a class="button" href="https://stopkiller.ai">
-          View Story
-          <Fragment set:html={linkIcon} />
-        </a>
-      </div>
     </div>
-  </div>
+    <div
+      class="
+        col-span-4
+        flex
+        justify-center
+        xl:text-xl
+      "
+    >
+      <a class="button" href={url}>
+        View Story
+        <Fragment set:html={linkIcon} />
+      </a>
+    </div>
+  </ScreenshotsBlock>
 </PageLayout>

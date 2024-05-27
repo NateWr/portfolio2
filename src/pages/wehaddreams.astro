@@ -2,12 +2,8 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import Screenshot from "../components/Screenshot.astro";
 import linkIcon from "../images/link-icon.svg?raw";
-import openGraphImage from "../images/killerai.png"
-import dataImage from "../images/killerai-data.png"
-import familiesImage from "../images/killerai-families.png"
-import bombImage from "../images/killerai-bomb-landscape.png"
-import ImageLink from "../components/ImageLink.astro";
 import weHadDreamsImage from '../images/wehaddreams.png';
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
 
 const url = 'https://wehaddreams.com'
 ---
@@ -15,6 +11,7 @@ const url = 'https://wehaddreams.com'
 <PageLayout
   title="We Had Dreams"
   description="I made an animated tribute to the voices of Palestinians living under bombardment."
+  color="#211202"
 >
   <Fragment slot="links">
     <a class="button" href={url}>
@@ -22,26 +19,8 @@ const url = 'https://wehaddreams.com'
       <Fragment set:html={linkIcon} />
     </a>
   </Fragment>
-  <div
-    class="
-			mx-6-vw
-      sm-landscape:mx-8
-      lg:mx-8
-      xl:max-w-screen-lg
-      xl:mx-auto
-      2xl:max-w-screen-xl
-      3xl:max-w-screen-2xl
-    "
-    style="--color: #211202;"
-  >
-    <div
-      class="
-        flex
-        flex-col
-        gap-6-vw
-        sm-landscape:gap-6
-      "
-    >
+  <ScreenshotsBlock>
+    <div class="col-span-4">
       <a class="tab-focus" href={url}>
         <Screenshot
           image={weHadDreamsImage}
@@ -49,5 +28,5 @@ const url = 'https://wehaddreams.com'
         />
       </a>
     </div>
-  </div>
+  </ScreenshotsBlock>
 </PageLayout>
