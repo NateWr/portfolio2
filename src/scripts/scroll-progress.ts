@@ -7,23 +7,15 @@ export default () => {
     return
   }
 
-  let scrollMax = 0
+  let progress = 0
 
   const setProgress = () => {
-    const progress = Math.round((document.documentElement.scrollTop / scrollMax) * 100)
-    $progress?.style.setProperty('--width', `${progress}%`)
+    const scrollMax = document.documentElement.offsetHeight - document.documentElement.clientHeight
+    progress = document.documentElement.scrollTop / scrollMax
+    $progress?.style.setProperty('--width', `${Math.round(progress * 100)}%`)
   }
 
-  const setScrollMax = () => {
-    scrollMax = document.documentElement.offsetHeight - document.documentElement.clientHeight
-  }
-
-  const setup = () => {
-    setScrollMax()
-    setProgress()
-  }
-
-  setup()
+  window.addEventListener('load', setProgress)
   window.addEventListener('scroll', throttle(300, setProgress))
-  window.addEventListener('resize', debounce(1000, setup))
+  window.addEventListener('resize', debounce(1000, setProgress))
 }
