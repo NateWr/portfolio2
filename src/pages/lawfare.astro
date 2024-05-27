@@ -1,0 +1,35 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Screenshot from "../components/Screenshot.astro";
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
+import ImageLink from "../components/ImageLink.astro";
+import linkIcon from "../images/link-icon.svg?raw";
+import heroImage from '../images/lawfare.png';
+
+const url = `https://lawfare.fmep.org/`
+---
+
+<PageLayout
+  title="Lawfare Data Hub"
+  description="I built a quick data hub to help people access the Foundation for Middle East Peace's research on legislation intended to stifle American activism."
+  color="#8F00FF"
+>
+  <Fragment slot="links">
+    <a class="button" href={url}>
+      View Website
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={heroImage.src}
+      >
+        <Screenshot
+          image={heroImage}
+          alt="Screenshot of the homepage for the Lawfare Data Hub"
+        />
+      </ImageLink>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>

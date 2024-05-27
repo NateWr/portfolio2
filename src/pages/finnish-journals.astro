@@ -1,0 +1,104 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Screenshot from "../components/Screenshot.astro";
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
+import ScreenshotCaption from "../components/ScreenshotCaption.astro";
+import ImageLink from "../components/ImageLink.astro";
+import heroImage from '../images/journalfi-homepage.png';
+import mobileHomepageImage from '../images/journalfi-homepage-mobile.png';
+import mobileJournalImage from '../images/journalfi-journal2-mobile.png';
+import bookImage from '../images/editionfi-book.png';
+import mobileBookImage from '../images/editionfi-book-mobile.png';
+import journalHomepageImage from '../images/journalfi-journal.png';
+import journalSearchImage from '../images/journalfi-search.png';
+---
+
+<PageLayout
+  title="Journal.fi and Edition.fi"
+  description="I built a website theme for the open access journal and monograph publishing services of the Federation of Finnish Learned Societies."
+  color="#8F00FF"
+>
+  <Fragment slot="links">
+    <div
+      class="
+      font-extrabold
+      text-sm-vw
+      uppercase
+      tracking-widest
+      sm-landscape:text-xl
+      xl:text-xl
+      "
+    >
+      Coming Soon
+    </div>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={heroImage.src}
+      >
+        <Screenshot
+          image={heroImage}
+          alt="Screenshot of the homepage for Journal.fi"
+        />
+      </ImageLink>
+    </div>
+    <ScreenshotCaption>
+      The theme allowed each journal and press to adapt the colors and imagery of the site to their own publishing identity.
+    </ScreenshotCaption>
+    <ImageLink
+      href={mobileHomepageImage.src}
+    >
+      <Screenshot
+        image={mobileHomepageImage}
+        alt="Screenshot of the homepage for Journal.fi on a mobile device"
+      />
+    </ImageLink>
+    <ImageLink
+      href={mobileJournalImage.src}
+    >
+      <Screenshot
+        image={mobileJournalImage}
+        alt="Screenshot of the homepage for a journal on a mobile device"
+      />
+    </ImageLink>
+    <ImageLink
+      href={mobileBookImage.src}
+    >
+      <Screenshot
+        image={mobileBookImage}
+        alt="Screenshot of the page for a book on a mobile device"
+      />
+    </ImageLink>
+    <div class="col-span-2">
+      <ImageLink
+        href={journalHomepageImage.src}
+      >
+        <Screenshot
+          image={journalHomepageImage}
+          alt="Screenshot of the homepage of a single journal for Journal.fi"
+        />
+      </ImageLink>
+    </div>
+    <div class="col-span-2">
+      <ImageLink
+        href={journalSearchImage.src}
+      >
+        <Screenshot
+          image={journalSearchImage}
+          alt="Screenshot of the search results of a single journal for Journal.fi"
+        />
+      </ImageLink>
+    </div>
+    <div class="col-span-4">
+      <ImageLink
+        href={bookImage.src}
+      >
+        <Screenshot
+          image={bookImage}
+          alt="Screenshot of the book page on a large screen"
+        />
+      </ImageLink>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>

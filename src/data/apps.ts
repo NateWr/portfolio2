@@ -1,6 +1,6 @@
 import type { PortfolioItem } from "../scripts/portfolio-item"
 import uiLibraryImage from '../images/ui-library-submission.png';
-import lawfareImage from '../images/lawfare-homepage.png';
+import lawfareImage from '../images/lawfare.png';
 
 const stories : PortfolioItem[] = [
   {
