@@ -23,7 +23,7 @@ const experience: CodeTile[] = [
 		commit: '2a14f2 Mon May 6 10:04',
 		title: 'Scrollytelling with Vue.js',
 		description: 'How I managed CPU usage in an interactive, scroll-based story using a reactive framework like Vue.js.',
-		url: '/antiboycott',
+		url: '/vue-scrollytelling',
 	},
 	{
 		path: '~/projects/pkp',
@@ -47,7 +47,7 @@ const experience: CodeTile[] = [
 		commit: '2a14f2 Mon May 6 10:04',
 		title: 'Scrollytelling with Vue.js',
 		description: 'How I managed CPU usage in an interactive, scroll-based story using a reactive framework like Vue.js.',
-		url: '/antiboycott',
+		url: '/vue-scrollytelling',
 	},
 ]
 
