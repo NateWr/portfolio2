@@ -27,7 +27,7 @@ const stories : PortfolioItem[] = [
     title: "We Had Dreams",
     client: "Visualizing Palestine",
     date: "Nov 2023",
-    url: "https://wehaddreams.com",
+    url: "/wehaddreams",
     image: weHadDreamsImage,
     color: "#211202",
     alt: "Graphic showing a nightime city skyline with explosions and the text: We Had Dreams, Palestinians living and dying under seige",
