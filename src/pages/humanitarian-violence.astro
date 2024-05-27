@@ -4,6 +4,7 @@ import Screenshot from "../components/Screenshot.astro"
 import linkIcon from "../images/link-icon.svg?raw"
 import ImageLink from "../components/ImageLink.astro"
 import faGazaImage from '../images/fa-gaza.png'
+import beforeAfterImage from '../images/fa-before-after.png'
 import safeZonesImage from '../images/fa-labels-safe-zones.png'
 import labelsSatteliteImage from '../images/fa-labels-sattelite-imagery.png'
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro"
@@ -26,12 +27,27 @@ const url = 'https://gaza.forensic-architecture.org/displacement'
   </Fragment>
   <ScreenshotsBlock>
     <div class="col-span-4">
-      <a class="tab-focus" href={url}>
+      <ImageLink
+        href={faGazaImage.src}
+      >
         <Screenshot
           image={faGazaImage}
-          alt="Screenshot of a map of Gaza overlayed with information about Israel's invasion"
+          alt="Screenshot from Forensic Architecture's investigation into Humanitarian Violence in Gaza"
         />
-      </a>
+      </ImageLink>
+    </div>
+    <ScreenshotCaption>
+      I wrote a custom <a class="link" href="https://docs.mapbox.com/api/maps/styles/">MapBox Style</a> to remove unrelated map details, like roads, cities and borders, so that Forensic Architecture's intricate mapping could be seen more clearly.
+    </ScreenshotCaption>
+    <div class="col-span-3">
+      <ImageLink
+        href={beforeAfterImage.src}
+      >
+        <Screenshot
+          image={beforeAfterImage}
+          alt="Before/after screenshot of a map of Gaza showing the work I did to simplify the view"
+        />
+      </ImageLink>
     </div>
     <div class="col-span-3">
       <ImageLink
@@ -43,15 +59,13 @@ const url = 'https://gaza.forensic-architecture.org/displacement'
         />
       </ImageLink>
     </div>
-    <div class="flex flex-col justify-between gap-6">
-      <ScreenshotCaption>
-        I designed text labels that could be seen clearly against noisy backgrounds, like satellite imagery.
-      </ScreenshotCaption>
-      <ScreenshotCaption>
-        I also developed map zone styles that were legible when the areas overlapped.
-      </ScreenshotCaption>
-    </div>
-    <div class="col-span-4">
+    <ScreenshotCaption>
+      Text labels needed to be redesigned so that they could be read against noisy backgrounds, like satellite imagery.
+    </ScreenshotCaption>
+    <ScreenshotCaption>
+      And I developed custom map zone styles that would be legible when the areas overlapped.
+    </ScreenshotCaption>
+    <div class="col-span-3">
       <ImageLink
         href={safeZonesImage.src}
       >
@@ -63,6 +77,7 @@ const url = 'https://gaza.forensic-architecture.org/displacement'
     </div>
     <div
       class="
+        col-span-4
         flex
         justify-center
         xl:text-xl

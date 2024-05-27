@@ -1,0 +1,107 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import Screenshot from "../components/Screenshot.astro"
+import linkIcon from "../images/link-icon.svg?raw"
+import ImageLink from "../components/ImageLink.astro"
+import antiboycottImage from '../images/antiboycott-hero.png';
+import antiboycottMobileImage from '../images/antiboycott-mobile.png';
+import timelineImage from '../images/antiboycott-timeline.png';
+import timelineMobileImage from '../images/antiboycott-timeline-mobile.png';
+import physicalImage from '../images/antiboycott-physical.png';
+import learnMoreImage from '../images/antiboycott-learn-more-mobile.png'
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
+import ScreenshotCaption from "../components/ScreenshotCaption.astro";
+
+const url = `https://visualizingpalestine.org/anti-boycott-laws-interactive/`
+
+---
+
+<PageLayout
+  title="The Rise of U.S. Anti-Boycott Laws"
+  description="I adapted one of Visualizing Palestine's infographics into an engaging web-based story that unfolds as you scroll."
+  color="#213751"
+>
+  <Fragment slot="links">
+    <a class="button" href={url}>
+      View Story
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={antiboycottImage.src}
+      >
+        <Screenshot
+          image={antiboycottImage}
+          alt="Screenshot of the title screen on a laptop."
+        />
+      </ImageLink>
+    </div>
+    <ScreenshotCaption>
+      The original print graphic had to be reimagined in order to work across a range of devices from mobile phones to desktops.
+    </ScreenshotCaption>
+    <div class="col-span-3">
+      <ImageLink
+        href={physicalImage.src}
+      >
+        <Screenshot
+          image={physicalImage}
+          alt="Screenshot of Visualizing Palestine's print-based infographic"
+        />
+      </ImageLink>
+    </div>
+    <ImageLink
+      href={antiboycottMobileImage.src}
+    >
+      <Screenshot
+        image={antiboycottMobileImage}
+        alt="Screenshot of the homepage viewed on a mobile device"
+      />
+    </ImageLink>
+    <ImageLink
+      href={timelineMobileImage.src}
+    >
+      <Screenshot
+        image={timelineMobileImage}
+        alt="Screenshot of the legislative timeline"
+      />
+    </ImageLink>
+    <div class="self-end">
+      <ScreenshotCaption>
+        The timeline was the most difficult component. I opted for an animated approach that broke the narration down into small segments.
+      </ScreenshotCaption>
+    </div>
+    <ImageLink
+      href={learnMoreImage.src}
+    >
+      <Screenshot
+        image={learnMoreImage}
+        alt="Screenshot of the call to action section that directed people to learn more about the issue"
+      />
+    </ImageLink>
+    <div class="col-span-4">
+      <ImageLink
+        href={timelineImage.src}
+      >
+        <Screenshot
+          image={timelineImage}
+          alt="Screenshot of the timeline on a large screen, like a laptop."
+        />
+      </ImageLink>
+    </div>
+    <div
+      class="
+        col-span-4
+        flex
+        justify-center
+        xl:text-xl
+      "
+    >
+      <a class="button" href={url}>
+        View Story
+        <Fragment set:html={linkIcon} />
+      </a>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>

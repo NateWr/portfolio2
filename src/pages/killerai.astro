@@ -8,6 +8,7 @@ import familiesImage from "../images/killerai-families.png"
 import bombImage from "../images/killerai-bomb-landscape.png"
 import ImageLink from "../components/ImageLink.astro";
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
+import ScreenshotCaption from "../components/ScreenshotCaption.astro";
 
 const url = `https://stopkiller.ai`
 ---
@@ -32,23 +33,29 @@ const url = `https://stopkiller.ai`
         />
       </a>
     </div>
-    <div class="col-span-2">
-      <ImageLink href={dataImage.src}>
-        <Screenshot
-          image={dataImage}
-          alt="Screenshot of the Lavender app in the story, showing circuitry connected to types of surveillance data"
-        />
-      </ImageLink>
+    <ScreenshotCaption>
+      The story uses the visual metaphor of a shell application, a common interface for accessing a remote server.
+    </ScreenshotCaption>
+    <ImageLink href={dataImage.src}>
+      <Screenshot
+        image={dataImage}
+        alt="Screenshot of the Lavender app in the story, showing circuitry connected to types of surveillance data"
+      />
+    </ImageLink>
+    <ImageLink href={familiesImage.src}>
+      <Screenshot
+        image={familiesImage}
+        alt="Screenshot of the Where's Daddy? app in the story, showing families under a surveillance spotlight"
+      />
+    </ImageLink>
+    <div class="self-end">
+      <ScreenshotCaption>
+        It draws on motifs from Visualizing Palestine's <a class="link" href="https://visualizingpalestine.org/visual/automating-genocide-israels-use-of-ai-driven-warfare/">Automating Genocide</a> series.
+      </ScreenshotCaption>
     </div>
-    <div class="col-span-2">
-      <ImageLink href={familiesImage.src}>
-        <Screenshot
-          image={familiesImage}
-          alt="Screenshot of the Where's Daddy? app in the story, showing families under a surveillance spotlight"
-        />
-      </ImageLink>
+    <div>
     </div>
-    <div class="col-span-4">
+    <div class="col-span-3">
       <ImageLink href={bombImage.src}>
         <Screenshot
           image={bombImage}

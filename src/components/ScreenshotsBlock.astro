@@ -1,0 +1,27 @@
+<div
+  class="
+    screenshots-block
+    flex
+    flex-col
+    sm-landscape:grid
+    sm-landscape:grid-cols-4
+    lg:grid
+    lg:grid-cols-4
+  "
+>
+  <slot />
+</div>
+
+<style>
+.screenshots-block {
+  --gap: 6vw;
+  gap: var(--gap);
+}
+
+@media ((min-width: 767px) and (orientation: landscape)), (min-width: 1024px) {
+
+  .screenshots-block {
+    --gap: 1.5rem;
+  }
+}
+</style>
