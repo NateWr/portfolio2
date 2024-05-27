@@ -76,11 +76,21 @@ export default {
 					'white-space': 'nowrap',
 					'font-weight': '600',
 					'text-decoration': 'none',
+					'&:focus-visible': {
+						'outline': '2px solid',
+						'outline-offset': '2px',
+					}
 				},
 				'.button > svg': {
 					'width': '1.5em',
 					'height': '1.5em',
 				},
+				'.tab-focus': {
+					'&:focus-visible': {
+						'outline': '2px solid',
+						'outline-offset': '2px',
+					}
+				}
       });
     },
 	],

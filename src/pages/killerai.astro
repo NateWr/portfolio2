@@ -11,14 +11,10 @@ import ImageLink from "../components/ImageLink.astro";
 ---
 
 <PageLayout
-  title="Stop Killer AI Killer AI Stop Killer AI Stop Killer AI "
+  title="Stop Killer AI"
   description="I designed and built a web-based explainer about Israel's killing machine for Visualizing Palestine."
 >
   <Fragment slot="links">
-    <a class="button" href="https://stopkiller.ai">
-      View Story
-      <Fragment set:html={linkIcon} />
-    </a>
     <a class="button" href="https://stopkiller.ai">
       View Story
       <Fragment set:html={linkIcon} />
@@ -44,12 +40,12 @@ import ImageLink from "../components/ImageLink.astro";
         sm-landscape:gap-6
       "
     >
-      <ImageLink href={openGraphImage.src}>
+      <a class="tab-focus" href="https://stopkiller.ai">
         <Screenshot
           image={openGraphImage}
           alt="Graphic showing families under a watching eye and the text: Israel's Killer AI"
         />
-      </ImageLink>
+      </a>
       <div
         class="
           flex
