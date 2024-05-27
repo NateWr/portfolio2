@@ -18,7 +18,7 @@ const stories : PortfolioItem[] = [
     title: "Humanitarian Violence",
     client: "Forensic Architecture",
     date: "Feb 2024",
-    url: "/forensic-architecture",
+    url: "/humanitarian-violence",
     image: faGazaImage,
     color: "#000",
     alt: "Screenshot of a map of Gaza overlayed with information about Israel's invasion",

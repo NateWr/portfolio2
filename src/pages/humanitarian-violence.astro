@@ -1,0 +1,106 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import Screenshot from "../components/Screenshot.astro"
+import linkIcon from "../images/link-icon.svg?raw"
+import ImageLink from "../components/ImageLink.astro"
+import faGazaImage from '../images/fa-gaza.png'
+import safeZonesImage from '../images/fa-labels-safe-zones.png'
+import labelsSatteliteImage from '../images/fa-labels-sattelite-imagery.png'
+
+const url = 'https://gaza.forensic-architecture.org/displacement'
+
+---
+
+<PageLayout
+  title="Humanitarian Violence in Gaza"
+  description="I helped simplify and clarify the visual language in a complex mapping project for Forensic Architecture."
+>
+  <Fragment slot="links">
+    <a class="button" href={url}>
+      View Story
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <div
+    class="
+			mx-6-vw
+      sm-landscape:mx-8
+      lg:mx-8
+      xl:max-w-screen-lg
+      xl:mx-auto
+      2xl:max-w-screen-xl
+      3xl:max-w-screen-2xl
+    "
+    style="--color: #000;"
+  >
+    <div
+      class="
+        flex
+        flex-col
+        gap-6-vw
+        sm-landscape:gap-6
+      "
+    >
+      <a class="tab-focus" href={faGazaImage.src}>
+        <Screenshot
+          image={faGazaImage}
+          alt="Screenshot of a map of Gaza overlayed with information about Israel's invasion"
+        />
+      </a>
+      <div
+        class="
+          flex
+          flex-col
+          gap-6-vw
+          items-end
+          sm-landscape:gap-6
+          lg:grid
+          lg:grid-cols-3
+        "
+      >
+        <ImageLink
+          classes={`
+            col-span-2
+          `}
+          href={labelsSatteliteImage.src}
+        >
+          <Screenshot
+            image={labelsSatteliteImage}
+            alt="Screenshot of the labels on sattelite imagery."
+          />
+        </ImageLink>
+        <p
+          class="
+            font-medium
+            xl:text-xl
+            xl:mb-12
+            3xl:text-2xl
+            3xl:mb-24
+          "
+        >
+          I helped design and build zone styles that were legible when the areas overlapped and labels that could be read easily against satellite imagery.
+        </p>
+      </div>
+      <ImageLink
+        href={safeZonesImage.src}
+      >
+        <Screenshot
+          image={safeZonesImage}
+          alt="Screenshot showing multiple overlapping map zones"
+        />
+      </ImageLink>
+      <div
+        class="
+          flex
+          justify-center
+          xl:text-xl
+        "
+      >
+        <a class="button" href="https://stopkiller.ai">
+          View Story
+          <Fragment set:html={linkIcon} />
+        </a>
+      </div>
+    </div>
+  </div>
+</PageLayout>
