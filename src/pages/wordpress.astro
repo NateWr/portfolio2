@@ -1,0 +1,62 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Screenshot from "../components/Screenshot.astro";
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
+import ImageLink from "../components/ImageLink.astro";
+import augustanImage from '../images/wp-augustan.png';
+import luigiImage from '../images/wp-luigi.jpg';
+import svartbrodImage from '../images/wp-svartbrod.png';
+---
+
+<PageLayout
+  title="WordPress Themes"
+  description="I designed and built WordPress themes for restaurants when I ran my own themes and plugins shop."
+  color="#002222"
+>
+  <Fragment slot="links">
+    <div
+      class="
+        font-extrabold
+        text-sm-vw
+        uppercase
+        tracking-widest
+        sm-landscape:text-xl
+        xl:text-xl
+      "
+    >
+      2014-2018
+    </div>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={augustanImage.src}
+      >
+        <Screenshot
+          image={augustanImage}
+          alt="Screenshot of the the Augustan theme"
+        />
+      </ImageLink>
+    </div>
+    <div class="col-span-2">
+      <ImageLink
+        href={svartbrodImage.src}
+      >
+        <Screenshot
+          image={svartbrodImage}
+          alt="Screenshot of the Svartbrod theme"
+        />
+      </ImageLink>
+    </div>
+    <div class="col-span-2">
+      <ImageLink
+        href={luigiImage.src}
+      >
+        <Screenshot
+          image={luigiImage}
+          alt="Screenshot of the Luigi theme"
+        />
+      </ImageLink>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>
