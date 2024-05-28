@@ -1,0 +1,53 @@
+---
+import { Code } from 'astro:components';
+import type {
+	BuiltinLanguage,
+} from 'shiki';
+
+interface Props {
+  code: string;
+  lang?: BuiltinLanguage;
+}
+
+const { code, lang = 'txt' } = Astro.props
+---
+
+<figure
+  class="
+    max-w-3xl
+    bg-[#0b0e14]
+    text-white
+    text-sm-vw
+    rounded-[12px]
+    sm-landscape:text-sm
+    md:text-lg
+  "
+>
+  <figcaption
+    class="
+      font-medium
+      bg-white
+      border-2
+      border-black
+      text-black
+      rounded-t-[10px]
+      p-4-vw
+      leading-tight
+      sm-landscape:p-4
+      md:p-4
+    "
+  >
+    <slot />
+  </figcaption>
+  <Code
+    code={code}
+    lang={lang}
+    theme="ayu-dark"
+    class={`
+      p-6-vw
+      rounded-b-[12px]
+      sm-landscape:p-6
+      xl:p-6
+    `}
+  />
+</figure>

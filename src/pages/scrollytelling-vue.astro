@@ -1,0 +1,146 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import Screenshot from "../components/Screenshot.astro"
+import Figure from "../components/Figure.astro"
+import linkIcon from "../images/link-icon.svg?raw"
+import githubIcon from "../images/github.svg?raw"
+import heroImage from '../images/antiboycott-devices.png';
+import CodeBlock from "../components/CodeBlock.astro";
+import scrollProgressBasic from "../code-snippets/scroll-progress-basic.vue?raw"
+import scrollProgressFrames from "../code-snippets/scroll-progress-frames.vue?raw"
+import scrollProgressKeyframes from "../code-snippets/scroll-progress-keyframes.ts?raw"
+import scrollProgressKeyframesVue from "../code-snippets/scroll-progress-keyframes.vue?raw"
+
+const url = `https://visualizingpalestine.org/anti-boycott-laws-interactive/`
+const githubUrl = `https://github.com/NateWr/antiboycott`
+---
+
+<PageLayout
+  title="Scrollytelling with Vue.js"
+  description="How I managed CPU usage in an interactive, scroll-based story using a reactive framework like Vue.js."
+  color="#213751"
+>
+  <Fragment slot="links">
+    <a class="button" href={url}>
+      View Story
+      <Fragment set:html={linkIcon} />
+    </a>
+    <a class="button" href={githubUrl}>
+      View Source
+      <Fragment set:html={githubIcon} />
+    </a>
+  </Fragment>
+  <div
+    class="
+      flex
+      flex-col
+      items-center
+      gap-6-vw
+      text-base-vw
+      leading-relaxed
+      sm-landscape:gap-6
+      sm-landscape:text-xl
+      sm-landscape:leading-relaxed
+      md:text-sm-vw
+      md:leading-relaxed
+      lg:gap-12
+      lg:text-xl
+      lg:leading-relaxed
+    "
+  >
+    <Figure>
+      <a class="tab-focus" href={url}>
+        <Screenshot
+          image={heroImage}
+          alt="Image of the original print graphic with the digital adaptation visible on multiple devices"
+        />
+      </a>
+      <Fragment slot="caption">
+        I transformed their print-based <a href="https://visualizingpalestine.org/visual/anti-boycott-laws">infographic</a> into a <a href="https://visualizingpalestine.org/anti-boycott-laws-interactive">scrolling interactive story</a> that works on all devices.
+      </Fragment>
+    </Figure>
+    <p class="max-w-xl">
+      Journalists, non-profits and activists increasingly turn to scroll-based animations in order to tell compelling stories. These digital projects — a mixture of text, imagery and video — pose unique performance and usability challenges for frontend developers. For this project, the trickiest problem I encountered was how to reconstruct the timeline. It had almost 50 "frames" and the transitions between each frame needed to be snappy and fluid.
+    </p>
+    <Figure>
+      <video controls="true">
+        <source src="/videos/antiboycott-timeline-desktop.webm" type="video/webm">
+        <source src="/videos/antiboycott-timeline-desktop.mp4" type="video/mp4">
+      </video>
+      <Fragment slot="caption">
+        The timeline required animated transitions between almost 50 different frames.
+      </Fragment>
+    </Figure>
+    <p class="max-w-xl">
+      There were too many animations to run them directly off of the scroll observer. That's because the scroll observer may fire dozens of times each second. Usually, when there's an event like this that fires very frequently, we <a href="https://www.freecodecamp.org/news/javascript-debounce-example/">debounce</a> the callback functions, so that we only run things once the event has stopped firing. You've probably experienced this when searching on a website. Often, the search doesn't start until you've stopped typing your search query for a moment.
+    </p>
+    <p class="max-w-xl">
+      With scrolling, however, the interface needs to feel immediately responsive in order to give the user the illusion that they control the screen like a physical device. In order to achieve this, it's important that transitions between frames fire as soon as the user scrolls into position. This creates some challenges when using a modern, reactive JavaScript framework like Vue or React.
+    </p>
+    <div class="max-w-full">
+      <CodeBlock
+        code={scrollProgressBasic}
+        lang="vue"
+      >
+        The following code shows how the user's scroll progress might be used to show elements using Vue's reactivity.
+      </CodeBlock>
+    </div>
+    <p class="max-w-xl">
+      Every time the user scrolls, the <code>progress</code> value will increase and Vue will fire three callback functions: one for each <code>v-if</code> statement. This will create a performance problem because the scroll progress fires dozens of times per second. With 50 frames, more than 1000 callbacks might be fired every second, hammering the CPU and causing the animations to stutter.
+    </p>
+    <p class="max-w-xl">
+      To solve this, I extracted the frames into a set of arrays. I then wrote a single callback function that would use these arrays to track which frames had been fired and which were still pending. By doing this, I could ensure that the callback function, which is fired often, remained as lightweight as possible. Vue's full reactivity only kicks in when a frame is changed.
+    </p>
+    <div class="max-w-full">
+      <CodeBlock
+        code={scrollProgressFrames}
+        lang="vue"
+      >
+        Simplified example of code that uses "frames" to fire transitions as the user scrolls. See the <a href="https://github.com/NateWr/antiboycott/blob/main/src/components/TimeLine.vue#L74-L99">working code</a>.
+      </CodeBlock>
+    </div>
+    <p class="max-w-xl">
+        The <code>pending</code> and <code>fired</code> arrays are important to make this work. Without them, the <code>watch()</code> callback would loop through an array of 50 items every time it was called. By shifting frames into the <code>pending</code> and <code>fired</code> arrays, the callback only loops through each array until it finds the first frame that is out of scope. This is almost always the first item in the array. Most of the times that the callback is fired, it will stop at the first item in the array. That means that this technique can scale to hundreds or thousands of frames.
+    </p>
+    <p class="max-w-xl">
+        In the following video, I've logged when the user's scroll changes and when a frame change is triggered. This illustrates how much rarer it is to trigger a frame change. By keeping expensive computations off of the scroll observer's callback, I was able to keep the timeline's animations smooth and responsive to user input.
+    </p>
+    <Figure>
+      <video controls="true">
+        <source src="/videos/antiboycott-callbacks.webm" type="video/webm">
+        <source src="/videos/antiboycott-callbacks.mp4" type="video/mp4">
+      </video>
+      <Fragment slot="caption">
+        I solved performance problems with the scroll observer by disconnecting Vue's reactivity from the scroll progress callback.
+      </Fragment>
+    </Figure>
+    <p class="max-w-xl">
+        Tracking the scroll position of almost 50 frames was annoying. Each frame had to be timed to a specific window in the scroll progress between <code>0.0</code> and <code>1.0</code>. Whenever a frame was added or removed, these values would have to be adjusted.
+    </p>
+    <p class="max-w-xl">
+        To solve this, I created a simple abstraction that allowed me to add and remove frames, give each one a duration, and automatically calculate their positions on the scroll progress.
+    </p>
+    <div class="max-w-full">
+      <CodeBlock
+        code={scrollProgressKeyframes}
+        lang="ts"
+      >
+        Example code showing how each frame is given a name and duration. See <a href="https://github.com/NateWr/antiboycott/blob/main/src/helpers/timelineKeyframes.ts">code</a>.
+      </CodeBlock>
+    </div>
+    <p class="max-w-xl">
+        This allowed me to make use of named frames in Vue components, so that the code was easy to read and maintain.
+    </p>
+    <div class="max-w-full">
+      <CodeBlock
+        code={scrollProgressKeyframesVue}
+        lang="vue"
+      >
+        Example Vue component using the named keyframes. See <a href="https://github.com/NateWr/antiboycott/blob/main/src/components/Timeline2014.vue#L95-L107">code</a>.
+      </CodeBlock>
+    </div>
+    <p class="max-w-xl">
+        This was a fun project and I'd love to work on similar stories. Please <a href="#contact">get in touch</a> if you think I can help you solve performance problems or pull off smooth animated transitions in your digital interactives and stories.
+    </p>
+  </div>
+</PageLayout>
