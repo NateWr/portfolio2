@@ -1,6 +1,7 @@
 import type { PortfolioItem } from "../scripts/portfolio-item"
 import uiLibraryImage from '../images/ui-library-submission-wide.png';
-import lawfareImage from '../images/lawfare.png';
+import councillorsImage from '../images/find-your-councillors.png';
+import lawfareImage from '../images/lawfare-google-sheet.png';
 
 const stories : PortfolioItem[] = [
   {
@@ -13,13 +14,22 @@ const stories : PortfolioItem[] = [
     alt: "Screenshot of the step-by-step workflow to make a new journal submission",
   },
   {
+    title: "Find Your City Councillor",
+    client: "Side Project",
+    date: "June 2023",
+    url: "/find-your-representatives",
+    image: councillorsImage,
+    color: "#B50A00",
+    alt: "Screenshot of the a map of Edinburgh with details about the city councillors",
+  },
+  {
     title: "Lawfare Data Extraction",
     client: "FMEP",
     date: "Sep 2023",
-    url: "/lawfare",
+    url: "/lawfare-data",
     image: lawfareImage,
     color: "#1F274C",
-    alt: "Screenshot of the homepage of lawfare.fmep.org that says FMEP's research and documentation on the campaign to exploit US laws.",
+    alt: "Screenshot of the Google sheet after the data was extracted",
   },
 ]
 

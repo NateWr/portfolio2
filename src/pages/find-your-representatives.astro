@@ -1,0 +1,45 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import Screenshot from "../components/Screenshot.astro"
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
+import HowBuilt from "../components/HowBuilt.astro";
+import ImageLink from "../components/ImageLink.astro"
+import linkIcon from "../images/link-icon.svg?raw"
+import councillorsImage from '../images/find-your-councillors.png';
+
+const url = `https://natewr.github.io/edinburgh-councillors/`
+
+---
+
+<PageLayout
+  title="Find Your City Councillor"
+  description="I gathered data on my city councillors and turned it into a simple app that is easy to use on any device."
+  color="#B50A00"
+>
+  <Fragment slot="links">
+    <a class="button" href={url}>
+      View App
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={councillorsImage.src}
+      >
+        <Screenshot
+          image={councillorsImage}
+          alt="Screenshot of the a map of Edinburgh with details about the city councillors"
+        />
+      </ImageLink>
+    </div>
+  </ScreenshotsBlock>
+  <HowBuilt>
+    I used Cypress and Node.js to gather and process the data, then built the app with Vue.js and Leaflet.
+    <Fragment slot="links">
+      <a class="button" href="/councillors-app">
+        Learn More
+      </a>
+    </Fragment>
+  </HowBuilt>
+</PageLayout>
