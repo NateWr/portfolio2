@@ -1,0 +1,90 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import ArticleWrapper from "../components/ArticleWrapper.astro"
+import Screenshot from "../components/Screenshot.astro"
+import Figure from "../components/Figure.astro"
+import CodeBlock from "../components/CodeBlock.astro";
+import linkIcon from "../images/link-icon.svg?raw"
+import heroImage from '../images/lawfare.png';
+import tableImage from '../images/lawfare-table.png';
+import sheetsImage from '../images/lawfare-google-sheet.png';
+import resourcesImage from '../images/lawfare-resources.png';
+import lawfareCsv from '../code-snippets/lawfare.csv?raw';
+---
+
+<PageLayout
+  title="Lawfare Data Portal"
+  description="I extracted research data from Word/PDF files and imported it into Google spreadsheets. This helped the Foundation for Middle East Peace (FMEP) to more easily analyse and share the data with journalists, researchers, and activists. I used Node.js scripts to extract the data and built a web-based portal with 11ty."
+  color="#1F274C"
+>
+  <Fragment slot="links">
+    <a class="button" href="https://lawfare.fmep.org">
+      View Website
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <ArticleWrapper>
+    <Figure>
+      <Screenshot
+        image={heroImage}
+        alt="Screenshot of the Lawfare data hub website"
+      />
+      <Fragment slot="caption">
+        The online <a href="https://lawfare.fmep.org">data portal</a> is a one-stop shop where journalists, researchers and activists can access all of FMEP's resources on lawfare.
+      </Fragment>
+    </Figure>
+    <p class="max-w-xl">
+      For several years, FMEP has tracked efforts in the US to supress opposition to America's support for Israeli policies. Much of the data on state and federal legislation, however, was distributed in tables that were buried inside PDF files. As a result, the information was difficult for journalists and researchers to analyse.
+    </p>
+    <Figure>
+      <Screenshot
+        image={tableImage}
+        alt="Screenshot of a data table inside a PDF file"
+      />
+      <Fragment slot="caption">
+        The data was stored in cramped tables inside of Word/PDF files.
+      </Fragment>
+    </Figure>
+    <p class="max-w-xl">
+      I wrote <a href="https://nodejs.org/en/">Node.js</a> scripts to parse and extract the data from these tables. Much of the data could be extracted through basic text parsing and regex scripts. However, some important information was expressed as colour-coding within the table. To extract this, I converted the document into a Google Doc and used <a href="https://www.npmjs.com/package/googleapis">googleapis</a> to walk through the table cells in the document structure. This allowed me to compile the records into a CSV file that I could then import into a new Google Sheet.
+    </p>
+    <div class="max-w-full">
+      <CodeBlock
+        code={lawfareCsv}
+        lang="html"
+      >
+        A snippet of the CSV file that I generated from the source document. This file can be imported into Google Sheets or Excel documents.
+      </CodeBlock>
+    </div>
+    <p class="max-w-xl">
+      Once I had extracted the information into a Google Sheet, I configured data validation rules to help FMEP audit and maintain the data. I created dropdown controls and colour-coded some of the columns, like whether or not legislation had passed into law, to make it easier to analyse and update the information.  Data was extracted from four separate documents: two on anti-boycott legislation (<a href="https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8/edit#gid=1808305123">state</a>, <a href="https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8/edit#gid=1395532904">federal</a>) and two on attempts to outlaw criticism of Israel as antisemitism (<a href="https://docs.google.com/spreadsheets/d/1u-tx1PMIXzSD1-EKYG-mpoJifTa3eyB3HrFQcWRjLzQ/edit#gid=1885020318">state</a>, <a href="https://docs.google.com/spreadsheets/d/1u-tx1PMIXzSD1-EKYG-mpoJifTa3eyB3HrFQcWRjLzQ/edit#gid=1184373771">federal</a>).
+    </p>
+    <Figure>
+      <Screenshot
+        image={sheetsImage}
+        alt="Screenshot of one of the Google Sheets"
+      />
+      <Fragment slot="caption">
+        Four data tables were consolidated into two Google Sheets. One on <a href="https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8">anti-boycott legislation</a> and another on attempts to <a href="https://docs.google.com/spreadsheets/d/1u-tx1PMIXzSD1-EKYG-mpoJifTa3eyB3HrFQcWRjLzQ">outlaw criticism of Israel</a>.
+      </Fragment>
+    </Figure>
+    <p class="max-w-xl">
+      Finally, I built a small site to act as a data portal for all of their resources on lawfare. The site provides quick access to all of the new spreadsheets, as well as additional resources hosted elsewhere, such as their podcast episodes.
+    </p>
+    <Figure>
+      <Screenshot
+        image={resourcesImage}
+        alt="Screenshot of the resources in the lawfare data portal"
+      />
+      <Fragment slot="caption">
+        The clean design helps users quickly find and access the resources they are looking for.
+      </Fragment>
+    </Figure>
+    <p class="max-w-xl">
+      FMEP is a small team and I didn't want them to have to learn and maintain a new software service. To avoid this, the site is configured and built directly from a private Google Sheet rather than a self-hosted content management system. When they want to add a new resource, they add a new row to the spreadsheet and trigger a rebuild of the site.
+    </p>
+    <p class="max-w-xl">
+      This setup makes it easy for FMEP to manage the site. At the same time, the technical infrastructure ensures that the service almost never suffers from downtime or poor performance. All of the assets are hosted on fast and secure servers, either through their organisation's Google Workspace account or Netlify's global "serverless" infrastructure. Most importantly, their team won't rely on me or an expensive digital agency to keep their site up and running.
+    </p>
+  </ArticleWrapper>
+</PageLayout>
