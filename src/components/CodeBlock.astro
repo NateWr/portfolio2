@@ -23,22 +23,24 @@ const { code, lang = 'txt' } = Astro.props
     md:text-lg
   "
 >
-  <figcaption
-    class="
-      font-medium
-      bg-white
-      border-2
-      border-black
-      text-black
-      rounded-t-[10px]
-      p-4-vw
-      leading-tight
-      sm-landscape:p-4
-      md:p-4
-    "
-  >
-    <slot />
-  </figcaption>
+  {Astro.slots.has('default') && (
+    <figcaption
+      class="
+        font-medium
+        bg-white
+        border-2
+        border-black
+        text-black
+        rounded-t-[10px]
+        p-4-vw
+        leading-tight
+        sm-landscape:p-4
+        md:p-4
+      "
+    >
+      <slot />
+    </figcaption>
+  )}
   <Code
     code={code}
     lang={lang}
@@ -46,6 +48,7 @@ const { code, lang = 'txt' } = Astro.props
     class={`
       p-6-vw
       rounded-b-[12px]
+      ${!Astro.slots.has('default') ? 'rounded-t-[12px]' : ''}
       sm-landscape:p-6
       xl:p-6
     `}

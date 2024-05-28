@@ -10,6 +10,7 @@ import scrollProgressBasic from "../code-snippets/scroll-progress-basic.vue?raw"
 import scrollProgressFrames from "../code-snippets/scroll-progress-frames.vue?raw"
 import scrollProgressKeyframes from "../code-snippets/scroll-progress-keyframes.ts?raw"
 import scrollProgressKeyframesVue from "../code-snippets/scroll-progress-keyframes.vue?raw"
+import ArticleWrapper from "../components/ArticleWrapper.astro"
 
 const url = `https://visualizingpalestine.org/anti-boycott-laws-interactive/`
 const githubUrl = `https://github.com/NateWr/antiboycott`
@@ -30,24 +31,8 @@ const githubUrl = `https://github.com/NateWr/antiboycott`
       <Fragment set:html={githubIcon} />
     </a>
   </Fragment>
-  <div
-    class="
-      flex
-      flex-col
-      items-center
-      gap-6-vw
-      text-base-vw
-      leading-relaxed
-      sm-landscape:gap-6
-      sm-landscape:text-xl
-      sm-landscape:leading-relaxed
-      md:text-sm-vw
-      md:leading-relaxed
-      lg:gap-12
-      lg:text-xl
-      lg:leading-relaxed
-    "
-  >
+  <ArticleWrapper>
+
     <Figure>
       <a class="tab-focus" href={url}>
         <Screenshot
@@ -56,7 +41,7 @@ const githubUrl = `https://github.com/NateWr/antiboycott`
         />
       </a>
       <Fragment slot="caption">
-        I transformed their print-based <a href="https://visualizingpalestine.org/visual/anti-boycott-laws">infographic</a> into a <a href="https://visualizingpalestine.org/anti-boycott-laws-interactive">scrolling interactive story</a> that works on all devices.
+        I transformed their print-based <a class="link" href="https://visualizingpalestine.org/visual/anti-boycott-laws">infographic</a> into a <a class="link" href="https://visualizingpalestine.org/anti-boycott-laws-interactive">scrolling interactive story</a> that works on all devices.
       </Fragment>
     </Figure>
     <p class="max-w-xl">
@@ -72,7 +57,7 @@ const githubUrl = `https://github.com/NateWr/antiboycott`
       </Fragment>
     </Figure>
     <p class="max-w-xl">
-      There were too many animations to run them directly off of the scroll observer. That's because the scroll observer may fire dozens of times each second. Usually, when there's an event like this that fires very frequently, we <a href="https://www.freecodecamp.org/news/javascript-debounce-example/">debounce</a> the callback functions, so that we only run things once the event has stopped firing. You've probably experienced this when searching on a website. Often, the search doesn't start until you've stopped typing your search query for a moment.
+      There were too many animations to run them directly off of the scroll observer. That's because the scroll observer may fire dozens of times each second. Usually, when there's an event like this that fires very frequently, we <a class="link" href="https://www.freecodecamp.org/news/javascript-debounce-example/">debounce</a> the callback functions, so that we only run things once the event has stopped firing. You've probably experienced this when searching on a website. Often, the search doesn't start until you've stopped typing your search query for a moment.
     </p>
     <p class="max-w-xl">
       With scrolling, however, the interface needs to feel immediately responsive in order to give the user the illusion that they control the screen like a physical device. In order to achieve this, it's important that transitions between frames fire as soon as the user scrolls into position. This creates some challenges when using a modern, reactive JavaScript framework like Vue or React.
@@ -96,7 +81,7 @@ const githubUrl = `https://github.com/NateWr/antiboycott`
         code={scrollProgressFrames}
         lang="vue"
       >
-        Simplified example of code that uses "frames" to fire transitions as the user scrolls. See the <a href="https://github.com/NateWr/antiboycott/blob/main/src/components/TimeLine.vue#L74-L99">working code</a>.
+        Simplified example of code that uses "frames" to fire transitions as the user scrolls. See the <a class="link" href="https://github.com/NateWr/antiboycott/blob/main/src/components/TimeLine.vue#L74-L99">working code</a>.
       </CodeBlock>
     </div>
     <p class="max-w-xl">
@@ -125,7 +110,7 @@ const githubUrl = `https://github.com/NateWr/antiboycott`
         code={scrollProgressKeyframes}
         lang="ts"
       >
-        Example code showing how each frame is given a name and duration. See <a href="https://github.com/NateWr/antiboycott/blob/main/src/helpers/timelineKeyframes.ts">code</a>.
+        Example code showing how each frame is given a name and duration. See <a class="link" href="https://github.com/NateWr/antiboycott/blob/main/src/helpers/timelineKeyframes.ts">code</a>.
       </CodeBlock>
     </div>
     <p class="max-w-xl">
@@ -136,11 +121,11 @@ const githubUrl = `https://github.com/NateWr/antiboycott`
         code={scrollProgressKeyframesVue}
         lang="vue"
       >
-        Example Vue component using the named keyframes. See <a href="https://github.com/NateWr/antiboycott/blob/main/src/components/Timeline2014.vue#L95-L107">code</a>.
+        Example Vue component using the named keyframes. See <a class="link" href="https://github.com/NateWr/antiboycott/blob/main/src/components/Timeline2014.vue#L95-L107">code</a>.
       </CodeBlock>
     </div>
     <p class="max-w-xl">
-        This was a fun project and I'd love to work on similar stories. Please <a href="#contact">get in touch</a> if you think I can help you solve performance problems or pull off smooth animated transitions in your digital interactives and stories.
+        This was a fun project and I'd love to work on similar stories. Please <a class="link" href="#contact">get in touch</a> if you think I can help you solve performance problems or pull off smooth animated transitions in your digital interactives and stories.
     </p>
-  </div>
+  </ArticleWrapper>
 </PageLayout>
