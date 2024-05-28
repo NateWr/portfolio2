@@ -1,0 +1,58 @@
+
+<div
+  class="
+    mt-[35vh]
+    mx-auto
+    text-center
+    flex
+    flex-col
+    gap-12-vw
+    sm-landscape:max-w-md
+    sm-landscape:gap-12
+    lg:max-w-md
+    lg:gap-16
+  "
+>
+  <div
+    class="
+      flex
+      flex-col
+      gap-2-vw
+      sm-landscape:gap-2
+      lg:gap-6
+    "
+  >
+    <h2
+      class="
+        font-extrabold
+        text-sm-vw
+        text-blue
+        uppercase
+        tracking-widest
+        sm-landscape:text-xl
+        xl:text-xl
+      "
+    >
+      How I Built It
+    </h2>
+    <div
+      class="
+        text-xl-vw
+        sm-landscape:text-3xl
+        xl:text-3xl
+        xl:leading-relaxed
+      "
+    >
+      <slot />
+    </div>
+  </div>
+  <div
+    class="
+      flex
+      justify-center
+      xl:text-xl
+    "
+  >
+    <slot name="links" />
+  </div>
+</div>
