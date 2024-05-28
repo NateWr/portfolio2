@@ -4,9 +4,8 @@ import Screenshot from "../components/Screenshot.astro"
 import linkIcon from "../images/link-icon.svg?raw"
 import ImageLink from "../components/ImageLink.astro"
 import faGazaImage from '../images/fa-gaza.png'
-import beforeAfterImage from '../images/fa-before-after.png'
 import safeZonesImage from '../images/fa-labels-safe-zones.png'
-import labelsSatteliteImage from '../images/fa-labels-sattelite-imagery.png'
+import labelsSatteliteImage from '../images/fa-labels-sattelite-square.png'
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro"
 import ScreenshotCaption from "../components/ScreenshotCaption.astro"
 
@@ -41,37 +40,25 @@ const url = 'https://gaza.forensic-architecture.org/displacement'
     </ScreenshotCaption>
     <div class="col-span-3">
       <ImageLink
-        href={beforeAfterImage.src}
+        href={safeZonesImage.src}
       >
         <Screenshot
-          image={beforeAfterImage}
-          alt="Before/after screenshot of a map of Gaza showing the work I did to simplify the view"
+          image={safeZonesImage}
+          alt="Screenshot showing multiple overlapping map zones"
         />
       </ImageLink>
     </div>
-    <div class="col-span-3">
+    <div /></div>
+    <ScreenshotCaption>
+      Text labels needed to be redesigned so that they could be read against noisy backgrounds, like satellite imagery.
+    </ScreenshotCaption>
+    <div class="col-span-2">
       <ImageLink
         href={labelsSatteliteImage.src}
       >
         <Screenshot
           image={labelsSatteliteImage}
           alt="Screenshot of the labels on sattelite imagery."
-        />
-      </ImageLink>
-    </div>
-    <ScreenshotCaption>
-      Text labels needed to be redesigned so that they could be read against noisy backgrounds, like satellite imagery.
-    </ScreenshotCaption>
-    <ScreenshotCaption>
-      And I developed custom map zone styles that would be legible when the areas overlapped.
-    </ScreenshotCaption>
-    <div class="col-span-3">
-      <ImageLink
-        href={safeZonesImage.src}
-      >
-        <Screenshot
-          image={safeZonesImage}
-          alt="Screenshot showing multiple overlapping map zones"
         />
       </ImageLink>
     </div>
