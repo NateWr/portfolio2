@@ -1,0 +1,117 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import ArticleWrapper from "../components/ArticleWrapper.astro"
+import Screenshot from "../components/Screenshot.astro"
+import Figure from "../components/Figure.astro"
+import CodeBlock from "../components/CodeBlock.astro";
+import linkIcon from "../images/link-icon.svg?raw"
+import githubIcon from "../images/github.svg?raw"
+import heroImage from '../images/find-your-councillors.png';
+import resizeImage from '../images/resize-images.png';
+import badImage from '../images/councillors-landscape-bad.png';
+import fixedImage from '../images/councillors-landscape-fixed.png';
+import councillorsJson from '../code-snippets/councillors.json?raw';
+import landscapeCss from '../code-snippets/landscape-orientation.css?raw';
+---
+
+<PageLayout
+  title="Data Scraping with Cypress"
+  description="I used Cypress and Node.js to gather data on my local city councillors and created a simple web app to find your representative by postcode."
+  color="#B50A00"
+>
+  <Fragment slot="links">
+    <a class="button" href="https://natewr.github.io/edinburgh-councillors/">
+      View App
+      <Fragment set:html={linkIcon} />
+    </a>
+    <a class="button" href="https://github.com/NateWr/edinburgh-councillors">
+      View Source
+      <Fragment set:html={githubIcon} />
+    </a>
+  </Fragment>
+  <ArticleWrapper>
+    <Figure>
+      <Screenshot
+        image={heroImage}
+        alt="Screenshot of the city councillors app"
+      />
+      <Fragment slot="caption">
+        Find your councillor by postcode lookup or by locating your ward on the map.
+      </Fragment>
+    </Figure>
+    <p class="max-w-xl">
+      I built this prototype because I wanted something to include in my portfolio that would demonstrate my ability to work on consumer-facing, mobile-friendly web apps with an eye for design and an understanding of interactivity on touch devices. I decided to work on a small app for residents of my city to find their ward councillors. This would give me an opportunity to work with a common mobile design pattern — a fixed viewport rather than a scrollable document — and experiment with mapping tools and automated data collection.
+    </p>
+    <p class="max-w-xl">
+      I found a GeoJSON file that described the city's ward boundaries from Edinburgh's <a class="link" href="https://data.edinburghcouncilmaps.info/">open data</a> portal. The ward councillors were available from <a class="link" href="https://democracy.edinburgh.gov.uk/mgMemberIndex.aspx?VW=TABLE&PIC=1&FN=WARD">edinburgh.gov.uk</a>, but not in a machine-readable format. I wrote a Cypress script (<a class="link" href="https://github.com/NateWr/edinburgh-councillors/blob/main/cypress/e2e/councillors.cy.js">source</a>), which I often use for integration testing, to scrape data from the site. The script visits the government site and collects every councillor's name, phone number, email address, photo, and website into a JSON array.
+    </p>
+    <div class="max-w-full">
+      <CodeBlock
+        code={councillorsJson}
+        lang="json"
+      >
+        Snippet from <a class="link" href="https://github.com/NateWr/edinburgh-councillors/blob/ddc6c1eea34f74d2114e4146e9f84c763061c40d/public/councillors.json">councillors.json</a>
+      </CodeBlock>
+    </div>
+    <p class="max-w-xl">
+      Unfortunately, the photos on the government website were all different sizes and aspect ratios. To fit them into my design, I wrote a quick Node.js script (<a class="link" href="https://github.com/NateWr/edinburgh-councillors/blob/main/src/tools/getphotos.js">source</a>) to crop the photos so that they were all square.
+    </p>
+    <Figure>
+      <Screenshot
+        image={resizeImage}
+        alt="Diagram of image changes after cropping"
+      />
+      <Fragment slot="caption">
+        The source photos were tiny! 🙄 After adjusting the aspect ratio, I left them at different sizes to retain every pixel I could.
+      </Fragment>
+    </Figure>
+    <p class="max-w-xl">
+      I then built the web app using Vue and Vite. I wanted a UI that would be familiar to someone using a mobile device, so I mimicked the vertical layout of Google maps on my phone. But this layout doesn't work well in landscape orientation — when the viewport is wider than it is tall.
+    </p>
+    <div class="max-w-2xl">
+      <Figure>
+        <Screenshot
+          image={badImage}
+          alt="Screenshot in landscape without orientation media query"
+        />
+        <Fragment slot="caption">
+          The map is almost entirely covered on a phone being held sideways.
+        </Fragment>
+      </Figure>
+    </div>
+    <p class="max-w-xl">
+      Traditional breakpoints, based on device width, weren't a great option. A screen width of 767px might represent a tablet in portrait or a phone in landscape. Rather than use a lot of media queries at set widths, I used <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation">orientation</a> media queries to apply a different layout for viewports in portrait or landscape orientation.
+    </p>
+    <div class="max-w-full">
+      <CodeBlock
+        code={landscapeCss}
+        lang="css"
+      >
+        Example of using orientation media queries
+      </CodeBlock>
+    </div>
+    <p class="max-w-xl">
+      This reduced the amount of CSS I had to write to account for different screen sizes, since the UI scaled pretty well once it used the appropriate layout for each orientation.
+    </p>
+    <div class="max-w-2xl">
+      <Figure>
+        <Screenshot
+          image={fixedImage}
+          alt="Screenshot in landscape with orientation media query"
+        />
+        <Fragment slot="caption">
+          It's easy to see the map and the councillors now.
+        </Fragment>
+      </Figure>
+    </div>
+    <p class="max-w-xl">
+      I used the popular open source mapping tool <a class="link" href="https://leafletjs.com/">Leaflet</a>, along with tiles from <a class="link" href="https://www.openstreetmap.org">OpenStreetMaps</a>, to render the map with the ward boundaries. There's a well-mainted Vue component (<a class="link" href="https://github.com/vue-leaflet/Vue2Leaflet">vue-leaflet</a>) that I could have used, but I wanted to work directly with the underlying library. This way, I could use what I learned regardless of which framework or toolset I might work with in the future.
+    </p>
+    <p class="max-w-xl">
+      The prototype is really small, so I wrote all of the map interactions in the <a class="link" href="https://github.com/NateWr/edinburgh-councillors/blob/main/src/App.vue">root component</a>. Wards are highlighted, postcodes pinpointed, and the map is zoomed all from the same single-file-component. In a production setting, I'd expect to separate the map controller logic from the app layout component, unless I was confident the app's complexity wasn't going to grow over time.
+    </p>
+    <p class="max-w-xl">
+      Finally, I added <a class="link" href="https://github.com/NateWr/edinburgh-councillors/blob/main/cypress/e2e/app.cy.js">integration tests</a> to cover all the functionality. The tests are all pretty simple with this app, but I have a lot of experience working with Cypress in my work with the Public Knowledge Project. If you're interested, you can see a <a class="link" href="https://github.com/pkp/ojs/commit/9cf7b0672721495af322b6e9138ffdcec9dd7867">sample commit</a> or view all of my commits to the test suites for <a class="link" href="https://github.com/pkp/ojs/commits/main/cypress/tests?author=NateWr">OJS</a>, <a class="link" href="https://github.com/pkp/omp/commits/main/cypress/tests?author=NateWr">OMP</a>, and <a class="link" href="https://github.com/pkp/ops/commits/main/cypress/tests?author=NateWr">OPS</a>.
+    </p>
+  </ArticleWrapper>
+</PageLayout>
