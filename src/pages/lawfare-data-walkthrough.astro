@@ -30,7 +30,7 @@ import lawfareCsv from '../code-snippets/lawfare.csv?raw';
         alt="Screenshot of the Lawfare data hub website"
       />
       <Fragment slot="caption">
-        The online <a href="https://lawfare.fmep.org">data portal</a> is a one-stop shop where journalists, researchers and activists can access all of FMEP's resources on lawfare.
+        The online <a class="link" href="https://lawfare.fmep.org">data portal</a> is a one-stop shop where journalists, researchers and activists can access all of FMEP's resources on lawfare.
       </Fragment>
     </Figure>
     <p class="max-w-xl">
@@ -46,7 +46,7 @@ import lawfareCsv from '../code-snippets/lawfare.csv?raw';
       </Fragment>
     </Figure>
     <p class="max-w-xl">
-      I wrote <a href="https://nodejs.org/en/">Node.js</a> scripts to parse and extract the data from these tables. Much of the data could be extracted through basic text parsing and regex scripts. However, some important information was expressed as colour-coding within the table. To extract this, I converted the document into a Google Doc and used <a href="https://www.npmjs.com/package/googleapis">googleapis</a> to walk through the table cells in the document structure. This allowed me to compile the records into a CSV file that I could then import into a new Google Sheet.
+      I wrote <a class="link" href="https://nodejs.org/en/">Node.js</a> scripts to parse and extract the data from these tables. Much of the data could be extracted through basic text parsing and regex scripts. However, some important information was expressed as colour-coding within the table. To extract this, I converted the document into a Google Doc and used <a class="link" href="https://www.npmjs.com/package/googleapis">googleapis</a> to walk through the table cells in the document structure. This allowed me to compile the records into a CSV file that I could then import into a new Google Sheet.
     </p>
     <div class="max-w-full">
       <CodeBlock
@@ -57,7 +57,7 @@ import lawfareCsv from '../code-snippets/lawfare.csv?raw';
       </CodeBlock>
     </div>
     <p class="max-w-xl">
-      Once I had extracted the information into a Google Sheet, I configured data validation rules to help FMEP audit and maintain the data. I created dropdown controls and colour-coded some of the columns, like whether or not legislation had passed into law, to make it easier to analyse and update the information.  Data was extracted from four separate documents: two on anti-boycott legislation (<a href="https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8/edit#gid=1808305123">state</a>, <a href="https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8/edit#gid=1395532904">federal</a>) and two on attempts to outlaw criticism of Israel as antisemitism (<a href="https://docs.google.com/spreadsheets/d/1u-tx1PMIXzSD1-EKYG-mpoJifTa3eyB3HrFQcWRjLzQ/edit#gid=1885020318">state</a>, <a href="https://docs.google.com/spreadsheets/d/1u-tx1PMIXzSD1-EKYG-mpoJifTa3eyB3HrFQcWRjLzQ/edit#gid=1184373771">federal</a>).
+      Once I had extracted the information into a Google Sheet, I configured data validation rules to help FMEP audit and maintain the data. I created dropdown controls and colour-coded some of the columns, like whether or not legislation had passed into law, to make it easier to analyse and update the information.  Data was extracted from four separate documents: two on anti-boycott legislation (<a class="link" href="https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8/edit#gid=1808305123">state</a>, <a class="link" href="https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8/edit#gid=1395532904">federal</a>) and two on attempts to outlaw criticism of Israel as antisemitism (<a class="link" href="https://docs.google.com/spreadsheets/d/1u-tx1PMIXzSD1-EKYG-mpoJifTa3eyB3HrFQcWRjLzQ/edit#gid=1885020318">state</a>, <a class="link" href="https://docs.google.com/spreadsheets/d/1u-tx1PMIXzSD1-EKYG-mpoJifTa3eyB3HrFQcWRjLzQ/edit#gid=1184373771">federal</a>).
     </p>
     <Figure>
       <Screenshot
@@ -65,7 +65,7 @@ import lawfareCsv from '../code-snippets/lawfare.csv?raw';
         alt="Screenshot of one of the Google Sheets"
       />
       <Fragment slot="caption">
-        Four data tables were consolidated into two Google Sheets. One on <a href="https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8">anti-boycott legislation</a> and another on attempts to <a href="https://docs.google.com/spreadsheets/d/1u-tx1PMIXzSD1-EKYG-mpoJifTa3eyB3HrFQcWRjLzQ">outlaw criticism of Israel</a>.
+        Four data tables were consolidated into two Google Sheets. One on <a class="link" href="https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8">anti-boycott legislation</a> and another on attempts to <a class="link" href="https://docs.google.com/spreadsheets/d/1u-tx1PMIXzSD1-EKYG-mpoJifTa3eyB3HrFQcWRjLzQ">outlaw criticism of Israel</a>.
       </Fragment>
     </Figure>
     <p class="max-w-xl">
