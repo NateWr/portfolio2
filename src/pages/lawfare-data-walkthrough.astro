@@ -13,8 +13,8 @@ import lawfareCsv from '../code-snippets/lawfare.csv?raw';
 ---
 
 <PageLayout
-  title="Lawfare Data Portal"
-  description="I extracted research data from Word/PDF files and imported it into Google spreadsheets. This helped the Foundation for Middle East Peace (FMEP) to more easily analyse and share the data with journalists, researchers, and activists. I used Node.js scripts to extract the data and built a web-based portal with 11ty."
+  title="Data Extraction from PDF/Word"
+  description="I used Node.js scripts to extract research data from Word/PDF files and import it into Google spreadsheets. This helped the Foundation for Middle East Peace (FMEP) to more easily analyse and share the data with journalists, researchers, and activists."
   color="#1F274C"
 >
   <Fragment slot="links">
@@ -51,7 +51,7 @@ import lawfareCsv from '../code-snippets/lawfare.csv?raw';
     <div class="max-w-full">
       <CodeBlock
         code={lawfareCsv}
-        lang="html"
+        lang="csv"
       >
         A snippet of the CSV file that I generated from the source document. This file can be imported into Google Sheets or Excel documents.
       </CodeBlock>
