@@ -1,0 +1,35 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Screenshot from "../components/Screenshot.astro";
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
+import ImageLink from "../components/ImageLink.astro";
+import linkIcon from "../images/link-icon.svg?raw";
+import homepageImage from '../images/docs-hub.png';
+
+const url = `https://docs.pkp.sfu.ca/dev/`
+---
+
+<PageLayout
+  title="Documentation Hub"
+  description="I built a simple documentation hub for the Public Knowledge Project that was powered by Markdown files for easy translation."
+  color="#e08914"
+>
+<Fragment slot="links">
+  <a class="button" href={url}>
+    View Hub
+    <Fragment set:html={linkIcon} />
+  </a>
+</Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={homepageImage.src}
+      >
+        <Screenshot
+          image={homepageImage}
+          alt="Screenshot of the docs hub homepage"
+        />
+      </ImageLink>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>

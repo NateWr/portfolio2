@@ -2,6 +2,7 @@ import type { PortfolioItem } from "../scripts/portfolio-item"
 import journalFiImage from '../images/journalfi-homepage.png';
 import lawfareImage from '../images/lawfare.png';
 import wpImage from '../images/wp-augustan.png';
+import docsHubImage from '../images/docs-hub.png';
 
 const websites : PortfolioItem[] = [
   {
@@ -29,7 +30,16 @@ const websites : PortfolioItem[] = [
     url: "/wordpress",
     image: wpImage,
     color: "#002222",
-    alt: "Screenshot of the Augustan theme for  WordPress.",
+    alt: "Screenshot of the Augustan theme for WordPress.",
+  },
+  {
+    title: "Documentation Hub",
+    client: "Public Knowledge Project",
+    date: "May 2018",
+    url: "/docs-hub",
+    image: docsHubImage,
+    color: "#e08914",
+    alt: "Screenshot of the homepage for the PKP technical documentation.",
   },
 ]
 
