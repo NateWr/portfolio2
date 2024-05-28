@@ -2,7 +2,7 @@ import type { PortfolioItem } from "../scripts/portfolio-item"
 import journalFiImage from '../images/journalfi-homepage.png';
 import lawfareImage from '../images/lawfare.png';
 import wpImage from '../images/wp-augustan.png';
-import docsHubImage from '../images/docs-hub.png';
+import docsHubImage from '../images/docs-hub-wide.png';
 
 const websites : PortfolioItem[] = [
   {

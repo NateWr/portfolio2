@@ -1,0 +1,32 @@
+---
+import ImageLink from "./ImageLink.astro"
+
+interface Props {
+  dir?: string;
+}
+
+const { dir = '' } = Astro.props
+
+---
+<div
+  class={`
+    flex
+    flex-col
+    gap-2
+    sm-landscape:grid
+    sm-landscape:grid-cols-3
+    sm-landscape:gap-8
+    sm-landscape:items-end
+    xl:grid
+    xl:grid-cols-3
+    xl:gap-8
+    xl:items-end
+  `}
+>
+  <div class="sm-landscape:col-span-2 xl:col-span-2">
+    <slot />
+  </div>
+  <div class={`max-w-lg xl:mb-16 ${dir === 'reverse' ? 'sm-landscape:order-first xl:order-first' : ''}`}>
+    <slot name="caption" />
+  </div>
+</div>

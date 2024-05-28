@@ -1,0 +1,108 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Screenshot from "../components/Screenshot.astro";
+import ImageLink from "../components/ImageLink.astro";
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
+import ScreenshotCaption from "../components/ScreenshotCaption.astro";
+import HowBuilt from "../components/HowBuilt.astro";
+import linkIcon from "../images/link-icon.svg?raw";
+import uiLibrarySubmissionImage from "../images/ui-library-submission.png"
+import codeFormatImage from "../images/code-format.png"
+import uiLibraryImage from "../images/ui-library.png"
+import docsHubImage from "../images/docs-hub.png"
+import CaptionedScreenshot from "../components/CaptionedScreenshot.astro";
+
+const url = `https://pkp.sfu.ca/software/ojs/`
+---
+
+<PageLayout
+  title="Scholarly Publishing Software"
+  description="I was a lead developer for the world’s largest scholarly publishing platform, open-source software used by more than 30,000 journals around the world."
+  color="#002C40"
+>
+  <Fragment slot="links">
+    <a class="button" href={url}>
+      View Software
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div
+      class="
+        col-span-4
+        flex
+        flex-col
+        gap-16-vw
+        sm-landscape:gap-32
+        xl:gap-32
+      "
+    >
+      <div
+        class="
+          flex
+          flex-col
+          gap-2
+        "
+      >
+        <ImageLink href={uiLibrarySubmissionImage.src}>
+          <Screenshot
+            image={uiLibrarySubmissionImage}
+            alt="Screenshot of the submission screen in Open Journal Systems"
+          />
+        </ImageLink>
+        <div class="max-w-lg">
+          <ScreenshotCaption>
+            I designed and built user interfaces that were clear, accessible, and supported dozens of languages.
+          </ScreenshotCaption>
+        </div>
+      </div>
+      <CaptionedScreenshot>
+        <ImageLink href={codeFormatImage.src}>
+          <Screenshot
+            image={codeFormatImage}
+            alt="Screenshot of a pull request to automatically reformat 100,000+ lines of code"
+          />
+        </ImageLink>
+        <ScreenshotCaption slot="caption">
+          I led major modernization projects to improve the stability and reliability of the platform.
+        </ScreenshotCaption>
+      </CaptionedScreenshot>
+      <CaptionedScreenshot dir="reverse">
+        <ImageLink href={uiLibraryImage.src}>
+          <Screenshot
+            image={uiLibraryImage}
+            alt="Screenshot of the UI component library"
+          />
+        </ImageLink>
+        <ScreenshotCaption slot="caption">
+          I built a <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/">UI component library</a> complete with documentation on how and when to use components.
+        </ScreenshotCaption>
+      </CaptionedScreenshot>
+      <CaptionedScreenshot>
+        <ImageLink href={docsHubImage.src}>
+          <Screenshot
+            image={docsHubImage}
+            alt="Screenshot of the technical documentation hub for OJS and OMP"
+          />
+        </ImageLink>
+        <ScreenshotCaption slot="caption">
+          I wrote and maintained <a class="link" href="https://docs.pkp.sfu.ca/dev/">technical documentation</a> for our community of developers and administrators.
+        </ScreenshotCaption>
+      </CaptionedScreenshot>
+    </div>
+  </ScreenshotsBlock>
+  <HowBuilt>
+    Learn more about the technical details and leadership experience I gained during my time with the Public Knowledge Project.
+    <Fragment slot="links">
+      <a class="button" href="/ui-component-library">
+        UI Library
+      </a>
+      <a class="button" href="/code-modernization">
+        Code Modernization
+      </a>
+      <a class="button" href="/documentation">
+        Documentation
+      </a>
+    </Fragment>
+  </HowBuilt>
+</PageLayout>
