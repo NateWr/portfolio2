@@ -15,7 +15,7 @@ const experience: CodeTile[] = [
 		commit: '8c6e20 Apr 19 15:05',
 		title: 'UI Component Library',
 		description: "I designed and built a Vue.js component library for the world's most widely used scholarly publishing software.",
-		url: '/ui-library',
+		url: '/ui-component-library',
 	},
 	{
 		path: '~/projects/scrollytelling-vue',
