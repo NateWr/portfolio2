@@ -1,7 +1,6 @@
 import type { KeyFrame, Trigger } from './types'
 
 let i = 0;
-export const KEY_START : number = i++
 export const KEY_2014_START : number = i++
 export const KEY_2014_INTRO : number = i++
 export const KEY_2014_INTRO_BUBBLES : number = i++
@@ -16,7 +15,6 @@ export const KEY_2015_START : number = i++
 
 
 export const KEYFRAMES : KeyFrame[] = [
-  {id: KEY_TIMELINE_START, duration: 1},
   {id: KEY_2014_START, duration: 5},
   {id: KEY_2014_INTRO, duration: 5},
   {id: KEY_2014_INTRO_BUBBLES, duration: 5},

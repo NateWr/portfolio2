@@ -4,7 +4,6 @@ import Layout from '../layouts/Layout.astro';
 import ScrollCarousel from '../components/ScrollCarousel.astro';
 import PortfolioItem from '../components/PortfolioItem.astro';
 import StaggeredTiles from '../components/StaggeredTiles.astro';
-import profileImage from '../images/profile.png';
 import dogsImage from '../images/dogs.png';
 import dotsImage from '../images/dots.png';
 import dots2Image from '../images/dots-2.png';
@@ -48,7 +47,66 @@ const nav = [
 		slot="header-image"
 		aria-hidden="true"
 	>
-		<Image src={profileImage} alt="" />
+		<picture>
+			<source
+				type="image/webp"
+				srcset="/profile-1280w-2x.webp"
+				media="(min-width: 1921px)"
+			>
+			<source
+				type="image/webp"
+				srcset="/profile-1280w.webp 1x, /profile-1280w-2x.webp 2x"
+				media="(min-width: 1537px)"
+			>
+			<source
+				type="image/webp"
+				srcset="/profile-1024w.webp 1x, /profile-1024w-2x.webp 2x"
+				media="(min-width: 1280px), ((orientation: portrait) and (min-width: 801px))"
+			>
+			<source
+				type="image/webp"
+				srcset="/profile-800w.webp 1x, /profile-800w-2x.webp 2x"
+				media="(min-width: 1024px), ((orientation: portrait) and (min-width: 560px)"
+			>
+			<source
+				type="image/webp"
+				srcset="/profile-560w.webp 1x, /profile-560w-2x.webp 2x"
+			>
+			<source
+				type="image/png"
+				srcset="/profile-1280w-2x.png"
+				media="(min-width: 1921px)"
+			>
+			<source
+				type="image/png"
+				srcset="/profile-1280w.png 1x, /profile-1280w-2x.png 2x"
+				media="(min-width: 1537px)"
+			>
+			<source
+				type="image/png"
+				srcset="/profile-1024w.png 1x, /profile-1024w-2x.png 2x"
+				media="(min-width: 1280px), ((orientation: portrait) and (min-width: 801px))"
+			>
+			<source
+				type="image/png"
+				srcset="/profile-800w.png 1x, /profile-800w-2x.png 2x"
+				media="(min-width: 1024px), ((orientation: portrait) and (min-width: 560px)"
+			>
+			<source
+				type="image/png"
+				srcset="/profile-560w.png 1x, /profile-560w-2x.png 2x"
+			>
+			<img
+				alt=""
+				loading="lazy"
+				decoding="async"
+				src="/profile-560w.png"
+				srcset="/profile-560w.png 1x, /profile-560w-2x.png 2x"
+				width="560"
+				height="560"
+				class="w-full"
+			>
+		</picture>
 	</div>
 	<section
 		class="

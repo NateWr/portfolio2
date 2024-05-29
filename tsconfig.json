@@ -1,3 +1,4 @@
 {
+  "exclude": ["src/code-snippets"],
   "extends": "astro/tsconfigs/strict"
 }

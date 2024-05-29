@@ -52,7 +52,7 @@ export default {
 		},
 	},
 	plugins: [
-		function ({ addComponents, theme }) {
+		function ({ addComponents }) {
       addComponents({
         '.link': {
 					'font-weight': '700',
