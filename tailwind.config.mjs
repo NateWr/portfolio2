@@ -76,6 +76,10 @@ export default {
 					'white-space': 'nowrap',
 					'font-weight': '600',
 					'text-decoration': 'none',
+					'transition': 'transform 150ms',
+					'&:hover': {
+						'transform': 'scale(1.05)',
+					},
 					'&:focus-visible': {
 						'outline': '2px solid',
 						'outline-offset': '2px',
