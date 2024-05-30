@@ -1,10 +1,8 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import ScrollCarousel from '../components/ScrollCarousel.astro';
 import PortfolioItem from '../components/PortfolioItem.astro';
 import StaggeredTiles from '../components/StaggeredTiles.astro';
-import dogsImage from '../images/dogs.png';
 import dotsImage from '../images/dots.png';
 import dots2Image from '../images/dots-2.png';
 import stories from '../data/stories';
@@ -66,7 +64,7 @@ const nav = [
 			<source
 				type="image/webp"
 				srcset="/profile-800w.webp 1x, /profile-800w-2x.webp 2x"
-				media="(min-width: 1024px), ((orientation: portrait) and (min-width: 560px)"
+				media="(min-width: 1024px), ((orientation: portrait) and (min-width: 560px))"
 			>
 			<source
 				type="image/webp"
@@ -90,7 +88,7 @@ const nav = [
 			<source
 				type="image/png"
 				srcset="/profile-800w.png 1x, /profile-800w-2x.png 2x"
-				media="(min-width: 1024px), ((orientation: portrait) and (min-width: 560px)"
+				media="(min-width: 1024px), ((orientation: portrait) and (min-width: 560px))"
 			>
 			<source
 				type="image/png"
@@ -239,7 +237,66 @@ const nav = [
 			"
 			aria-hidden="true"
 		>
-			<Image src={dogsImage} alt="" />
+			<picture>
+				<source
+					type="image/webp"
+					srcset="/dogs-1260w.webp 1x, /dogs-1260w-2x.webp 2x"
+					media="(min-width: 1921px), ((orientation: portrait) and (min-width: 851px)"
+				>
+				<source
+					type="image/webp"
+					srcset="/dogs-1024w.webp 1x, /dogs-1024w-2x.webp 2x"
+					media="((orientation: portrait) and (min-width: 560px))"
+				>
+				<source
+					type="image/webp"
+					srcset="/dogs-1152w.webp 1x, /dogs-1152w-2x.webp 2x"
+					media="(min-width: 1537px), "
+				>
+				<source
+					type="image/webp"
+					srcset="/dogs-922w.webp 1x, /dogs-922w-2x.webp 2x"
+					media="(min-width: 1025px)"
+				>
+				<source
+					type="image/webp"
+					srcset="/dogs-620w.webp 1x, /dogs-620w-2x.webp 2x"
+				>
+				<source
+					type="image/png"
+					srcset="/dogs-1260w.png 1x, /dogs-1260w-2x.png 2x"
+					media="(min-width: 1921px), ((orientation: portrait) and (min-width: 851px)"
+				>
+				<source
+					type="image/png"
+					srcset="/dogs-1024w.png 1x, /dogs-1024w-2x.png 2x"
+					media="((orientation: portrait) and (min-width: 560px))"
+				>
+				<source
+					type="image/png"
+					srcset="/dogs-1152w.png 1x, /dogs-1152w-2x.png 2x"
+					media="(min-width: 1537px), "
+				>
+				<source
+					type="image/png"
+					srcset="/dogs-922w.png 1x, /dogs-922w-2x.png 2x"
+					media="(min-width: 1025px)"
+				>
+				<source
+					type="image/png"
+					srcset="/dogs-620w.png 1x, /dogs-620w-2x.png 2x"
+				>
+				<img
+					alt=""
+					loading="lazy"
+					decoding="async"
+					src="/dogs-620w.png"
+					srcset="/dogs-620w.png 1x, /dogs-620w-2x.png 2x"
+					width="620"
+					height="620"
+					class="w-full"
+				>
+			</picture>
 			<div
 				class="
 					absolute
