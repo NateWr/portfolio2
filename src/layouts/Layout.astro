@@ -1,8 +1,8 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import ContactLink from '../components/ContactLink.astro';
 import FontWorkSans from '../components/FontWorkSans.astro'
-import dots3Image from '../images/dots-3.png';
+import dotsFooterImage from '../images/dots-footer.png';
 import leftArrowIcon from "../images/left-arrow-icon.svg?raw";
 
 interface Props {
@@ -117,8 +117,7 @@ const { title, description, nav, revealNav = false } = Astro.props;
 			class="
 				relative
 				overflow-hidden
-				pb-[10vw]
-				sm-landscape:pb-[20vw]
+				pb-[25vw]
 			"
 		>
 			<div
@@ -127,16 +126,21 @@ const { title, description, nav, revealNav = false } = Astro.props;
 					bottom-0
 					left-2/4
 					-translate-x-2/4
-					translate-y-2/4
+					translate-y-1/4
 					w-[200%]
 					-z-50
+					sm:w-[150%]
+					md:w-[100%]
+					md:translate-y-0
 				"
 				aria-hidden="true"
 			>
-				<Image
+				<Picture
 					class="w-full"
-					src={dots3Image}
+					src={dotsFooterImage}
 					alt=""
+					widths={[800, 1200, 1600, 1920, 2100]}
+					quality={80}
 				/>
 			</div>
 			<h2 class="sr-only">Contact</h2>
