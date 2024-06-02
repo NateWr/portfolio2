@@ -35,10 +35,10 @@ import publicationJson from '../code-snippets/publication.json?raw';
       </Fragment>
     </Figure>
     <p class="max-w-xl">
-      When I joined the <a href="https://pkp.sfu.ca/">Public Knowledge Project</a>, I struggled to understand how their software was structured. Most of the code had been written by two or three developers, and they relied heavily on a shared understanding of the codebase. A class reference document was available, but there was no documentation which described the overall architecture or the choices they had made when designing the application.
+      When I joined the <a class="link" href="https://pkp.sfu.ca/">Public Knowledge Project</a>, I struggled to understand how their software was structured. Most of the code had been written by two or three developers, and they relied heavily on a shared understanding of the codebase. A class reference document was available, but there was no documentation which described the overall architecture or the choices they had made when designing the application.
     </p>
     <p class="max-w-xl">
-      As our team grew, I was given a little time to write the documentation that I had wished existed when I started. The result was our main <a href="https://docs.pkp.sfu.ca/dev/documentation/en/">developer documentation</a>, a high-level orientation to the application's architecture. It covered the request lifecycle, routing, authentication and authorization, request handlers, and how we expressed domain concepts as entities and read and wrote them to the data store.
+      As our team grew, I was given a little time to write the documentation that I had wished existed when I started. The result was our main <a class="link" href="https://docs.pkp.sfu.ca/dev/documentation/en/">developer documentation</a>, a high-level orientation to the application's architecture. It covered the request lifecycle, routing, authentication and authorization, request handlers, and how we expressed domain concepts as entities and read and wrote them to the data store.
     </p>
     <Figure>
       <Screenshot
@@ -46,7 +46,7 @@ import publicationJson from '../code-snippets/publication.json?raw';
         alt="Screenshot of the request lifecycle diagram"
       />
       <Fragment slot="caption">
-        I made a diagram to help visualise the <a href="https://docs.pkp.sfu.ca/dev/documentation/en/architecture-request">request lifecycle</a>.
+        I made a diagram to help visualise the <a class="link" href="https://docs.pkp.sfu.ca/dev/documentation/en/architecture-request">request lifecycle</a>.
       </Fragment>
     </Figure>
     <p class="max-w-xl">
@@ -61,7 +61,7 @@ import publicationJson from '../code-snippets/publication.json?raw';
       </CodeBlock>
     </div>
     <p class="max-w-xl">
-      This allowed us to automate some of the validation and read/write operations in our data access objects. The upside was that the entity schemas could be reused in OpenAPI/Swagger, a machine-readable format commonly used to describe REST APIs. From there, it was pretty easy to generate <a href="https://docs.pkp.sfu.ca/dev/api/ojs/3.4">API documentation</a> using <code>redoc</code>.
+      This allowed us to automate some of the validation and read/write operations in our data access objects. The upside was that the entity schemas could be reused in OpenAPI/Swagger, a machine-readable format commonly used to describe REST APIs. From there, it was pretty easy to generate <a class="link" href="https://docs.pkp.sfu.ca/dev/api/ojs/3.4">API documentation</a> using <code>redoc</code>.
     </p>
     <Figure>
       <Screenshot
@@ -69,11 +69,11 @@ import publicationJson from '../code-snippets/publication.json?raw';
         alt="Screenshot of the REST API docs"
       />
       <Fragment slot="caption">
-        Human-readable <a href="https://docs.pkp.sfu.ca/dev/api/ojs/3.4">documentation</a> for our REST API, with response payloads that are derived directly from the application's entity schemas.
+        Human-readable <a class="link" href="https://docs.pkp.sfu.ca/dev/api/ojs/3.4">documentation</a> for our REST API, with response payloads that are derived directly from the application's entity schemas.
       </Fragment>
     </Figure>
     <p class="max-w-xl">
-      As our community grew, we had to find better ways to triage issues and review pull requests. I wrote a <a href="https://docs.pkp.sfu.ca/dev/contributors/">contributor's guide</a> which described how to report bugs and propose new features. It also outlined our code style and instructed developers how they should open a pull request.
+      As our community grew, we had to find better ways to triage issues and review pull requests. I wrote a <a class="link" href="https://docs.pkp.sfu.ca/dev/contributors/">contributor's guide</a> which described how to report bugs and propose new features. It also outlined our code style and instructed developers how they should open a pull request.
     </p>
     <Figure>
       <Screenshot
@@ -81,11 +81,11 @@ import publicationJson from '../code-snippets/publication.json?raw';
         alt="Screenshot of PKP's contributor's guide"
       />
       <Fragment slot="caption">
-        Our <a href="https://docs.pkp.sfu.ca/dev/contributors/">contributor's guide</a> helped new members of our community understand how we worked and — hopefully — made them feel more welcome.
+        Our <a class="link" href="https://docs.pkp.sfu.ca/dev/contributors/">contributor's guide</a> helped new members of our community understand how we worked and — hopefully — made them feel more welcome.
       </Fragment>
     </Figure>
     <p class="max-w-xl">
-      The part of the contributor's guide that I am most proud of is the section where we describe <a href="https://docs.pkp.sfu.ca/dev/contributors/#what-to-expect-from-a-code-review">what to expect from a code review</a>. At PKP, we worked hard to maintain a welcoming community. This section of the guide was written to convey how important it was for us to minimize <a href="https://en.wikipedia.org/wiki/Law_of_triviality">bike-shedding</a> and other forms of toxic behaviour common in open source tech communities.
+      The part of the contributor's guide that I am most proud of is the section where we describe <a class="link" href="https://docs.pkp.sfu.ca/dev/contributors/#what-to-expect-from-a-code-review">what to expect from a code review</a>. At PKP, we worked hard to maintain a welcoming community. This section of the guide was written to convey how important it was for us to minimize <a class="link" href="https://en.wikipedia.org/wiki/Law_of_triviality">bike-shedding</a> and other forms of toxic behaviour common in open source tech communities.
     </p>
     <Figure>
       <Screenshot
