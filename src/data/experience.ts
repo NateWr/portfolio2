@@ -47,7 +47,7 @@ const experience: CodeTile[] = [
 		commit: '325461 Jun 5 2023',
 		title: 'Documentation',
 		description: `I handled developer relations for an open source project, writing documentation, a contributor's guide, and a newsletter.`,
-		url: '/devrel',
+		url: '/documentation',
 	},
 ]
 
