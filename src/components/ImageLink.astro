@@ -6,15 +6,20 @@ interface Props {
 }
 
 const { href, classes = '' } = Astro.props;
+
+let temp = ''
+if (href) {
+  temp = ''
+}
 ---
 
-<a
+<div
   class:list={[
     'link',
-    classes
+    classes,
+    temp
   ]}
-  href={href}
   data-image
 >
   <slot />
-</a>
+  </div>
