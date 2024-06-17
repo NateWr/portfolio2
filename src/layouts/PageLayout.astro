@@ -1,7 +1,7 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import Layout from './Layout.astro';
-import dotsImage from '../images/dots.png';
+import dotsImage from '../images/dots-footer.png';
 
 interface Props {
 	title: string;
@@ -36,7 +36,7 @@ const nav = [
       left-1/2
       w-full
       overflow-hidden
-      h-16-vw
+      h-full
       -z-10
       -translate-x-1/2
     "
@@ -46,13 +46,23 @@ const nav = [
     <div
       class="
         absolute
-        -bottom-8-vw
+        -top-16-vw
         left-1/2
-        w-[200vw]
         -translate-x-1/2
+        rotate-180
+        w-[200%]
+        sm:w-[150%]
+        md:w-[100%]
+        md:-top-8-vw
       "
     >
-      <Image class="w-full" src={dotsImage} alt="" />
+      <Picture
+        class="w-full"
+        src={dotsImage}
+        alt=""
+        widths={[800, 1200, 1600, 1920, 2100]}
+        quality={80}
+      />
     </div>
   </div>
   <article
