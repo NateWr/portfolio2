@@ -1,5 +1,5 @@
 ---
-import { Image, Picture } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import ContactLink from '../components/ContactLink.astro';
 import FontWorkSans from '../components/FontWorkSans.astro'
 import dotsFooterImage from '../images/dots-footer.png';
@@ -33,6 +33,22 @@ const { title, description, nav, revealNav = false } = Astro.props;
 		<meta property="twitter:image" content="https://notthisway.com/opengraph.png">
 		<meta property="twitter:card" content="summary_large_image">
 		<FontWorkSans />
+		<!-- Matomo -->
+		<script>
+			// @ts-nocheck
+			var _paq = window._paq = window._paq || [];
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+			var u="https://matomo.notthisway.com/";
+			_paq.push(['setTrackerUrl', u+'matomo.php']);
+			_paq.push(['setSiteId', '1']);
+			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+			g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<!-- End Matomo Code -->
 	</head>
 	<body>
 		<slot name="header-image" />
