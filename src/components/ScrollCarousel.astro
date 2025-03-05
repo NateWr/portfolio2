@@ -30,6 +30,8 @@ const { id, title, background, classes } = Astro.props;
       top-0
       h-[100vh]
       overflow-hidden
+      xl:h-[100vw]
+      xl-landscape:h-[100vh]
     "
   >
     <div
@@ -42,7 +44,7 @@ const { id, title, background, classes } = Astro.props;
         class="
           absolute
           left-1/2
-          top-1/2
+          top-2/3
           -translate-x-1/2
           -z-10
           h-[60vh]
@@ -80,14 +82,16 @@ const { id, title, background, classes } = Astro.props;
           sm-landscape:text-base
           sm-landscape:pt-12
           sm-landscape:pb-0
-          lg:py-24
-          lg:max-w-sm
-          lg:text-xl
+          lg:py-64
+          lg:text-lg-vw
           lg:leading-normal
-          2xl:py-32
+          lg-landscape:py-24
+          lg-landscape:text-xl
+          lg-landscape:max-w-sm
           2xl:max-w-lg
           2xl:text-3xl
           2xl:leading-normal
+          3xl:py-32
         "
         data-start
       >

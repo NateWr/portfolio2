@@ -17,6 +17,7 @@ export default {
 			'lg': defaultTheme.screens.lg,
 			'lg-landscape': {'raw': '(orientation: landscape) and (min-width: 1024px)'},
 			'xl': defaultTheme.screens.xl,
+			'xl-landscape': {'raw': '(orientation: landscape) and (min-width: 1280px)'},
 			'2xl': defaultTheme.screens['2xl'],
 			'3xl': '1920px',
 		},
