@@ -6,10 +6,9 @@ interface Props {
   image: ImageMetadata;
   alt?: string;
   color?: string;
-  fixedHeight?: boolean
 }
 
-const { image, alt = '', color = '', fixedHeight = false } = Astro.props;
+const { image, alt = '', color = '' } = Astro.props;
 ---
 
 <div
@@ -55,14 +54,6 @@ const { image, alt = '', color = '', fixedHeight = false } = Astro.props;
         w-auto
         m-px
         rounded-b-[10px]
-        ${fixedHeight
-          ? `
-            h-[25vh]
-            xs:h-[30vh]
-            lg:h-[40vh]
-          `
-          : ''
-        }
       `}
       style={`
         background-color: var(--color);

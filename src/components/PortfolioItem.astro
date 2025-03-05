@@ -43,7 +43,6 @@ const { title, client, date, url, image, color, alt = '' } = Astro.props;
     <Screenshot
       image={image}
       alt={alt}
-      fixedHeight={true}
     />
     <div
       class="
@@ -119,6 +118,38 @@ const { title, client, date, url, image, color, alt = '' } = Astro.props;
       transition: all 0.5s;
       filter: blur(10px);
       transform: scale(0.9);
+    }
+  }
+
+  @media (orientation: landscape) {
+
+    .portfolio-item-blur :global(picture img) {
+      height: 25vh;
+    }
+
+    @media (min-width: 640px) {
+      .portfolio-item-blur :global(picture img) {
+        height: 30vh;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .portfolio-item-blur :global(picture img) {
+        height: 40vh;
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+
+    .portfolio-item-blur :global(picture img) {
+      height: 50vw;
+    }
+
+    @media (min-width: 1536px) {
+      .portfolio-item-blur :global(picture img) {
+        height: 40vw;
+      }
     }
   }
 
