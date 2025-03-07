@@ -1,0 +1,96 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import Screenshot from "../components/Screenshot.astro"
+import linkIcon from "../images/link-icon.svg?raw"
+import ImageLink from "../components/ImageLink.astro"
+import intentImage from '../images/intent.png'
+import intentMobileImage from '../images/intent-mobile.png'
+import intentMobileFiltersImage from '../images/intent-mobile-filters.png'
+import intentMobile2Image from '../images/intent-mobile-2.png'
+import intentDatabaseImage from '../images/intent-database.png'
+import ScreenshotCaption from "../components/ScreenshotCaption.astro"
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro"
+
+const url = 'https://intent.law4palestine.org/'
+
+---
+
+<PageLayout
+  title="Intent"
+  description="I built an easy-to-use website to access Law for Palestine's database of Israeli statements of intent to commit genocide."
+  color="#b81e42"
+>
+  <Fragment slot="links">
+    <a class="button" href={url}>
+      View Database
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={intentImage.src}
+      >
+        <Screenshot
+          image={intentImage}
+          alt="Screenshot of Law for Palestine's Intent database"
+        />
+      </ImageLink>
+    </div>
+    <ScreenshotCaption>
+      Statements can be filtered by theme and sector, and searched by a key phrase or a person's name.
+    </ScreenshotCaption>
+    <ImageLink
+      href={intentMobileImage.src}
+    >
+      <Screenshot
+        image={intentMobileImage}
+        alt="Screenshot of the mobile view"
+      />
+    </ImageLink>
+    <ImageLink
+      href={intentMobileFiltersImage.src}
+    >
+      <Screenshot
+        image={intentMobileFiltersImage}
+        alt="Screenshot of the filters in a mobile view"
+      />
+    </ImageLink>
+    <ImageLink
+      href={intentMobile2Image.src}
+    >
+      <Screenshot
+        image={intentMobile2Image}
+        alt="Screenshot of the mobile view after filters are applied"
+      />
+    </ImageLink>
+    <div class="col-span-3">
+      <ImageLink
+        href={intentDatabaseImage.src}
+      >
+        <Screenshot
+          image={intentDatabaseImage}
+          alt="Screenshot of the Google Sheet powering the site"
+        />
+      </ImageLink>
+    </div>
+    <div class="self-end">
+      <ScreenshotCaption>
+        The site is generated automatically from a Google Sheet, so that Law for Palestine's researchers can easily update the dataset.
+      </ScreenshotCaption>
+    </div>
+    <div
+      class="
+        col-span-4
+        flex
+        justify-center
+        xl:text-xl
+      "
+    >
+      <a class="button" href={url}>
+        View Project
+        <Fragment set:html={linkIcon} />
+      </a>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>
