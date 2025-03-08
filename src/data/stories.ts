@@ -1,10 +1,20 @@
 import type { PortfolioItem } from "../scripts/portfolio-item"
+import roadToGenocideImage from '../images/road-to-genocide.png'
 import killerAiImage from '../images/killerai.png';
 import weHadDreamsImage from '../images/wehaddreams.png';
 import antiboycottImage from '../images/antiboycott.png';
 import faGazaImage from '../images/fa-gaza.png';
 
 const stories : PortfolioItem[] = [
+  {
+    title: "Road to Genocide",
+    client: "Visualizing Palestine",
+    date: "December 2024",
+    url: "/riad-to-genocide",
+    image: roadToGenocideImage,
+    color: "#040007",
+    alt: "Graphic of the word Intent over a city landscape and a description of the crime of genocide",
+  },
   {
     title: "Stop Killer AI",
     client: "Visualizing Palestine",

@@ -1,0 +1,119 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import Screenshot from "../components/Screenshot.astro"
+import linkIcon from "../images/link-icon.svg?raw"
+import ImageLink from "../components/ImageLink.astro"
+import roadToGenocideImage from '../images/road-to-genocide.png'
+import roadToGenocideArrowsImage from '../images/road-to-genocide-arrows.png'
+import roadToGenocideBurialImage from '../images/road-to-genocide-burial.png'
+import roadToGenocideMobileFlourMassacreImage from '../images/road-to-genocide-mobile-flour-massacre.png'
+import roadToGenocideMobileFamiliesImage from '../images/road-to-genocide-mobile-families.png'
+import roadToGenocideMobileSolutionImage from '../images/road-to-genocide-mobile-solution.png'
+import roadToGenocideFleeImage from '../images/road-to-genocide-flee.png'
+import ScreenshotCaption from "../components/ScreenshotCaption.astro"
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro"
+
+const url = 'https://roadtogenocide.law4palestine.org/'
+
+---
+
+<PageLayout
+  title="Road to Genocide"
+  description="I worked with Visualizing Palestine to design and build an interactive story about Israeli incitement to genocide in Gaza."
+  color="#040007"
+>
+  <Fragment slot="links">
+    <a class="button" href={url}>
+      View Story
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={roadToGenocideImage.src}
+      >
+        <Screenshot
+          image={roadToGenocideImage}
+          alt="Graphic of the word Intent over a city landscape and a description of the crime of genocide"
+        />
+      </ImageLink>
+    </div>
+    <ScreenshotCaption>
+      As the reader scrolls, statements from Israeli leaders and public figures appear in the skies over a ruined landscape.
+    </ScreenshotCaption>
+    <div class="col-span-3">
+      <ImageLink
+        href={roadToGenocideArrowsImage.src}
+      >
+        <Screenshot
+          image={roadToGenocideArrowsImage}
+          alt="Illustration of a landscape of rubble with a statement saying 'there are no innocent people there'"
+        />
+      </ImageLink>
+    </div>
+    <div class="col-span-3">
+      <ImageLink
+        href={roadToGenocideBurialImage.src}
+      >
+        <Screenshot
+          image={roadToGenocideBurialImage}
+          alt="Illustration of a soldier in the foreground aiming at a family burying their loved one"
+        />
+      </ImageLink>
+    </div>
+    <ScreenshotCaption>
+      We worked with an amazing illustrator, <a class="link" href="https://www.instagram.com/lavenndulla/">Hadeel Saalok</a>, to connect Israeli incitement to specific, documented acts of genocide.
+    </ScreenshotCaption>
+    <ScreenshotCaption>
+      The scenes had to be laid out carefully to ensure each passage would fit on the screen when reading on a phone.
+    </ScreenshotCaption>
+    <ImageLink
+      href={roadToGenocideMobileFamiliesImage.src}
+    >
+      <Screenshot
+        image={roadToGenocideMobileFamiliesImage}
+        alt="Illustration of a family portrait under a description of the bombing of the Al-Herbawi family home"
+      />
+    </ImageLink>
+    <ImageLink
+      href={roadToGenocideMobileFlourMassacreImage.src}
+    >
+      <Screenshot
+        image={roadToGenocideMobileFlourMassacreImage}
+        alt="Illustration of a soldier aiming a rifle at people getting flour out of a truck, under a description of the Feb. 29, 2024 flour massacre"
+      />
+    </ImageLink>
+    <ImageLink
+      href={roadToGenocideMobileSolutionImage.src}
+    >
+      <Screenshot
+        image={roadToGenocideMobileSolutionImage}
+        alt="Illustration of Palestinians being forcibly displaced under a quote from an Israeli that says 'all 2 million must leave'"
+      />
+    </ImageLink>
+    <div class="col-span-4">
+      <ImageLink
+        href={roadToGenocideFleeImage.src}
+      >
+        <Screenshot
+          image={roadToGenocideFleeImage}
+          alt="Illustration of a family fleeing in front of tents and ruined buildings"
+        />
+      </ImageLink>
+    </div>
+    <div
+      class="
+        col-span-4
+        flex
+        justify-center
+        xl:text-xl
+      "
+    >
+      <a class="button" href={url}>
+        View Project
+        <Fragment set:html={linkIcon} />
+      </a>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>
