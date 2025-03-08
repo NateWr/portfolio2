@@ -10,7 +10,7 @@ const stories : PortfolioItem[] = [
     title: "Road to Genocide",
     client: "Visualizing Palestine",
     date: "December 2024",
-    url: "/riad-to-genocide",
+    url: "/road-to-genocide",
     image: roadToGenocideImage,
     color: "#040007",
     alt: "Graphic of the word Intent over a city landscape and a description of the crime of genocide",
