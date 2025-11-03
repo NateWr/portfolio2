@@ -1,10 +1,20 @@
 import type { PortfolioItem } from "../scripts/portfolio-item"
+import bdsImage from '../images/bds.png'
 import uiLibraryImage from '../images/ui-library-submission-wide.png';
 import intentImage from '../images/intent.png';
 import councillorsImage from '../images/find-your-councillors.png';
 import lawfareImage from '../images/lawfare-google-sheet.png';
 
 const stories : PortfolioItem[] = [
+  {
+    title: "Growth of a Movement",
+    client: "Visualizing Palestine",
+    date: "Oct 2025",
+    url: "/bds",
+    image: bdsImage,
+    color: "#000",
+    alt: "Illustration of hands in the air waving a Palestinian flag over the words Growth of a Movement and a chart showing a timeline of events",
+  },
   {
     title: "Scholarly Publishing Software",
     client: "Public Knowledge Project",
@@ -26,7 +36,7 @@ const stories : PortfolioItem[] = [
   {
     title: "Find Your City Councillor",
     client: "Side Project",
-    date: "June 2023",
+    date: "Jun 2023",
     url: "/find-your-representatives",
     image: councillorsImage,
     color: "#B50A00",

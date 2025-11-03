@@ -1,5 +1,6 @@
 import type { PortfolioItem } from "../scripts/portfolio-item"
 import roadToGenocideImage from '../images/road-to-genocide.png'
+import bdsImage from '../images/bds.png'
 import killerAiImage from '../images/killerai.png';
 import weHadDreamsImage from '../images/wehaddreams.png';
 import antiboycottImage from '../images/antiboycott.png';
@@ -7,9 +8,18 @@ import faGazaImage from '../images/fa-gaza.png';
 
 const stories : PortfolioItem[] = [
   {
+    title: "Growth of a Movement",
+    client: "Visualizing Palestine",
+    date: "Oct 2025",
+    url: "/bds",
+    image: bdsImage,
+    color: "#000",
+    alt: "Illustration of hands in the air waving a Palestinian flag over the words Growth of a Movement and a chart showing a timeline of events",
+  },
+  {
     title: "Road to Genocide",
     client: "Visualizing Palestine",
-    date: "December 2024",
+    date: "Dec 2024",
     url: "/road-to-genocide",
     image: roadToGenocideImage,
     color: "#040007",

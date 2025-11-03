@@ -1,0 +1,109 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import Screenshot from "../components/Screenshot.astro"
+import linkIcon from "../images/link-icon.svg?raw"
+import ImageLink from "../components/ImageLink.astro"
+import bdsHomepageImage from '../images/bds-homepage.png'
+import bdsStudentStoryImage from '../images/bds-student-story.png'
+import bdsDataImage from '../images/bds-data.png'
+import bdsHomeMobileImage from '../images/bds-home-mobile.png'
+import bdsStoryMobileImage from '../images/bds-story-mobile.png'
+import bdsDataMobileImage from '../images/bds-data-mobile.png'
+import ScreenshotCaption from "../components/ScreenshotCaption.astro"
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro"
+
+const url = 'https://bds.visualizingpalestine.org'
+
+---
+
+<PageLayout
+  title="Growth of a Movement"
+  description="I worked with Visualizing Palestine to redesign their BDS database, celebrating 20 years of action for Palestinian freedom, justice, and equality."
+  color="#000"
+>
+  <Fragment slot="links">
+    <a class="button" href={url}>
+      View Site
+      <Fragment set:html={linkIcon} />
+    </a>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={bdsHomepageImage.src}
+      >
+        <Screenshot
+          image={bdsHomepageImage}
+          alt="Illustration of hands in the air waving a Palestinian flag over the words Growth of a Movement and a chart showing a timeline of events"
+        />
+      </ImageLink>
+    </div>
+    <ScreenshotCaption>
+      Visualizing Palestine's artists provided striking illustrations and a design style that emphasized the diverse, collective, grassroots movement. I used these to build an interactive story mode, which highlights key moments of campaigns and movement successes.
+    </ScreenshotCaption>
+    <div class="col-span-3">
+      <ImageLink
+        href={bdsStudentStoryImage.src}
+      >
+        <Screenshot
+          image={bdsStudentStoryImage}
+          alt="Screenshot of a chart highlighting events in the student movement with the details of one event shown"
+        />
+      </ImageLink>
+    </div>
+    <div class="col-span-3">
+      <ImageLink
+        href={bdsDataImage.src}
+      >
+        <Screenshot
+          image={bdsDataImage}
+          alt="Screenshot of a list of events with options to search and filter events"
+        />
+      </ImageLink>
+    </div>
+    <ScreenshotCaption>
+      For researchers, journalists and activists, I built an interface to search, filter and analyse the full dataset.
+    </ScreenshotCaption>
+    <ScreenshotCaption>
+      The site works on any device and extra emphasis was put on making the stories section engaging for general readers.
+    </ScreenshotCaption>
+    <ImageLink
+      href={bdsHomeMobileImage.src}
+    >
+      <Screenshot
+        image={bdsHomeMobileImage}
+        alt="Screenshot of the homepage on a mobile phone"
+      />
+    </ImageLink>
+    <ImageLink
+      href={bdsStoryMobileImage.src}
+    >
+      <Screenshot
+        image={bdsStoryMobileImage}
+        alt="Screenshot of the story page on a mobile phone"
+      />
+    </ImageLink>
+    <ImageLink
+      href={bdsDataMobileImage.src}
+    >
+      <Screenshot
+        image={bdsDataMobileImage}
+        alt="Screenshot of the events list on a mobile phone, with a button to open a panel to search and filter events"
+      />
+    </ImageLink>
+    <div
+      class="
+        col-span-4
+        flex
+        justify-center
+        mt-4
+        xl:text-xl
+      "
+    >
+      <a class="button" href={url}>
+        View Site
+        <Fragment set:html={linkIcon} />
+      </a>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>
