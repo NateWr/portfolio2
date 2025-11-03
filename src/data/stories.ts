@@ -1,6 +1,7 @@
 import type { PortfolioItem } from "../scripts/portfolio-item"
 import roadToGenocideImage from '../images/road-to-genocide.png'
 import bdsImage from '../images/bds.png'
+import datasenseImage from '../images/datasense.png'
 import killerAiImage from '../images/killerai.png';
 import weHadDreamsImage from '../images/wehaddreams.png';
 import antiboycottImage from '../images/antiboycott.png';
@@ -15,6 +16,15 @@ const stories : PortfolioItem[] = [
     image: bdsImage,
     color: "#000",
     alt: "Illustration of hands in the air waving a Palestinian flag over the words Growth of a Movement and a chart showing a timeline of events",
+  },
+  {
+    title: "Navigating The Digital Safety Net",
+    client: "University of Edinburgh / DataSense",
+    date: "Aug 2025",
+    url: "/datasense",
+    image: datasenseImage,
+    color: "#222d65",
+    alt: "A line drawing of a rural Bangladeshi woman alongside the story title",
   },
   {
     title: "Road to Genocide",

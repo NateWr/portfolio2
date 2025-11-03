@@ -1,19 +1,21 @@
 <figure class="max-w-full">
   <slot />
-  <figcaption
-    class="
-      mt-2
-      max-w-md
-      text-sm-vw
-      leading-tight
-      sm-landscape:text-sm
-      sm-landscape:leading-normal
-      md:text-base
-      md:leading-normal
-      xl:text-lg
-      lg:leading-normal
-    "
-  >
-    <slot name="caption" />
-  </figcaption>
+  {Astro.slots.has('caption') && (
+    <figcaption
+      class="
+        mt-2
+        max-w-md
+        text-sm-vw
+        leading-tight
+        sm-landscape:text-sm
+        sm-landscape:leading-normal
+        md:text-base
+        md:leading-normal
+        xl:text-lg
+        lg:leading-normal
+      "
+    >
+      <slot name="caption" />
+    </figcaption>
+  )}
 </figure>
