@@ -1,5 +1,5 @@
 import type { PortfolioItem } from "../scripts/portfolio-item"
-import bdsImage from '../images/bds.png'
+import bdsImage from '../images/bds-data.png'
 import uiLibraryImage from '../images/ui-library-submission-wide.png';
 import intentImage from '../images/intent.png';
 import councillorsImage from '../images/find-your-councillors.png';
@@ -13,7 +13,7 @@ const stories : PortfolioItem[] = [
     url: "/bds",
     image: bdsImage,
     color: "#000",
-    alt: "Illustration of hands in the air waving a Palestinian flag over the words Growth of a Movement and a chart showing a timeline of events",
+    alt: "Screenshot of a timeline of events with options to search, filter and scroll through them",
   },
   {
     title: "Scholarly Publishing Software",

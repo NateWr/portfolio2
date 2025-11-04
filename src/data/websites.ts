@@ -1,10 +1,20 @@
 import type { PortfolioItem } from "../scripts/portfolio-item"
+import individualizeImage from '../images/slub-urbanology.png';
 import journalFiImage from '../images/journalfi-homepage.png';
 import lawfareImage from '../images/lawfare.png';
 import wpImage from '../images/wp-augustan.png';
 import docsHubImage from '../images/docs-hub-wide.png';
 
 const websites : PortfolioItem[] = [
+  {
+    title: "Individualize OJS Theme",
+    client: "Publia by SLUB Dresden",
+    date: "Coming Soon",
+    url: "/individualize-ojs-theme",
+    image: individualizeImage,
+    color: "#1E102B",
+    alt: "Screenshot of a sample journal showing a city at night shot from above",
+  },
   {
     title: "Journal.fi and Edition.fi",
     client: "Finnish Learned Societies",

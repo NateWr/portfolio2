@@ -1,0 +1,145 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Screenshot from "../components/Screenshot.astro";
+import ImageLink from "../components/ImageLink.astro";
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
+import ScreenshotCaption from "../components/ScreenshotCaption.astro";
+import slubAilingImage from "../images/slub-ailing.png";
+import slubArcticEcologyImage from "../images/slub-arctic-ecology.png";
+import slubArrayImage from "../images/slub-array.png";
+import slubCdatpImage from "../images/slub-cdatp.png";
+import slubMicrobiologyImage from "../images/slub-microbiology.png";
+import slubMusicImage from "../images/slub-music.png";
+import slubSustainabilityImage from "../images/slub-sustainability.png";
+import slubUrbanologyImage from "../images/slub-urbanology.png";
+import CaptionedScreenshot from "../components/CaptionedScreenshot.astro";
+---
+
+<PageLayout
+  title="Individualize OJS Theme"
+  description="I was hired by SLUB Dresden to design and build a theme that could adapt to dozens of diverse scholarly journals."
+  color="#002C40"
+>
+  <Fragment slot="links">
+    <div
+      class="font-extrabold
+        text-sm-vw
+        uppercase
+        tracking-widest
+        sm-landscape:text-xl
+        xl:text-xl"
+    >
+      Coming Soon
+    </div>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div
+      class="col-span-4
+        flex
+        flex-col
+        gap-16-vw
+        sm-landscape:gap-32
+        xl:gap-32"
+    >
+      <div class="flex
+          flex-col
+          gap-2">
+        <ImageLink href={slubUrbanologyImage.src}>
+          <Screenshot
+            image={slubUrbanologyImage}
+            alt="Screenshot of a sample journal of urban studies"
+            color="#1E102B"
+          />
+        </ImageLink>
+        <div class="max-w-lg">
+          <ScreenshotCaption>
+            This theme was built for SLUB Dresden's open publishing service,
+            Publia, which uses the open-source scholarly publishing platform <a
+              class="link"
+              href="/scholarly-publishing">Open Journal Systems</a
+            > to publish more than a dozen journals in multiple languages.
+          </ScreenshotCaption>
+        </div>
+      </div>
+      <ScreenshotsBlock class:list={'grid-flow'}>
+        <div class="col-span-2">
+          <ImageLink href={slubArrayImage.src}>
+            <Screenshot
+              image={slubArrayImage}
+              alt="Screenshot of a sample black and white music journal"
+              color="#000"
+            />
+          </ImageLink>
+        </div>
+        <div class="self-end">
+          We devised a manageable set of configuration options for the site's
+          colors, typography, and headers that could accomodate distinct
+          disciplines and visual identities.
+        </div>
+        <div></div>
+        <div class="col-span-2">
+          <ImageLink href={slubMusicImage.src}>
+            <Screenshot
+              image={slubMusicImage}
+              alt="Screenshot of a sample bright musicology journal"
+              color="#E3000B"
+            />
+          </ImageLink>
+        </div>
+        <div class="col-span-2">
+          <ImageLink href={slubSustainabilityImage.src}>
+            <Screenshot
+              image={slubSustainabilityImage}
+              alt="Screenshot of a sample ecological journal showing a mountain vista with wind turbines"
+              color="#FFF7E4"
+            />
+          </ImageLink>
+        </div>
+        <div class="col-span-2">
+          <ImageLink href={slubMicrobiologyImage.src}>
+            <Screenshot
+              image={slubMicrobiologyImage}
+              alt="Screenshot of a sample microbiology journal"
+              color="#462100"
+            />
+          </ImageLink>
+        </div>
+        <div class="col-span-2">
+          <ImageLink href={slubAilingImage.src}>
+            <Screenshot
+              image={slubAilingImage}
+              alt="Screenshot of a sample journal on AI Linguistics"
+              color="#CD0061"
+            />
+          </ImageLink>
+        </div>
+      </ScreenshotsBlock>
+      <CaptionedScreenshot dir="reverse">
+        <ImageLink href={slubArcticEcologyImage.src}>
+          <Screenshot
+            image={slubArcticEcologyImage}
+            alt="Screenshot of a sample ecological journal"
+            color="#003946"
+          />
+        </ImageLink>
+        <ScreenshotCaption slot="caption">
+          I wanted the theme to encourage journals to use good design and beautiful
+          photography, so I mocked up several sample journals to showcase the theme options.
+        </ScreenshotCaption>
+      </CaptionedScreenshot>
+      <CaptionedScreenshot>
+        <ImageLink href={slubCdatpImage.src}>
+          <Screenshot
+            image={slubCdatpImage}
+            alt="Screenshot of the the article page for the CDATP journal"
+            color="#00305E"
+          />
+        </ImageLink>
+        <ScreenshotCaption slot="caption">
+          The theme also needed to look good when journals preferred a clear, accessible
+          design with few or no images.
+        </ScreenshotCaption>
+      </CaptionedScreenshot>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>
