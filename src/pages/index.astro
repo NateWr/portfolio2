@@ -32,80 +32,24 @@ const nav = [
 	nav={nav}
 	revealNav={true}
 >
-	<div
+	<canvas
 		class="
 			absolute
 			top-0
 			left-0
 			w-full
+			h-[100vw]
 			-z-10
 			sm-landscape:w-1/2
+			sm-landscape:h-[50vw]
 			xl:w-2/3
+			xl:h-[67.6777vw]
 		"
 		slot="header-image"
 		aria-hidden="true"
+		id="webgl-profile"
 	>
-		<picture>
-			<source
-				type="image/webp"
-				srcset="/profile-1280w-2x.webp"
-				media="(min-width: 1921px)"
-			>
-			<source
-				type="image/webp"
-				srcset="/profile-1280w.webp 1x, /profile-1280w-2x.webp 2x"
-				media="(min-width: 1537px)"
-			>
-			<source
-				type="image/webp"
-				srcset="/profile-1024w.webp 1x, /profile-1024w-2x.webp 2x"
-				media="(min-width: 1280px), ((orientation: portrait) and (min-width: 801px))"
-			>
-			<source
-				type="image/webp"
-				srcset="/profile-800w.webp 1x, /profile-800w-2x.webp 2x"
-				media="(min-width: 1024px), ((orientation: portrait) and (min-width: 560px))"
-			>
-			<source
-				type="image/webp"
-				srcset="/profile-560w.webp 1x, /profile-560w-2x.webp 2x"
-			>
-			<source
-				type="image/png"
-				srcset="/profile-1280w-2x.png"
-				media="(min-width: 1921px)"
-			>
-			<source
-				type="image/png"
-				srcset="/profile-1280w.png 1x, /profile-1280w-2x.png 2x"
-				media="(min-width: 1537px)"
-			>
-			<source
-				type="image/png"
-				srcset="/profile-1024w.png 1x, /profile-1024w-2x.png 2x"
-				media="(min-width: 1280px), ((orientation: portrait) and (min-width: 801px))"
-			>
-			<source
-				type="image/png"
-				srcset="/profile-800w.png 1x, /profile-800w-2x.png 2x"
-				media="(min-width: 1024px), ((orientation: portrait) and (min-width: 560px))"
-			>
-			<source
-				type="image/png"
-				srcset="/profile-560w.png 1x, /profile-560w-2x.png 2x"
-			>
-			<img
-				alt=""
-				loading="lazy"
-				decoding="async"
-				src="/profile-560w.png"
-				srcset="/profile-560w.png 1x, /profile-560w-2x.png 2x"
-				width="560"
-				height="560"
-				class="w-full"
-			>
-		</picture>
-	</div>
+	</canvas>
 	<section
 		class="
 			mx-6-vw
