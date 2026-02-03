@@ -1,7 +1,9 @@
 import * as THREE from 'three'
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
-import { GammaCorrectionShader, HalftonePass, RenderPass } from 'three/examples/jsm/Addons.js';
+import {
+  RenderPass
+} from 'three/examples/jsm/Addons.js';
+import { HalftonePass } from '../shaders/HalftonePass';
 
 export default () => {
   const canvas = document.querySelector('canvas#webgl-profile')
@@ -63,8 +65,8 @@ export default () => {
   composer.addPass(new RenderPass(scene, camera))
 
   const params = {
-    shape: 1,
-    radius: 7.0,
+    shape: 5,
+    radius: 8.0,
     rotateR: Math.PI / 12 * -1,
     rotateB: Math.PI / 12 * -1,
     rotateG: Math.PI / 12 * -1,
@@ -76,9 +78,6 @@ export default () => {
   }
   const halftonePass = new HalftonePass(params)
   composer.addPass(halftonePass)
-
-  // const gammaCorrection = new ShaderPass(GammaCorrectionShader)
-  // composer.addPass(gammaCorrection)
 
   const tick = () => {
     renderer.render(scene, camera)
