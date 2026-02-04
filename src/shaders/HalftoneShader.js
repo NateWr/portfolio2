@@ -49,6 +49,7 @@ const HalftoneShader = {
 
 		#define SQRT2_MINUS_ONE 0.41421356
 		#define SQRT2_HALF_MINUS_ONE 0.20710678
+		#define PI 3.14159265
 		#define PI2 6.28318531
 		#define SHAPE_DOT 1
 		#define SHAPE_ELLIPSE 2
@@ -132,7 +133,7 @@ const HalftoneShader = {
 
 			} else if ( shape == SHAPE_DIAMOND ) {
 
-        float angle45 = 3.14159265 / 4.0;
+				float angle45 = PI / 4.0;
 				float theta = atan( p.y - coord.y, p.x - coord.x ) - angle - angle45;
 				float sin_t = abs( sin( theta ) );
 				float cos_t = abs( cos( theta ) );
