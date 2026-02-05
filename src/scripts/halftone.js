@@ -28,14 +28,24 @@ export default () => {
   camera.position.z = 100
 
 
-  const profileDiffuseMap = new THREE.TextureLoader().load('/profile.png')
+  const profileDiffuseMap = new THREE.TextureLoader().load('/profile-unmasked.png')
   profileDiffuseMap.colorSpace = THREE.LinearSRGBColorSpace
 
   const profile = new THREE.Mesh(
     new THREE.PlaneGeometry(size * 2, size * 2),
-    new THREE.MeshBasicMaterial({ map: profileDiffuseMap, transparent: true })
+    new THREE.MeshBasicMaterial({ map: profileDiffuseMap })
   )
   scene.add(profile)
+
+  const maskDiffuseMap = new THREE.TextureLoader().load('/mask.png')
+  maskDiffuseMap.colorSpace = THREE.LinearSRGBColorSpace
+
+  const mask = new THREE.Mesh(
+    new THREE.PlaneGeometry(size * 2, size * 2),
+    new THREE.MeshBasicMaterial({ map: maskDiffuseMap, transparent: true })
+  )
+  mask.position.z = 1
+  scene.add(mask)
 
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
@@ -48,8 +58,8 @@ export default () => {
   composer.addPass(new RenderPass(scene, camera))
 
   const getRadius = () => {
-    const minRadius = 12.0
-    const maxRadius = 20.0
+    const minRadius = 10.0
+    const maxRadius = 12.0
     const posInRange = mapNumToRange(sizes.width, 360, 1200)
     return minRadius + ((maxRadius - minRadius) * posInRange)
   }
