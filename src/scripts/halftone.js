@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/examples/jsm/Addons.js';
+import { RenderPass, TexturePass } from 'three/examples/jsm/Addons.js';
 import { HalftonePass } from '../shaders/HalftonePass';
 
 export default () => {
@@ -37,16 +37,6 @@ export default () => {
   )
   scene.add(profile)
 
-  const maskDiffuseMap = new THREE.TextureLoader().load('/mask.png')
-  maskDiffuseMap.colorSpace = THREE.LinearSRGBColorSpace
-
-  const mask = new THREE.Mesh(
-    new THREE.PlaneGeometry(size * 2, size * 2),
-    new THREE.MeshBasicMaterial({ map: maskDiffuseMap, transparent: true })
-  )
-  mask.position.z = 1
-  scene.add(mask)
-
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
   })
@@ -56,6 +46,12 @@ export default () => {
 
   const composer = new EffectComposer(renderer)
   composer.addPass(new RenderPass(scene, camera))
+
+  const maskTexture = new THREE.TextureLoader().load('mask.png')
+  maskTexture.colorSpace = THREE.LinearSRGBColorSpace
+  maskTexture.premultiplyAlpha = true
+  const maskPass = new TexturePass(maskTexture, 0.9999)
+  composer.addPass(maskPass)
 
   const getRadius = () => {
     const minRadius = 10.0
