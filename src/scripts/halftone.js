@@ -1,3 +1,4 @@
+import { debounce } from 'throttle-debounce'
 import * as THREE from 'three'
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass, TexturePass } from 'three/examples/jsm/Addons.js';
@@ -28,7 +29,7 @@ export default () => {
   camera.position.z = 100
 
 
-  const profileDiffuseMap = new THREE.TextureLoader().load('/profile-unmasked.png')
+  const profileDiffuseMap = new THREE.TextureLoader().load('/profile.png')
   profileDiffuseMap.colorSpace = THREE.LinearSRGBColorSpace
 
   const profile = new THREE.Mesh(
@@ -47,9 +48,16 @@ export default () => {
   const composer = new EffectComposer(renderer)
   composer.addPass(new RenderPass(scene, camera))
 
-  const maskTexture = new THREE.TextureLoader().load('mask.png')
-  maskTexture.colorSpace = THREE.LinearSRGBColorSpace
-  maskTexture.premultiplyAlpha = true
+  const getMaskFile = () => window.innerWidth > 1280 ? 'mask-top-left-1.png' : 'mask-top-1.png'
+  let maskFile = getMaskFile()
+
+  const getMaskTexture = (maskFile) => {
+    const texture = new THREE.TextureLoader().load(maskFile)
+    texture.colorSpace = THREE.LinearSRGBColorSpace
+    texture.premultiplyAlpha = true
+    return texture
+  }
+  const maskTexture = getMaskTexture(maskFile)
   const maskPass = new TexturePass(maskTexture, 0.9999)
   composer.addPass(maskPass)
 
@@ -80,10 +88,17 @@ export default () => {
   const halftonePass = new HalftonePass(params)
   composer.addPass(halftonePass)
 
-  window.addEventListener('resize', () => {
+  const resize = () => {
     sizes.width = canvas.clientWidth
     sizes.height = canvas.clientWidth
     sizes.pixelRatio = Math.min(window.devicePixelRatio, 2)
+
+    const newMaskFile = getMaskFile()
+    if (maskFile !== newMaskFile) {
+      maskFile = newMaskFile
+      const newMaskTexture = getMaskTexture(maskFile)
+      maskPass.map = newMaskTexture
+    }
 
     halftonePass.uniforms['radius'].value = getRadius()
     halftonePass.material.uniforms['radius'].value = getRadius()
@@ -96,7 +111,9 @@ export default () => {
     renderer.setSize(sizes.width, sizes.height, false)
     renderer.setPixelRatio(sizes.pixelRatio)
     composer.setSize(sizes.width, sizes.height)
-  })
+  }
+
+  window.addEventListener('resize', debounce(500, resize))
 
   const tick = () => {
     renderer.render(scene, camera)
