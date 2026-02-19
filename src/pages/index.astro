@@ -40,16 +40,16 @@ const nav = [
 			w-full
 			h-[100vw]
 			-z-10
+			bg-white
 			sm-landscape:w-1/2
 			sm-landscape:h-[50vw]
 			xl:w-2/3
 			xl:h-[67.6777vw]
 		"
-		slot="header-image"
 		aria-hidden="true"
-		id="webgl-profile"
-	>
-	</canvas>
+		data-halftone-image="profile.png"
+		data-halftone-mask="mask-top-1.png,mask-top-left-1.png:1280"
+	/>
 	<section
 		class="
 			mx-6-vw
@@ -187,68 +187,13 @@ const nav = [
 				lg:w-[80vw]
 				lg-landscape:w-[60vw]
 			"
-			aria-hidden="true"
 		>
-			<picture>
-				<source
-					type="image/webp"
-					srcset="/dogs-1260w.webp 1x, /dogs-1260w-2x.webp 2x"
-					media="(min-width: 1921px), ((orientation: portrait) and (min-width: 851px)"
-				>
-				<source
-					type="image/webp"
-					srcset="/dogs-1024w.webp 1x, /dogs-1024w-2x.webp 2x"
-					media="((orientation: portrait) and (min-width: 560px))"
-				>
-				<source
-					type="image/webp"
-					srcset="/dogs-1152w.webp 1x, /dogs-1152w-2x.webp 2x"
-					media="(min-width: 1537px), "
-				>
-				<source
-					type="image/webp"
-					srcset="/dogs-922w.webp 1x, /dogs-922w-2x.webp 2x"
-					media="(min-width: 1025px)"
-				>
-				<source
-					type="image/webp"
-					srcset="/dogs-620w.webp 1x, /dogs-620w-2x.webp 2x"
-				>
-				<source
-					type="image/png"
-					srcset="/dogs-1260w.png 1x, /dogs-1260w-2x.png 2x"
-					media="(min-width: 1921px), ((orientation: portrait) and (min-width: 851px)"
-				>
-				<source
-					type="image/png"
-					srcset="/dogs-1024w.png 1x, /dogs-1024w-2x.png 2x"
-					media="((orientation: portrait) and (min-width: 560px))"
-				>
-				<source
-					type="image/png"
-					srcset="/dogs-1152w.png 1x, /dogs-1152w-2x.png 2x"
-					media="(min-width: 1537px), "
-				>
-				<source
-					type="image/png"
-					srcset="/dogs-922w.png 1x, /dogs-922w-2x.png 2x"
-					media="(min-width: 1025px)"
-				>
-				<source
-					type="image/png"
-					srcset="/dogs-620w.png 1x, /dogs-620w-2x.png 2x"
-				>
-				<img
-					alt=""
-					loading="lazy"
-					decoding="async"
-					src="/dogs-620w.png"
-					srcset="/dogs-620w.png 1x, /dogs-620w-2x.png 2x"
-					width="620"
-					height="620"
-					class="w-full"
-				>
-			</picture>
+			<canvas
+				aria-hidden="true"
+				class="w-full h-auto"
+				data-halftone-image="dogs.png"
+				data-halftone-mask="mask-right-1.png"
+			/>
 			<div
 				class="
 					absolute

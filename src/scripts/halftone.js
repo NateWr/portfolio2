@@ -4,8 +4,31 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass, TexturePass } from 'three/examples/jsm/Addons.js';
 import { HalftonePass } from '../shaders/HalftonePass';
 
-export default () => {
-  const canvas = document.querySelector('canvas#webgl-profile')
+const ALL_FILES_LOADED_COUNT = 2
+
+const getMaskFile = (masks) => {
+  return masks.reduce(
+    (current, m) => {
+      const parts = m.split(':')
+      if (parts.length > 1 && window.innerWidth >= parseInt(parts[1], 10)) {
+        return parts[0]
+      } else if (parts.length === 1) {
+        return parts[0]
+      }
+      return current
+    },
+    '',
+  )
+}
+
+const init = (canvas) => {
+  const image = canvas.dataset.halftoneImage
+  const mask = canvas.dataset.halftoneMask
+  if (!image || !mask) {
+    return
+  }
+
+  let filesLoaded = 0
 
   const scene = new THREE.Scene()
   scene.background = new THREE.Color('#ffffff')
@@ -28,8 +51,7 @@ export default () => {
   )
   camera.position.z = 100
 
-
-  const profileDiffuseMap = new THREE.TextureLoader().load('/profile.png')
+  const profileDiffuseMap = new THREE.TextureLoader().load(image, () => filesLoaded += 1)
   profileDiffuseMap.colorSpace = THREE.LinearSRGBColorSpace
 
   const profile = new THREE.Mesh(
@@ -37,6 +59,14 @@ export default () => {
     new THREE.MeshBasicMaterial({ map: profileDiffuseMap })
   )
   scene.add(profile)
+
+  const coverMaterial = new THREE.MeshBasicMaterial({ color: 'black', opacity: 1.0, transparent: true })
+  const cover = new THREE.Mesh(
+    new THREE.PlaneGeometry(size * 2, size * 2),
+    coverMaterial
+  )
+  cover.position.z = 1
+  scene.add(cover)
 
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
@@ -48,11 +78,11 @@ export default () => {
   const composer = new EffectComposer(renderer)
   composer.addPass(new RenderPass(scene, camera))
 
-  const getMaskFile = () => window.innerWidth > 1280 ? 'mask-top-left-1.png' : 'mask-top-1.png'
-  let maskFile = getMaskFile()
+  const masks = mask.split(',')
+  let maskFile = getMaskFile(masks)
 
   const getMaskTexture = (maskFile) => {
-    const texture = new THREE.TextureLoader().load(maskFile)
+    const texture = new THREE.TextureLoader().load(maskFile, () => filesLoaded += 1)
     texture.colorSpace = THREE.LinearSRGBColorSpace
     texture.premultiplyAlpha = true
     return texture
@@ -93,9 +123,10 @@ export default () => {
     sizes.height = canvas.clientWidth
     sizes.pixelRatio = Math.min(window.devicePixelRatio, 2)
 
-    const newMaskFile = getMaskFile()
+    const newMaskFile = getMaskFile(masks)
     if (maskFile !== newMaskFile) {
       maskFile = newMaskFile
+      filesLoaded -= 1
       const newMaskTexture = getMaskTexture(maskFile)
       maskPass.map = newMaskTexture
     }
@@ -115,12 +146,34 @@ export default () => {
 
   window.addEventListener('resize', debounce(500, resize))
 
+  const clock = new THREE.Clock()
+
+  function easeOutCubic(x) {
+    return 1 - Math.pow(1 - x, 3);
+  }
+
+  let startTime = null
+
   const tick = () => {
-    renderer.render(scene, camera)
-    composer.render()
+    if (filesLoaded >= ALL_FILES_LOADED_COUNT) {
+      if (!startTime) {
+        startTime = clock.getElapsedTime()
+      }
+      const elapsedTime = clock.getElapsedTime() - startTime
+
+      coverMaterial.opacity = Math.max(0, (1.0 - easeOutCubic(elapsedTime * 0.3)))
+
+      renderer.render(scene, camera)
+      composer.render()
+    }
 
     window.requestAnimationFrame(tick)
   }
 
   tick()
+}
+
+export default () => {
+  const canvases = [...document.querySelectorAll('canvas[data-halftone-image]')]
+  canvases.forEach(init)
 }
