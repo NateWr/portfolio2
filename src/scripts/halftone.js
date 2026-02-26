@@ -92,10 +92,11 @@ const init = (canvas) => {
   composer.addPass(maskPass)
 
   const getRadius = () => {
-    const minRadius = 4.0
-    const maxRadius = 6.0
-    const posInRange = mapNumToRange(sizes.width, 360, 1600)
-    return minRadius + ((maxRadius - minRadius) * posInRange)
+    const minRadius = 6
+    const maxRadius = 30
+    const posInRange = mapNumToRange(sizes.width, 360, 2400)
+    const r = minRadius + ((maxRadius - minRadius) * posInRange)
+    return r * sizes.pixelRatio
   }
 
   /** Convert number in range to 0.0-1.0 */
@@ -131,8 +132,9 @@ const init = (canvas) => {
       maskPass.map = newMaskTexture
     }
 
-    halftonePass.uniforms['radius'].value = getRadius()
-    halftonePass.material.uniforms['radius'].value = getRadius()
+    const radius = getRadius()
+    halftonePass.uniforms['radius'].value = radius
+    halftonePass.material.uniforms['radius'].value = radius
 
     camera.aspect = sizes.width / sizes.height
     camera.left = -size * (sizes.width / sizes.height)
@@ -142,6 +144,7 @@ const init = (canvas) => {
     renderer.setSize(sizes.width, sizes.height, false)
     renderer.setPixelRatio(sizes.pixelRatio)
     composer.setSize(sizes.width, sizes.height)
+    composer.setPixelRatio(sizes.pixelRatio)
   }
 
   window.addEventListener('resize', debounce(500, resize))
