@@ -2,7 +2,6 @@
 import { Picture } from 'astro:assets';
 import ContactLink from '../components/ContactLink.astro';
 import FontWorkSans from '../components/FontWorkSans.astro'
-import dotsFooterImage from '../images/dots-footer.png';
 import leftArrowIcon from "../images/left-arrow-icon.svg?raw";
 
 interface Props {
@@ -138,29 +137,33 @@ const { title, description, nav, revealNav = false } = Astro.props;
 				relative
 				overflow-hidden
 				pb-[25vw]
+				min-h-[100vw]
 			"
 		>
 			<div
 				class="
 					absolute
 					bottom-0
-					left-2/4
-					-translate-x-2/4
-					translate-y-1/4
-					w-[200%]
+					left-0
+					w-screen
+					h-[100vw]
 					-z-50
-					sm:w-[150%]
-					md:w-[100%]
-					md:translate-y-0
 				"
 				aria-hidden="true"
 			>
-				<Picture
-					class="w-full"
-					src={dotsFooterImage}
-					alt=""
-					widths={[800, 1200, 1600, 1920, 2100]}
-					quality={80}
+				<canvas
+					class="
+						absolute
+						top-0
+						left-0
+						w-full
+						h-full
+						-z-10
+						bg-white
+					"
+					aria-hidden="true"
+					data-halftone-image="colorado.png"
+					data-halftone-mask="mask-bottom-1.png"
 				/>
 			</div>
 			<h2 class="sr-only">Contact</h2>
