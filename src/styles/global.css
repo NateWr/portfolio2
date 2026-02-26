@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 400px;
+  --breakpoint-3xl: 1920px;
+
+  --color-blue: #2187FF;
+  --color-code-dark-grey: #556362;
+  --color-code-fuscia: #D33681;
+  --color-code-grey: #81917A;
+  --color-code-orange: #FFCC2E;
+  --color-code-teal: #2AA197;
+  --color-code-teal-dark: #002B36;
+  --color-code-teal-very-dark: #00141A;
+  --color-var-color: var(--color);
+
+  --font-sans: "Sofia Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+p > code {
+  font-weight: bold;
+  font-size: 0.9em;
+  background: #000;
+  color: white;
+  padding: 0 0.2em;
+}
+
+@layer utilities {
+
+  .link {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 0.15em;
+  }
+  .link:focus-visible: {
+    text-decoration: none;
+    outline: 0.15em solid;
+    outline-offset: 0.15em;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    border: 2px solid;
+    border-radius: 9999px;
+    line-height: 2;
+    padding: 0.25em 1em;
+    white-space: nowrap;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 150ms;
+  }
+  .button:hover {
+    transform: scale(1.05);
+  }
+  .button:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+  .button > svg {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .tab-focus:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+}

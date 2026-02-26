@@ -1,5 +1,5 @@
 ---
-import { Picture } from 'astro:assets';
+import '../styles/global.css';
 import ContactLink from '../components/ContactLink.astro';
 import Fonts from '../components/Fonts.astro'
 import leftArrowIcon from "../images/left-arrow-icon.svg?raw";
@@ -235,16 +235,3 @@ const { title, description, nav, revealNav = false } = Astro.props;
 		<script src="../scripts/index.ts"></script>
 	</body>
 </html>
-<style is:global>
-	:root {
-		scroll-behavior: smooth;
-	}
-
-	p > code {
-		font-weight: bold;
-		font-size: 0.9em;
-		background: #000;
-		color: white;
-		padding: 0 0.2em;
-	}
-</style>
