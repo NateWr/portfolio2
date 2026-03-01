@@ -92,8 +92,8 @@ const init = (canvas) => {
   composer.addPass(maskPass)
 
   const getRadius = () => {
-    const minRadius = 6
-    const maxRadius = 30
+    const minRadius = 4
+    const maxRadius = 12
     const posInRange = mapNumToRange(sizes.width, 360, 2400)
     const r = minRadius + ((maxRadius - minRadius) * posInRange)
     return r * sizes.pixelRatio

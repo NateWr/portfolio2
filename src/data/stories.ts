@@ -9,11 +9,10 @@ const stories : PortfolioItem[] = [
   {
     title: "Road to Genocide",
     client: "Visualizing Palestine",
-    date: "December 2024",
+    date: "Dec 2024",
     url: "/road-to-genocide",
     image: roadToGenocideImage,
-    color: "#040007",
-    alt: "Graphic of the word Intent over a city landscape and a description of the crime of genocide",
+    alt: "Graphic of the word Intent over a ruined city landscape and a description of the crime of genocide",
   },
   {
     title: "Stop Killer AI",
@@ -21,7 +20,6 @@ const stories : PortfolioItem[] = [
     date: "May 2024",
     url: "/killerai",
     image: killerAiImage,
-    color: "#4D0016",
     alt: "Graphic showing families under a watching eye and the text: Israel's Killer AI",
   },
   {
@@ -30,7 +28,6 @@ const stories : PortfolioItem[] = [
     date: "Feb 2024",
     url: "/humanitarian-violence",
     image: faGazaImage,
-    color: "#000",
     alt: "Screenshot of a map of Gaza overlayed with information about Israel's invasion",
   },
   {
@@ -39,7 +36,6 @@ const stories : PortfolioItem[] = [
     date: "Nov 2023",
     url: "/wehaddreams",
     image: weHadDreamsImage,
-    color: "#211202",
     alt: "Graphic showing a nightime city skyline with explosions and the text: We Had Dreams, Palestinians living and dying under seige",
   },
   {
@@ -48,7 +44,6 @@ const stories : PortfolioItem[] = [
     date: "Aug 2023",
     url: "/antiboycott",
     image: antiboycottImage,
-    color: "#213751 ",
     alt: "",
   }
 ]

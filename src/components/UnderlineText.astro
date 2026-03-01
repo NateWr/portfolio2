@@ -1,0 +1,40 @@
+---
+import underlineSvg from "../images/underline.svg?raw";
+
+interface Props {
+  fullWidth?: boolean;
+}
+
+const { fullWidth = false } = Astro.props
+
+---
+
+
+<span class={`underline-text ${fullWidth ? 'block' : 'inline-block'}`}>
+  <span class="underline-text-highlight" set:html={underlineSvg} />
+  <Fragment set:html={underlineSvg} />
+  <slot />
+</span>
+
+<style>
+  .underline-text {
+    position: relative;
+  }
+  .underline-text :global(svg) {
+    --offset-y: 0.35em;
+    --line-offset: var(--offset-y);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, var(--line-offset));
+    width: calc(100% + 1em);
+    height: 0.5em;
+  }
+  .underline-text-highlight :global(svg) {
+    --line-offset: calc(var(--offset-y) + 2px);
+
+  }
+  .underline-text-highlight :global(path) {
+    fill: var(--color-yellow);
+  }
+</style>

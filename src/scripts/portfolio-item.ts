@@ -4,7 +4,6 @@ export interface PortfolioItem {
   date: string;
   url: string;
   image: ImageMetadata;
-  color: string;
   alt: string;
 }
 

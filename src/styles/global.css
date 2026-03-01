@@ -5,6 +5,7 @@
   --breakpoint-3xl: 1920px;
 
   --color-blue: #2187FF;
+  --color-yellow: #E5FF53;
   --color-code-dark-grey: #556362;
   --color-code-fuscia: #D33681;
   --color-code-grey: #81917A;
@@ -19,6 +20,8 @@
 }
 
 :root {
+  --color-yellow: #E5FF53;
+
   scroll-behavior: smooth;
 }
 
@@ -41,32 +44,6 @@ p > code {
     text-decoration: none;
     outline: 0.15em solid;
     outline-offset: 0.15em;
-  }
-
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5em;
-    border: 2px solid;
-    border-radius: 9999px;
-    line-height: 2;
-    padding: 0.25em 1em;
-    white-space: nowrap;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 150ms;
-  }
-  .button:hover {
-    transform: scale(1.05);
-  }
-  .button:focus-visible {
-    outline: 2px solid;
-    outline-offset: 2px;
-  }
-  .button > svg {
-    width: 1.5em;
-    height: 1.5em;
   }
 
   .tab-focus:focus-visible {

@@ -11,16 +11,14 @@ const stories : PortfolioItem[] = [
     date: "2018-2023",
     url: "/scholarly-publishing",
     image: uiLibraryImage,
-    color: "#002C40",
     alt: "Screenshot of the step-by-step workflow to make a new journal submission",
   },
   {
-    title: "Intent",
+    title: "Intent Database",
     client: "Law for Palestine",
     date: "Oct 2024",
     url: "/intent",
     image: intentImage,
-    color: "#b81e42",
     alt: "Screenshot of the database of statements of intent to commit genocide",
   },
   {
@@ -29,7 +27,6 @@ const stories : PortfolioItem[] = [
     date: "June 2023",
     url: "/find-your-representatives",
     image: councillorsImage,
-    color: "#B50A00",
     alt: "Screenshot of a map of Edinburgh with details about the city's councillors",
   },
   {
@@ -38,7 +35,6 @@ const stories : PortfolioItem[] = [
     date: "Sep 2023",
     url: "/lawfare-data",
     image: lawfareImage,
-    color: "#1F274C",
     alt: "Screenshot of the Google sheet after the data was extracted",
   },
 ]

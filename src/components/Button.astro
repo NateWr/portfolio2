@@ -1,0 +1,38 @@
+---
+import buttonSvg from "../images/button.svg?raw";
+import underlineSvg from "../images/underline.svg?raw";
+---
+
+<span class="button font-mono font-extrabold uppercase">
+  <span set:html={buttonSvg} />
+  <span class="button-underline" set:html={underlineSvg} />
+  <slot />
+</span>
+
+<style>
+  .button {
+    position: relative;
+    display: inline-block;
+    font-family: ;
+  }
+  .button :global(svg) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 3em);
+    height: calc(100% + 1.5em);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+  .button :global(.bg path) {
+    fill: white;
+  }
+  .button-underline :global(svg) {
+    width: calc(100% + 1.5em);
+    height: 0.75em;
+    top: 80%;
+  }
+  .button-underline :global(path) {
+    fill: var(--color-yellow);
+  }
+</style>
