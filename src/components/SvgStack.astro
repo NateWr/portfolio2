@@ -1,0 +1,37 @@
+---
+interface Props {
+  svg: string;
+  classes?: string;
+}
+
+const { svg, classes = '' } = Astro.props
+---
+
+<span
+  class:list={[
+    'svg-stack',
+    classes,
+  ]}
+>
+  <span class="svg-stack-bottom" set:html={svg} />
+  <span class="svg-stack-top" set:html={svg} />
+</span>
+
+<style>
+  .svg-stack {
+    display: block;
+    position: relative;
+  }
+  .svg-stack :global(svg) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .svg-stack-bottom :global(svg) {
+    top: 2px;
+    left: 1px;
+  }
+  .svg-stack-bottom :global(path) {
+    fill: var(--color-yellow);
+  }
+</style>

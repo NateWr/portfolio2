@@ -9,6 +9,7 @@ import experience from '../data/experience';
 import apps from '../data/apps';
 import UnderlineText from '../components/UnderlineText.astro';
 import Button from '../components/Button.astro';
+import PortfolioList from '../components/PortfolioList.astro';
 
 const nav = [
 	{
@@ -164,22 +165,9 @@ const nav = [
 				I make <strong class="italic font-black">engaging digital stories</strong> for journalists, campaigners and activists.
 			</p>
 		</div>
-		<div class="flex flex-col gap-8">
-			{stories.map(story => (
-				<div class="px-2">
-					<PortfolioItem
-						title={story.title}
-						client={story.client}
-						date={story.date}
-						url={story.url}
-						image={story.image}
-						alt={story.alt}
-					/>
-				</div>
-			))}
-		</div>
+		<PortfolioList items={stories} />
 	</section>
-	<section class="mt-32" >
+	<section class="mt-16" >
 		<div class="p-8 flex flex-col gap-4">
 			<ul class="
 				flex gap-4 items-center font-mono font-bold uppercase text-xs
@@ -202,19 +190,7 @@ const nav = [
 				I produce <strong class="italic font-black">beautiful websites</strong> that are easy for anyone to use on any device.
 			</p>
 		</div>
-		<div class="flex flex-col gap-8">
-			{websites.map(website => (
-				<div class="px-2">
-					<PortfolioItem
-						title={website.title}
-						client={website.client}
-						date={website.date}
-						url={website.url}
-						image={website.image}
-						alt={website.alt}
-					/>
-				</div>
-			))}
+		<PortfolioList items={websites} />
 		</div>
 	</section>
 	<section class="mt-32" >
@@ -243,20 +219,7 @@ const nav = [
 				I build <strong class="italic font-black">reliable apps</strong> to collect, manage, and analyse data.
 			</p>
 		</div>
-		<div class="flex flex-col gap-8">
-			{apps.map(app => (
-				<div class="px-2">
-					<PortfolioItem
-						title={app.title}
-						client={app.client}
-						date={app.date}
-						url={app.url}
-						image={app.image}
-						alt={app.alt}
-					/>
-				</div>
-			))}
-		</div>
+		<PortfolioList items={apps} />
 	</section>
 	<section
 		class="

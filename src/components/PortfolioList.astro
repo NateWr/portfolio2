@@ -1,0 +1,93 @@
+---
+import type { PortfolioItemType } from "../scripts/portfolio-item"
+import PortfolioItem from "./PortfolioItem.astro";
+import arrowLeftSvg from "../images/arrow-left.svg?raw";
+import arrowRightSvg from "../images/arrow-right.svg?raw";
+import 'swiper/css'
+import SvgStack from "./SvgStack.astro";
+
+interface Props {
+  items: PortfolioItemType[];
+}
+
+const { items } = Astro.props
+---
+
+<div class="swiper flex flex-col gap-8">
+  <div class="swiper-wrapper sm:grid sm:grid-cols-2">
+    {items.map(item => (
+      <div class="swiper-slide px-2">
+        <PortfolioItem
+          title={item.title}
+          client={item.client}
+          date={item.date}
+          url={item.url}
+          image={item.image}
+          alt={item.alt}
+        />
+      </div>
+    ))}
+  </div>
+  <div class="relative h-12 mt-4 flex justify-end items-stretch sm:hidden">
+    <button class="swiper-button-prev">
+      <SvgStack svg={arrowLeftSvg} classes="w-12 h-12" aria-hidden="true" />
+      <span class="sr-only">Prev</span>
+    </button>
+    <div class="swiper-pagination px-4 bg-white self-center font-mono text-xs"></div>
+    <button class="swiper-button-next">
+      <SvgStack svg={arrowRightSvg} classes="w-12 h-12" aria-hidden="true" />
+      <span class="sr-only">Next</span>
+    </button>
+  </div>
+</div>
+
+<script>
+import { debounce } from 'throttle-debounce'
+import Swiper from 'swiper'
+import { Navigation, Pagination } from 'swiper/modules'
+
+const BREAKPOINT = 640
+let swipers = []
+
+const init = () => {
+  if (window.innerWidth < BREAKPOINT) {
+    if (swipers.length) {
+      return
+    }
+    swipers = new Swiper('.swiper', {
+      modules: [Navigation, Pagination],
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+      },
+      navigation: {
+        addIcons: false,
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+  } else if (window.innerWidth >= BREAKPOINT) {
+    swipers.forEach(swiper => {
+      swiper.destroy()
+    })
+    swipers = []
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  init()
+  window.addEventListener('resize', debounce(1000, init))
+})
+</script>
+
+<style>
+  .swiper-button-disabled {
+    opacity: 0.25;
+  }
+
+  @media (min-width: 640px) {
+    .swiper-wrapper {
+      /* Override display: flex from swiper/css */
+      display: grid !important;
+    }
+  }
+</style>
