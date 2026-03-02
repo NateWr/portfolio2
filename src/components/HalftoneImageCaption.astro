@@ -1,0 +1,27 @@
+---
+interface Props {
+  text: string;
+  justify?: string;
+}
+
+const { text, justify = 'end' } = Astro.props
+
+const parts = text.split(' ')
+---
+
+<span
+  class:list={`
+    flex
+    flex-wrap
+    justify-${justify}
+    font-mono
+    font-bold
+    text-xs
+  `}
+>
+  {parts.map(part => (
+    <span class="bg-white px-1">
+      {part}
+    </span>
+  ))}
+</span>

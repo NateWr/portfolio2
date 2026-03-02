@@ -1,15 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import IconBulletPoint from '../components/IconBulletPoint.astro';
-import PortfolioItem from '../components/PortfolioItem.astro';
-import StaggeredTiles from '../components/StaggeredTiles.astro';
+import Button from '../components/Button.astro';
+import HalftoneImageCaption from '../components/HalftoneImageCaption.astro';
+import PortfolioList from '../components/PortfolioList.astro';
+import Terminal from '../components/Terminal.astro';
+import UnderlineText from '../components/UnderlineText.astro';
 import stories from '../data/stories';
 import websites from '../data/websites';
 import experience from '../data/experience';
 import apps from '../data/apps';
-import UnderlineText from '../components/UnderlineText.astro';
-import Button from '../components/Button.astro';
-import PortfolioList from '../components/PortfolioList.astro';
+import githubIcon from "../images/github.svg?raw"
 
 const nav = [
 	{
@@ -125,13 +126,14 @@ const nav = [
 					right-0
 					top-1/3
 					bg-white
-					p-1
 					font-mono
 					font-bold
 					text-xs
 				"
 			>
-				My dogs Bella and Peanut
+				<HalftoneImageCaption
+					text="My dogs Bella and Peanut"
+				/>
 			</figcaption>
 		</figure>
 	</section>
@@ -167,7 +169,7 @@ const nav = [
 		</div>
 		<PortfolioList items={stories} />
 	</section>
-	<section class="mt-16" >
+	<section class="mt-12" >
 		<div class="p-8 flex flex-col gap-4">
 			<ul class="
 				flex gap-4 items-center font-mono font-bold uppercase text-xs
@@ -193,7 +195,7 @@ const nav = [
 		<PortfolioList items={websites} />
 		</div>
 	</section>
-	<section class="mt-32" >
+	<section class="mt-12" >
 		<div class="p-8 flex flex-col gap-4">
 			<ul class="
 				flex gap-4 items-center font-mono font-bold uppercase text-xs
@@ -224,114 +226,101 @@ const nav = [
 	<section
 		class="
 			relative
-			my-[30vh]
+			-mt-12
 		"
 	>
-		<div
-			class="
-				absolute
-				top-0
-				right-0
-				w-[120vw]
-				-z-10
-				sm-landscape:w-[60vw]
-				lg:w-[80vw]
-				lg-landscape:w-[60vw]
-			"
-		>
-			<canvas
-				aria-hidden="true"
-				class="w-full h-auto"
-				data-halftone-image="mushrooms.png"
-				data-halftone-mask="mask-right-2.png"
-			/>
-			<div
+		<div class="max-w-screen overflow-hidden">
+			<figure
 				class="
-					absolute
-					right-0
-					top-[40vw]
-					bg-white
-					px-2
-					py-1
-					font-mono
-					font-bold
-					text-xs
-					sm-landscape:top-[15vw]
-					lg:top-[20vw]
+					relative
+					w-[150vw]
+					h-[150vw]
+					-translate-x-[33%]
+					-z-10
+					sm-landscape:w-[60vw]
+					lg:w-[80vw]
+					lg-landscape:w-[60vw]
 				"
 			>
-				A mound of mushrooms in the Scottish Highlands
-			</div>
+				<canvas
+					aria-hidden="true"
+					class="w-full h-auto"
+					data-halftone-image="mushrooms.png"
+					data-halftone-mask="mask-right-2.png"
+				/>
+				<figcaption
+					class="
+						absolute
+						left-[33%]
+						bottom-1/8
+						max-w-44
+					"
+				>
+					<HalftoneImageCaption
+						text="Mushrooms growing in the Scottish Highlands"
+						justify="start"
+					/>
+				</figcaption>
+			</figure>
 		</div>
-		<h2 id="experience" class="sr-only">Experience</h2>
 		<div
 			class="
-				mx-6-vw
-				pt-[120vw]
+				mt-16
+				mx-auto
+				max-w-xs
 				flex
 				flex-col
-				gap-6-vw
-				text-lg-vw
-				leading-relaxed
-				sm:text-sm-vw
-				sm-landscape:pt-[30vw]
-				sm-landscape:max-w-[45vw]
-				sm-landscape:mr-auto
-				sm-landscape:ml-16
-				sm-landscape:gap-6
-				sm-landscape:text-lg
-				sm-landscape:leading-relaxed
-				lg:pt-[70vw]
-				lg-landscape:pt-[30vw]
-				xl:text-xl
-				xl:leading-relaxed
-				xl:gap-6
-				xl:max-w-md
-				xl:mr-[50vw]
-				xl:ml-auto
-				3xl:max-w-xl
-				3xl:text-2xl
-				3xl:leading-relaxed
+				gap-7
+				leading-normal
+				text-center
+				xs:text-xl
 			"
 		>
+			<h2 id="experience" class="sr-only">Experience</h2>
 			<p class="
-				text-2xl-vw
-				font-semibold
+				mx-auto
+				max-w-[280px]
+				mb-4
+				text-2xl
+				font-bold
 				leading-normal
-				text-balance
-				sm:text-lg-vw
-				sm-landscape:text-2xl
-				sm-landscape:leading-normal
-				xl:text-4xl
-				xl:leading-tight
-				3xl:text-3xl
-				3xl:leading-normal
+				xs:text-3xl
+				xs:max-w-sm
 			">
-				In my career, I’ve worn all sorts of hats.
+				In my career, I’ve worn
+				<UnderlineText>all sorts of hats.</UnderlineText>
 			</p>
 			<p>
 				I’ve worked alone and in teams, led on frontend and backend tasks, and taken on documentation and developer relations.
 			</p>
 			<p>
-				I’m comfortable working across the full stack, from design to database and everything in between. Take a closer look at my technical experience below.
+				I’m comfortable working across the full stack, from design to database and everything in between.
+			</p>
+			<p class="mt-4">
+				<a href="https://github.com/NateWr">
+					<Button>
+						<span class="py-1 flex items-center gap-2">
+							<span class="w-6 h-6 shrink-0" set:html={githubIcon} />
+							<span class="relative font-sans font-medium normal-case text-nowrap">
+								github.com/NateWr
+							</span>
+						</span>
+					</Button>
+				</a>
 			</p>
 		</div>
 		<div
 			class="
-				mx-6-vw
-				my-12-vw
-				sm-landscape:mt-12
-				sm-landscape:mx-auto
-				sm-landscape:max-w-[80vw]
-				lg:mt-12
-				lg:mx-auto
-				lg:max-w-[90vw]
-				xl:max-w-[80vw]
-				2xl:max-w-screen-lg
-				3xl:max-w-screen-xl
+				mt-16
+				mx-3
+				flex
+				flex-col
+				gap-4
 			"
 		>
-			<StaggeredTiles tiles={experience} />
+			{experience.map(item => (
+				<Terminal item={item} />
+			))}
 		</div>
 	</section>
 </Layout>

@@ -27,11 +27,14 @@ const { title, client, date, url, image, alt = '' } = Astro.props;
     image={image}
     alt={alt}
   />
-  <div class="py-2 px-6 font-mono text-xs">
+  <div class="
+    py-2 px-6 font-mono text-xs
+    xs:text-sm
+  ">
     <h3 class="font-extrabold">
       {title}
     </h3>
-    <div class="flex items-center gap-2 font-medium">
+    <div class="mt-1 flex items-center gap-2 font-medium">
       <span class="uppercase">
         {date}
       </span>

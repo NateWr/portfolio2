@@ -1,8 +1,8 @@
 ---
-import type { CodeTile } from '../scripts/tiles'
+import type { Terminal } from '../scripts/terminal'
 
 interface Props {
-  item: CodeTile;
+  item: Terminal;
 }
 
 const { item } = Astro.props
@@ -10,15 +10,11 @@ const { item } = Astro.props
 
 <div
   class="
-    row-span-2
     flex
     flex-col
-    border
-    border-black
+    p-1
+    bg-white
     overflow-hidden
-    rounded-[12px]
-    bg-code-teal-dark
-    text-white/[0.85]
   "
   data-blur="true"
 >
@@ -29,34 +25,32 @@ const { item } = Astro.props
       py-2
       gap-0.5
       bg-code-teal-very-dark
-      md:flex
     "
   >
-    <div class="w-2 h-2 rounded-full bg-amber-600 "></div>
-    <div class="w-2 h-2 rounded-full bg-emerald-600"></div>
-    <div class="w-2 h-2 rounded-full bg-blue"></div>
+    <div class="w-2 h-2 rounded-full bg-code-teal"></div>
+    <div class="w-2 h-2 rounded-full bg-code-teal"></div>
+    <div class="w-2 h-2 rounded-full bg-code-teal"></div>
   </div>
   <div
     class="
+      px-2
+      py-4
       flex
       flex-col
+      gap-6
       grow
-      gap-6-vw
-      p-6-vw
       font-mono
-      sm-landscape:p-6
-      sm-landscape:gap-6
-      md:p-6
-      md:gap-6
+      bg-code-teal-dark
+      text-white/[0.85]
     "
   >
     <div
       class="
-        text-xs-vw
+        text-xs
         font-bold
-        sm-landscape:text-xs
-        md:text-xs
-        3xl:text-sm
+        max-w-full
+        overflow-hidden
+        text-nowrap
       "
     >
       <span class="text-code-teal">{item.path}</span>
@@ -66,21 +60,15 @@ const { item } = Astro.props
     </div>
     <div
       class="
-        text-lg-vw
+        text-lg
         font-bold
-        sm-landscape:text-lg
         md:text-lg
-        3xl:text-xl
       "
     >
       # {item.title}
     </div>
     <div
       class="
-        text-base-vw
-        sm-landscape:text-base
-        md:text-base
-        3xl:text-lg
       "
     >
       {item.description}

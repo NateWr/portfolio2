@@ -1,4 +1,4 @@
-import type { CodeTile } from '../scripts/tiles';
+import type { CodeTile } from '../scripts/terminal';
 
 const experience: CodeTile[] = [
 	{

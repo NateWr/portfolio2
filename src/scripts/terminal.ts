@@ -1,4 +1,4 @@
-export interface CodeTile {
+export interface Terminal {
   path: string;
   branch: string;
   commit: string;
