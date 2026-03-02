@@ -60,14 +60,6 @@ const init = (canvas) => {
   )
   scene.add(profile)
 
-  const coverMaterial = new THREE.MeshBasicMaterial({ color: 'black', opacity: 1.0, transparent: true })
-  const cover = new THREE.Mesh(
-    new THREE.PlaneGeometry(size * 2, size * 2),
-    coverMaterial
-  )
-  cover.position.z = 1
-  scene.add(cover)
-
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
   })
@@ -145,32 +137,20 @@ const init = (canvas) => {
     renderer.setPixelRatio(sizes.pixelRatio)
     composer.setSize(sizes.width, sizes.height)
     composer.setPixelRatio(sizes.pixelRatio)
+
+    tick()
   }
 
   window.addEventListener('resize', debounce(500, resize))
 
-  const clock = new THREE.Clock()
-
-  function easeOutCubic(x) {
-    return 1 - Math.pow(1 - x, 3);
-  }
-
-  let startTime = null
-
   const tick = () => {
     if (filesLoaded >= ALL_FILES_LOADED_COUNT) {
-      if (!startTime) {
-        startTime = clock.getElapsedTime()
-      }
-      const elapsedTime = clock.getElapsedTime() - startTime
-
-      coverMaterial.opacity = Math.max(0, (1.0 - easeOutCubic(elapsedTime * 0.3)))
-
       renderer.render(scene, camera)
       composer.render()
+    } else {
+      window.requestAnimationFrame(tick)
     }
 
-    window.requestAnimationFrame(tick)
   }
 
   tick()
