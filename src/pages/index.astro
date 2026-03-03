@@ -1,9 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import IconBulletPoint from '../components/IconBulletPoint.astro';
 import Button from '../components/Button.astro';
 import HalftoneImageCaption from '../components/HalftoneImageCaption.astro';
-import PortfolioList from '../components/PortfolioList.astro';
 import Terminal from '../components/Terminal.astro';
 import UnderlineText from '../components/UnderlineText.astro';
 import stories from '../data/stories';
@@ -11,6 +9,7 @@ import websites from '../data/websites';
 import experience from '../data/experience';
 import apps from '../data/apps';
 import githubIcon from "../images/github.svg?raw"
+import PortfolioGroup from '../components/PortfolioGroup.astro';
 
 const nav = [
 	{
@@ -32,7 +31,6 @@ const nav = [
 	title="Nate Wright | Software Developer & Digital Producer"
 	description="I make engaging digital stories, websites and apps for journalists, researchers, and activists."
 	nav={nav}
-	revealNav={true}
 >
 	<canvas
 		class="
@@ -43,20 +41,26 @@ const nav = [
 			h-[100vw]
 			-z-10
 			bg-white
-			sm-landscape:w-1/2
-			sm-landscape:h-[50vw]
-			xl:w-2/3
-			xl:h-[67.6777vw]
+			lg:w-[40vw]
+			lg:h-[40vw]
 		"
 		aria-hidden="true"
 		data-halftone-image="profile.png"
-		data-halftone-mask="mask-top-1.png,mask-top-left-1.png:1280"
+		data-halftone-mask="mask-top-1.png,mask-top-left-1.png:1024"
 	/>
 	<section
 		class="
 			relative
 			mt-[70vw]
 			mb-[100vw]
+			sm:mb-[70vw]
+			lg:mb-[30vw]
+			lg:mt-[15vw]
+			lg:ml-[25vw]
+			2xl:mb-96
+			3xl:mt-[12vw]
+			3xl:ml-[33vw]
+			3xl:mb-64
 		"
 	>
 		<div
@@ -69,6 +73,13 @@ const nav = [
 				leading-normal
 				text-center
 				xs:text-xl
+				sm:text-left
+				sm:mx-16
+				sm:max-w-lg
+				3xl:mx-0
+				3xl:max-w-2xl
+				3xl:gap-8
+				3xl:text-2xl
 			"
 		>
 			<h1 class="sr-only">About Me</h1>
@@ -81,17 +92,34 @@ const nav = [
 				leading-normal
 				xs:text-3xl
 				xs:max-w-sm
+				sm:max-w-none
+				sm:text-2xl
+				sm:mb-2
+				sm:text-balance
+				3xl:text-3xl
+				3xl:text-wrap
 			">
 				My name is Nate Wright and I’ve been building websites and apps for
-				<UnderlineText>more than 20 years.</UnderlineText>
+				<UnderlineText classes="inline-block">more than 20 years.</UnderlineText>
 			</p>
-			<p>
+			<p class="
+				sm:max-w-sm
+				3xl:max-w-lg
+			">
 				If it’s on the web, I can build it and make it accessible to anyone on any device.
 			</p>
-			<p>
+			<p class="
+				sm:max-w-sm
+				3xl:max-w-lg
+				3xl:text-balance
+			">
 				I had a previous career in journalism and I’m interested in working on projects at the intersection of information, communication, and social change.
 			</p>
-			<p class="mt-4">
+			<p class="
+				mt-4
+				sm:ml-4
+				xl:mt-8
+			">
 				<a href="#contact">
 					<Button>Contact Me</Button>
 				</a>
@@ -106,6 +134,16 @@ const nav = [
 				h-[100vw]
 				overflow-hidden
 				-z-10
+				sm:-translate-y-1/8
+				lg:w-[65vw]
+				lg:h-[65vw]
+				lg:-translate-y-1/3
+				2xl:w-[50vw]
+				2xl:h-[50vw]
+				2xl:-translate-y-1/3
+				3xl:w-[40vw]
+				3xl:h-[40vw]
+				3xl:-translate-y-1/2
 			"
 		>
 			<canvas
@@ -118,7 +156,7 @@ const nav = [
 					-translate-x-1/2
 				"
 				data-halftone-image="dogs.png"
-				data-halftone-mask="mask-left-right-1.png,mask-right-1.png:1280"
+				data-halftone-mask="mask-left-right-1.png,mask-right-1.png:640"
 			/>
 			<figcaption
 				class="
@@ -128,105 +166,113 @@ const nav = [
 					bg-white
 					font-mono
 					font-bold
-					text-xs
 				"
 			>
 				<HalftoneImageCaption
 					text="My dogs Bella and Peanut"
+					classes="justify-end"
 				/>
 			</figcaption>
 		</figure>
 	</section>
-	<section class="-mt-12">
-		<div class="px-6 mb-1">
-			<UnderlineText fullWidth={true}>
-				<h2 class="px-2 text-xl font-mono font-bold uppercase">
+	<section class="
+		-mt-12
+		lg:max-w-4xl
+		lg:mx-auto
+		xl:max-w-none
+		xl:ml-[25vw]
+		xl:mr-8
+		3xl:ml-[33vw]
+	">
+		<div class="
+			px-6
+			mb-1
+			3xl:px-0
+			3xl:mb-4
+		">
+			<UnderlineText classes="
+				block
+				sm:inline-block
+				sm:w-sm
+				lg:w-lg
+			">
+				<h2 class="
+					px-2
+					mb-1
+					text-xl
+					font-mono
+					font-bold
+					uppercase
+					3xl:text-2xl
+				">
 					What I Do
 				</h2>
 			</UnderlineText>
 		</div>
-		<div class="p-8 flex flex-col gap-4">
-			<ul class="
-				flex gap-4 items-center font-mono font-bold uppercase text-xs
-				xs:gap-6
-			">
-				<li class="flex gap-1 items-center">
-					<IconBulletPoint classes="w-3 h-3" />
-					Stories
-				</li>
-				<li class="flex gap-1 items-center">
-					<IconBulletPoint classes="w-3 h-3 rotate-50" />
-					Maps
-				</li>
-				<li class="flex gap-1 items-center">
-					<IconBulletPoint classes="w-3 h-3 rotate-100" />
-					Data Visualization
-				</li>
-			</ul>
-			<p class="font-medium text-lg">
-				I make <strong class="italic font-black">engaging digital stories</strong> for journalists, campaigners and activists.
-			</p>
-		</div>
-		<PortfolioList items={stories} />
+		<PortfolioGroup
+			arrow={1}
+			bulletPoints={[
+				'Stories',
+				'Maps',
+				'Data Visualization'
+			]}
+			items={stories}
+		>
+			I make <strong class="italic font-black">engaging digital stories</strong> for journalists, campaigners and activists.
+		</PortfolioGroup>
 	</section>
-	<section class="mt-12" >
-		<div class="p-8 flex flex-col gap-4">
-			<ul class="
-				flex gap-4 items-center font-mono font-bold uppercase text-xs
-				xs:gap-6
-			">
-				<li class="flex gap-1 items-center">
-					<IconBulletPoint classes="w-3 h-3" />
-					Websites
-				</li>
-				<li class="flex gap-1 items-center">
-					<IconBulletPoint classes="w-3 h-3 rotate-50" />
-					Themes
-				</li>
-				<li class="flex gap-1 items-center">
-					<IconBulletPoint classes="w-3 h-3 rotate-100" />
-					Documentation
-				</li>
-			</ul>
-			<p class="font-medium text-lg">
-				I produce <strong class="italic font-black">beautiful websites</strong> that are easy for anyone to use on any device.
-			</p>
-		</div>
-		<PortfolioList items={websites} />
-		</div>
+	<section class="
+		mt-12
+		sm:mt-16
+		lg:max-w-4xl
+		lg:mx-auto
+		xl:max-w-none
+		xl:ml-[25vw]
+		xl:mr-8
+		3xl:ml-[33vw]
+	">
+		<PortfolioGroup
+			arrow={2}
+			bulletPoints={[
+				'Websites',
+				'Themes',
+				'Documentation'
+			]}
+			items={websites}
+		>
+			I produce <strong class="italic font-black">beautiful websites</strong> that are easy for anyone to use on any device.
+		</PortfolioGroup>
 	</section>
-	<section class="mt-12" >
-		<div class="p-8 flex flex-col gap-4">
-			<ul class="
-				flex gap-4 items-center font-mono font-bold uppercase text-xs
-				xs:gap-6
-			">
-				<li class="flex gap-1 items-center">
-					<IconBulletPoint classes="w-3 h-3" />
-					Apps
-					<span class="sr-only sm:not-sr-only">
-						& Services
-					</span>
-				</li>
-				<li class="flex gap-1 items-center">
-					<IconBulletPoint classes="w-3 h-3 rotate-50" />
-					Datasets
-				</li>
-				<li class="flex gap-1 items-center">
-					<IconBulletPoint classes="w-3 h-3 rotate-100" />
-					Research Tools
-				</li>
-			</ul>
-			<p class="font-medium text-lg">
-				I build <strong class="italic font-black">reliable apps</strong> to collect, manage, and analyse data.
-			</p>
-		</div>
-		<PortfolioList items={apps} />
+	<section class="
+		mt-12
+		sm:mt-16
+		lg:max-w-4xl
+		lg:mx-auto
+		xl:max-w-none
+		xl:ml-[25vw]
+		xl:mr-8
+		3xl:ml-[33vw]
+	">
+		<PortfolioGroup
+			arrow={3}
+			bulletPoints={[
+				'Apps <span class="sr-only sm:not-sr-only">& Services</span>',
+				'Datasets',
+				'Research Tools'
+			]}
+			items={apps}
+		>
+			I build <strong class="italic font-black">reliable apps</strong> to collect, manage, and analyse data.
+		</PortfolioGroup>
 	</section>
 	<section
 		class="
 			relative
 			-mt-12
+			sm:-mt-32
+			lg:mt-32
+			lg:pt-24
+			xl:mt-48
 		"
 	>
 		<div class="max-w-screen overflow-hidden">
@@ -237,14 +283,38 @@ const nav = [
 					h-[150vw]
 					-translate-x-[33%]
 					-z-10
-					sm-landscape:w-[60vw]
-					lg:w-[80vw]
-					lg-landscape:w-[60vw]
+					lg:absolute
+					lg:-top-64
+					lg:-right-0
+					lg:translate-x-0
+					lg:w-full
+					lg:h-[115vw]
+					lg:overflow-hidden
+					xl:-top-64
+					xl:h-[75vw]
+					xl:max-h-600
+					3xl:-top-96
 				"
 			>
 				<canvas
 					aria-hidden="true"
-					class="w-full h-auto"
+					class="
+						w-full
+						h-auto
+						md:relative
+						lg:w-[115vw]
+						lg:h-[115vw]
+						lg:absolute
+						lg:-right-[35%]
+						xl:w-[75vw]
+						xl:h-[75vw]
+						xl:max-w-600
+						xl:max-h-600
+						xl:-right-[5%]
+						3xl:right-0
+						4xl:w-[75vw]
+						4xl:h-[75vw]
+					"
 					data-halftone-image="mushrooms.png"
 					data-halftone-mask="mask-right-2.png"
 				/>
@@ -254,11 +324,23 @@ const nav = [
 						left-[33%]
 						bottom-1/8
 						max-w-44
+						sm:bottom-1/6
+						md:max-w-52
+						lg:left-auto
+						lg:right-0
+						lg:bottom-auto
+						lg:top-1/5
+						3xl:top-1/2
+						4xl:top-2/5
+						4xl:max-w-56
 					"
 				>
 					<HalftoneImageCaption
 						text="Mushrooms growing in the Scottish Highlands"
-						justify="start"
+						classes="
+							justify-start
+							lg:justify-end
+						"
 					/>
 				</figcaption>
 			</figure>
@@ -274,6 +356,20 @@ const nav = [
 				leading-normal
 				text-center
 				xs:text-xl
+				lg:mt-0
+				lg:max-w-4xl
+				lg:mx-auto
+				lg:px-6
+				lg:text-left
+				xl:max-w-5xl
+				2xl:max-w-7xl
+				2xl:mt-32
+				3xl:max-w-none
+				3xl:ml-[10vw]
+				3xl:px-0
+				3xl:gap-8
+				3xl:text-2xl
+				4xl:ml-[15vw]
 			"
 		>
 			<h2 id="experience" class="sr-only">Experience</h2>
@@ -286,17 +382,25 @@ const nav = [
 				leading-normal
 				xs:text-3xl
 				xs:max-w-sm
+				lg:mx-0
+				3xl:text-3xl
 			">
 				In my career, I’ve worn
-				<UnderlineText>all sorts of hats.</UnderlineText>
+				<UnderlineText classes="inline-block">all sorts of hats.</UnderlineText>
 			</p>
-			<p>
+			<p class="
+				lg:max-w-sm
+				3xl:max-w-lg
+			">
 				I’ve worked alone and in teams, led on frontend and backend tasks, and taken on documentation and developer relations.
 			</p>
-			<p>
+			<p class="
+				lg:max-w-sm
+				3xl:max-w-lg
+			">
 				I’m comfortable working across the full stack, from design to database and everything in between.
 			</p>
-			<p class="mt-4">
+			<p class="mt-4 lg:ml-4">
 				<a href="https://github.com/NateWr">
 					<Button>
 						<span class="py-1 flex items-center gap-2">
@@ -312,15 +416,41 @@ const nav = [
 		<div
 			class="
 				mt-16
-				mx-3
+				mx-2
 				flex
 				flex-col
-				gap-4
+				gap-2
+				max-w-lg
+				sm:mx-auto
+				md:grid
+				md:grid-cols-2
+				md:max-w-none
+				md:mx-2
+				md:gap-2
+				lg:mt-24
+				lg:mx-4
+				lg:gap-4
+				xl:max-w-5xl
+				xl:mx-auto
+				2xl:max-w-7xl
+				2xl:grid-cols-3
+				3xl:mt-32
+				3xl:mx-[10vw]
+				3xl:max-w-500
+				4xl:mx-[15vw]
 			"
 		>
-			{experience.map(item => (
-				<Terminal item={item} />
-			))}
+			{experience.map((item, i) => {
+				return (
+					<Terminal
+						item={item}
+						classes={`
+							md:row-span-2
+							${i === 1 ? 'md:col-start-2 md:row-start-2 2xl:col-start-auto 2xl:row-start-auto' : ''}
+						`}
+					/>
+				)
+			})}
 		</div>
 	</section>
 </Layout>

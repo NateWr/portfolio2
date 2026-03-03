@@ -8,7 +8,7 @@ const websites : PortfolioItem[] = [
   {
     title: "Journal.fi and Edition.fi",
     client: "Finnish Learned Societies",
-    date: "Coming Soon",
+    date: "2025",
     url: "/finnish-journals",
     image: journalFiImage,
     alt: "Screenshot of the homepage for journal.fi with text that says Access 100+ Finnish Scholarly Journals",
@@ -32,7 +32,7 @@ const websites : PortfolioItem[] = [
   {
     title: "Documentation Hub",
     client: "Public Knowledge Project",
-    date: "May 2018",
+    date: "2018",
     url: "/docs-hub",
     image: docsHubImage,
     alt: "Screenshot of the homepage for the PKP technical documentation.",

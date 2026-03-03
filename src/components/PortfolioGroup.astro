@@ -1,0 +1,74 @@
+---
+import BulletPoints from "./BulletPoints.astro";
+import PortfolioList from "./PortfolioList.astro";
+import type { PortfolioItem as PortfolioItemType } from "../scripts/portfolio-item"
+import SvgStack from "./SvgStack.astro";
+import arrowLong1Svg from "../images/arrow-long-1.svg?raw"
+import arrowLong2Svg from "../images/arrow-long-2.svg?raw"
+import arrowLong3Svg from "../images/arrow-long-3.svg?raw"
+
+interface Props {
+  bulletPoints: string[];
+  items: PortfolioItemType[];
+  arrow?: number;
+}
+
+const { bulletPoints, items, arrow = 1 } = Astro.props
+
+const arrowSvg = arrow === 3
+  ? arrowLong3Svg
+  : arrow === 2
+    ? arrowLong2Svg
+    : arrowLong1Svg
+---
+
+<div class="
+  p-8
+  flex
+  flex-col
+  gap-4
+  sm:gap-6
+  xl:relative
+  xl:pb-4
+  xl:px-4
+  3xl:px-0
+">
+  <BulletPoints items={bulletPoints} />
+  <p class="
+    font-medium
+    text-balance
+    sm:max-w-md
+    lg:max-w-lg
+    xl:absolute
+    xl:top-24
+    xl:right-full
+    xl:w-[25vw]
+    xl:max-w-sm
+    xl:p-8
+    3xl:max-w-lg
+    3xl:mr-16
+  ">
+    <span class="
+      text-lg
+      sm:text-xl
+      lg:text-2xl
+      xl:text-lg
+      3xl:text-xl
+      4xl:text-2xl
+    ">
+      <slot />
+    </span>
+    <span class="
+      hidden
+      absolute
+      bottom-6
+      right-4
+      w-2/3
+      xl:block
+      4xl:bottom-2
+    ">
+      <SvgStack svg={arrowSvg} />
+    </span>
+  </p>
+</div>
+<PortfolioList items={items} />

@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --breakpoint-xs: 400px;
-  --breakpoint-3xl: 1920px;
+  --breakpoint-xs: 25rem;
+  --breakpoint-3xl: 120rem;
+  --breakpoint-4xl: 160rem;
 
   --color-blue: #2187FF;
   --color-yellow: #E5FF53;
@@ -40,7 +41,7 @@ p > code {
     text-decoration: underline;
     text-decoration-thickness: 0.15em;
   }
-  .link:focus-visible: {
+  .link:focus-visible {
     text-decoration: none;
     outline: 0.15em solid;
     outline-offset: 0.15em;

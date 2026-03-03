@@ -15,7 +15,7 @@ export default () => {
       return
     }
     visible = true
-    $nav?.style.setProperty('--transform', 'translate(-50%, 0)')
+    $nav?.style.setProperty('--tw-translate-y', '0')
   }
 
   const hide = () => {
@@ -23,11 +23,11 @@ export default () => {
       return
     }
     visible = false
-    $nav?.style.setProperty('--transform', 'translate(-50%, -4rem)')
+    $nav?.style.setProperty('--tw-translate-y', '-4rem')
   }
 
   const set = () => {
-    if (window.scrollY < (window.innerHeight / 1.5) ) {
+    if (window.innerWidth < 1024 && window.scrollY < (window.innerHeight / 1.5) ) {
       hide()
     } else {
       show()

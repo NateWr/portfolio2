@@ -1,10 +1,10 @@
 ---
 interface Props {
   text: string;
-  justify?: string;
+  classes?: string;
 }
 
-const { text, justify = 'end' } = Astro.props
+const { text, classes = 'end' } = Astro.props
 
 const parts = text.split(' ')
 ---
@@ -13,10 +13,12 @@ const parts = text.split(' ')
   class:list={`
     flex
     flex-wrap
-    justify-${justify}
     font-mono
     font-bold
     text-xs
+    md:text-sm
+    4xl:text-base
+    ${classes}
   `}
 >
   {parts.map(part => (

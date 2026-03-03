@@ -1,5 +1,5 @@
 ---
-import type { PortfolioItemType } from "../scripts/portfolio-item"
+import type { PortfolioItem as PortfolioItemType } from "../scripts/portfolio-item"
 import PortfolioItem from "./PortfolioItem.astro";
 import arrowLeftSvg from "../images/arrow-left.svg?raw";
 import arrowRightSvg from "../images/arrow-right.svg?raw";
@@ -14,9 +14,21 @@ const { items } = Astro.props
 ---
 
 <div class="swiper flex flex-col gap-8">
-  <div class="swiper-wrapper sm:grid sm:grid-cols-2">
+  <div class="
+    swiper-wrapper
+    sm:grid
+    sm:grid-cols-2
+    sm:gap-2
+    lg:gap-6
+    xl:grid-cols-3
+    xl:gap-x-2
+    xl:gap-y-4
+    3xl:gap-x-4
+    3xl:gap-y-8
+    4xl:grid-cols-4
+  ">
     {items.map(item => (
-      <div class="swiper-slide px-2">
+      <div class="swiper-slide px-2 sm:px-0">
         <PortfolioItem
           title={item.title}
           client={item.client}
@@ -47,7 +59,7 @@ import Swiper from 'swiper'
 import { Navigation, Pagination } from 'swiper/modules'
 
 const BREAKPOINT = 640
-let swipers = []
+let swipers: any = []
 
 const init = () => {
   if (window.innerWidth < BREAKPOINT) {
@@ -67,7 +79,7 @@ const init = () => {
       },
     })
   } else if (window.innerWidth >= BREAKPOINT) {
-    swipers.forEach(swiper => {
+    swipers.forEach((swiper: any) => {
       swiper.destroy()
     })
     swipers = []
@@ -85,9 +97,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   @media (min-width: 640px) {
+    .swiper {
+      /* Override overflow: hidden from swiper/css */
+      overflow: visible !important;
+    }
     .swiper-wrapper {
       /* Override display: flex from swiper/css */
       display: grid !important;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      width: auto;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .swiper-wrapper {
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 </style>

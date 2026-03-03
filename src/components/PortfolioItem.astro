@@ -17,6 +17,7 @@ const { title, client, date, url, image, alt = '' } = Astro.props;
 
 <a
   class="
+    portfolio-item
     flex
     flex-col
     items-start
@@ -28,14 +29,29 @@ const { title, client, date, url, image, alt = '' } = Astro.props;
     alt={alt}
   />
   <div class="
-    py-2 px-6 font-mono text-xs
+    py-2
+    px-6
+    font-mono
+    text-xs
     xs:text-sm
+    lg:px-4
+    xl:px-0
   ">
     <h3 class="font-extrabold">
       {title}
     </h3>
-    <div class="mt-1 flex items-center gap-2 font-medium">
-      <span class="uppercase">
+    <div class="
+      mt-1
+      flex
+      gap-2
+      font-medium
+      sm:text-xs
+      lg:text-sm
+      lg:mt-0
+      xl:text-xs
+      3xl:text-sm
+    ">
+      <span class="shrink-0 uppercase">
         {date}
       </span>
       <span>·</span>
@@ -45,3 +61,14 @@ const { title, client, date, url, image, alt = '' } = Astro.props;
     </div>
   </div>
 </a>
+
+<style>
+  @media (min-width: 640px) {
+    .portfolio-item :global(img) {
+      transition: transform 150ms;
+    }
+    .portfolio-item:hover :global(img) {
+      transform: scale(110%);
+    }
+  }
+</style>

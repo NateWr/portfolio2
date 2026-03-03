@@ -1,6 +1,6 @@
-import type { CodeTile } from '../scripts/terminal';
+import type { Terminal } from '../scripts/terminal';
 
-const experience: CodeTile[] = [
+const experience: Terminal[] = [
 	{
 		path: '~/projects/pkp',
 		branch: 'stable-3_4_0',
@@ -18,7 +18,7 @@ const experience: CodeTile[] = [
 		url: '/ui-component-library',
 	},
 	{
-		path: '~/projects/scrollytelling-vue',
+		path: '~/projects/antiboycott',
 		branch: 'main',
 		commit: '2a14f2 May 6 10:04',
 		title: 'Scrollytelling with Vue.js',

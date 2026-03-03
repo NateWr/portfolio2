@@ -9,10 +9,9 @@ interface Props {
 	title: string;
 	description?: string;
 	nav: {href: string, text: string, isHome?: boolean}[];
-	revealNav?: boolean;
 }
 
-const { title, description, nav, revealNav = false } = Astro.props;
+const { title, description, nav } = Astro.props;
 ---
 
 <!doctype html>
@@ -57,7 +56,7 @@ const { title, description, nav, revealNav = false } = Astro.props;
 			class="
 				fixed
 				top-4
-				left-2/4
+				left-1/2
 				z-50
 				bg-white
 				border-2
@@ -71,17 +70,14 @@ const { title, description, nav, revealNav = false } = Astro.props;
 				leading-none
 				whitespace-nowrap
 				-translate-x-1/2
+				-translate-y-16
 				transition-all
 				duration-300
-				sm-landscape:top-2
-				sm-landscape:text-xs
-				sm-landscape:leading-none
-				sm-landscape:py-2
+				lg:left-auto
+				lg:right-4
+				lg:translate-x-0
+				lg:translate-y-0
 			"
-			style={revealNav ? `
-				--transform: translate(-50%, -4rem);
-				transform: var(--transform);
-			` : ''}
 		>
 			<nav>
 				<ul
@@ -138,6 +134,7 @@ const { title, description, nav, revealNav = false } = Astro.props;
 				relative
 				overflow-hidden
 				pb-[120vw]
+				sm:pb-[60vw]
 			"
 		>
 			<figure
@@ -149,6 +146,9 @@ const { title, description, nav, revealNav = false } = Astro.props;
 					h-[200vw]
 					translate-x-1/4
 					-z-50
+					sm:w-screen
+					sm:h-[100vw]
+					sm:translate-x-0
 				"
 				aria-hidden="true"
 			>
@@ -175,6 +175,7 @@ const { title, description, nav, revealNav = false } = Astro.props;
 						font-mono
 						font-bold
 						text-xs
+						sm:right-0
 					"
 				>
 					<HalftoneImageCaption
@@ -194,6 +195,10 @@ const { title, description, nav, revealNav = false } = Astro.props;
 					text-center
 					text-balance
 					xs:text-xl
+					sm:pt-64
+					2xl:pt-96
+					4xl:pt-128
+					4xl:text-2xl
 				"
 			>
 				<p class="
@@ -204,10 +209,11 @@ const { title, description, nav, revealNav = false } = Astro.props;
 					leading-normal
 					xs:text-3xl
 					xs:max-w-sm
+					4xl:text-5xl
 				">
-					<UnderlineText>Ready for a chat?</UnderlineText>
+					<UnderlineText classes="inline-block">Ready for a chat?</UnderlineText>
 				</p>
-				<p class="mt-4">
+				<p class="mt-4 max-w-sm">
 					Get in touch if you think I can help you with something.
 				</p>
 				<p class="flex flex-col gap-2 font-semibold">

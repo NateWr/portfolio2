@@ -2,15 +2,15 @@
 import underlineSvg from "../images/underline.svg?raw";
 
 interface Props {
-  fullWidth?: boolean;
+  classes?: string;
 }
 
-const { fullWidth = false } = Astro.props
+const { classes = '' } = Astro.props
 
 ---
 
 
-<span class={`underline-text ${fullWidth ? 'block' : 'inline-block'}`}>
+<span class:list={`underline-text ${classes}`}>
   <span class="underline-text-highlight" set:html={underlineSvg} />
   <Fragment set:html={underlineSvg} />
   <slot />
