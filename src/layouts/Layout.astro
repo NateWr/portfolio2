@@ -1,8 +1,8 @@
 ---
 import '../styles/global.css';
 import Fonts from '../components/Fonts.astro'
-import leftArrowIcon from "../images/left-arrow-icon.svg?raw";
 import HalftoneImageCaption from '../components/HalftoneImageCaption.astro';
+import NavBar from '../components/NavBar.astro';
 import UnderlineText from '../components/UnderlineText.astro';
 
 interface Props {
@@ -15,7 +15,7 @@ const { title, description, nav } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-pt-32">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,17 +58,6 @@ const { title, description, nav } = Astro.props;
 				top-4
 				left-1/2
 				z-50
-				bg-white
-				border-2
-				border-black
-				px-4
-				py-3
-				font-mono
-				font-bold
-				uppercase
-				text-sm
-				leading-none
-				whitespace-nowrap
 				-translate-x-1/2
 				-translate-y-16
 				transition-all
@@ -77,54 +66,11 @@ const { title, description, nav } = Astro.props;
 				lg:right-4
 				lg:translate-x-0
 				lg:translate-y-0
+				3xl:right-6
+				3xl:top-6
 			"
 		>
-			<nav>
-				<ul
-					class="
-						flex
-						items-center
-						gap-6
-					"
-				>
-					{nav.map((item) => (
-						<li>
-							<a
-								href={item.href}
-								class="
-									tab-focus
-									flex
-									items-center
-									gap-4
-									transition-transform
-									hover:scale-110
-								"
-							>
-								{item?.isHome && (
-									<span class="w-6 flex" set:html={leftArrowIcon} />
-								)}
-								{item.text}
-							</a>
-						</li>
-					))}
-				</ul>
-			</nav>
-			<div
-				id="progress"
-				class="
-					absolute
-					left-0
-					bottom-0
-					bg-blue
-					h-1
-					transition-all
-					duration-300
-				"
-				style="
-					--width: 0%;
-					width: var(--width);
-				"
-			></div>
+			<NavBar nav={nav} />
 		</header>
 		<main>
 			<slot />
@@ -217,10 +163,10 @@ const { title, description, nav } = Astro.props;
 					Get in touch if you think I can help you with something.
 				</p>
 				<p class="flex flex-col gap-2 font-semibold">
-					<a href="mailto:natew+work@notthisway.com">
+					<a href="mailto:natew+work@notthisway.com" class="tab-focus">
 						natew+work@notthisway.com
 					</a>
-					<a href="https://github.com/NateWr">
+					<a href="https://github.com/NateWr" class="tab-focus">
 						github.com/NateWr
 					</a>
 				</p>

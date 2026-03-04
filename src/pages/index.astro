@@ -120,9 +120,11 @@ const nav = [
 				sm:-ml-2
 				xl:mt-8
 			">
-				<a href="#contact">
-					<Button>Contact Me</Button>
-				</a>
+				<Button>
+					<a href="#contact">
+						Contact Me
+					</a>
+				</Button>
 			</p>
 		</div>
 		<figure
@@ -175,15 +177,18 @@ const nav = [
 			</figcaption>
 		</figure>
 	</section>
-	<section class="
-		-mt-12
-		lg:max-w-4xl
-		lg:mx-auto
-		xl:max-w-none
-		xl:ml-[25vw]
-		xl:mr-8
-		3xl:ml-[33vw]
-	">
+	<section
+		id="what-i-do"
+		class="
+			-mt-12
+			lg:max-w-4xl
+			lg:mx-auto
+			xl:max-w-none
+			xl:ml-[25vw]
+			xl:mr-8
+			3xl:ml-[33vw]
+		"
+	>
 		<div class="
 			px-6
 			mb-1
@@ -401,16 +406,17 @@ const nav = [
 				I’m comfortable working across the full stack, from design to database and everything in between.
 			</p>
 			<p class="mt-4 lg:-ml-2">
-				<a href="https://github.com/NateWr">
-					<Button>
-						<span class="py-1 flex items-center gap-2">
-							<span class="w-6 h-6 shrink-0" set:html={githubIcon} />
-							<span class="relative font-sans font-medium normal-case text-nowrap">
-								github.com/NateWr
-							</span>
+				<Button>
+					<a
+						href="https://github.com/NateWr"
+						class="py-1 flex items-center gap-2"
+					>
+						<span class="w-6 h-6 shrink-0" set:html={githubIcon} />
+						<span class="relative font-sans font-medium normal-case text-nowrap">
+							github.com/NateWr
 						</span>
-					</Button>
-				</a>
+					</a>
+				</Button>
 			</p>
 		</div>
 		<div

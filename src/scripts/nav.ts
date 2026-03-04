@@ -23,7 +23,7 @@ export default () => {
       return
     }
     visible = false
-    $nav?.style.setProperty('--tw-translate-y', '-4rem')
+    $nav?.style.setProperty('--tw-translate-y', '-5rem')
   }
 
   const set = () => {

@@ -1,0 +1,90 @@
+---
+import ButtonWide from '../components/ButtonWide.astro';
+import bulletPointSvg from '../images/bullet-point.svg?raw';
+
+interface Props {
+	nav: {href: string, text: string, isHome?: boolean}[];
+}
+
+const { nav } = Astro.props;
+---
+<nav class="navbar">
+  <ButtonWide>
+    <ul
+      class="
+        flex
+        items-center
+        gap-6
+				font-mono
+				font-bold
+				uppercase
+				text-xs
+				leading-none
+				whitespace-nowrap
+				xs:text-sm
+      "
+    >
+      {nav.map((item, i) => (
+        <li>
+          <a
+            href={item.href}
+            class="
+              flex
+              items-center
+              gap-1
+              py-2
+              px-1
+              xs:gap-2
+              xs:py-2
+            "
+          >
+            {item?.isHome && (
+              <span class="w-6 flex" />
+            )}
+            <span
+              class={`
+                w-3
+                h-3
+                ${i ? 'rotate-' + i * 50 : ''}
+              `}
+              set:html={bulletPointSvg}
+            />
+            {item.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </ButtonWide>
+</nav>
+
+<style>
+  .navbar :global(.bullet-point-bg) {
+    color: white;
+  }
+  .navbar :global(.bullet-point-outline) {
+    color: black;
+  }
+  .navbar :global(a:hover .bullet-point-bg) {
+    color: black;
+  }
+
+  /* Focus */
+  .navbar :global(a:focus) {
+    outline: none;
+  }
+  .navbar:focus-within :global(.button-wide-border .bg path),
+  .navbar:focus-within :global(.bullet-point-bg) {
+    fill: black;
+  }
+  .navbar:focus-within :global(.bullet-point-outline),
+  .navbar:focus-within :global(.button-wide-underline path) {
+    fill: white;
+  }
+  .navbar:focus-within :global(a) {
+    color: white;
+  }
+  .navbar :global(a:focus-visible .bullet-point-bg),
+  .navbar :global(a:focus-visible .bullet-point-outline) {
+    fill: var(--color-yellow);
+  }
+</style>

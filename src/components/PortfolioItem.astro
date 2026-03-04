@@ -21,6 +21,8 @@ const { title, client, date, url, image, alt = '' } = Astro.props;
     flex
     flex-col
     items-start
+    group
+    focus-visible:outline-0
   "
   href={url}
 >
@@ -35,7 +37,9 @@ const { title, client, date, url, image, alt = '' } = Astro.props;
     text-xs
     xs:text-sm
     lg:px-4
-    xl:px-0
+    xl:px-2
+    group-focus-visible:bg-black
+    group-focus-visible:text-yellow
   ">
     <h3 class="font-extrabold">
       {title}

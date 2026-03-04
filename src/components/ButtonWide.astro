@@ -1,0 +1,40 @@
+---
+import buttonWideSvg from "../images/button-wide.svg?raw";
+import underlineSvg from "../images/underline.svg?raw";
+---
+
+<span class="button-wide font-mono font-extrabold uppercase">
+  <span class="button-wide-border" set:html={buttonWideSvg} />
+  <span class="button-wide-underline" set:html={underlineSvg} />
+  <slot />
+</span>
+
+<style>
+  .button-wide {
+    position: relative;
+    display: inline-block;
+    padding: 0.75em 1.5em;
+  }
+  .button-wide-border :global(svg),
+  .button-wide-underline :global(svg) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+  .button-wide-border :global(.bg path) {
+    fill: white;
+  }
+  .button-wide-underline :global(svg) {
+    width: calc(100% - 1.5em);
+    height: 0.75em;
+    top: auto;
+    bottom: 0.25em;
+  }
+  .button-wide-underline :global(path) {
+    fill: var(--color-yellow);
+  }
+</style>

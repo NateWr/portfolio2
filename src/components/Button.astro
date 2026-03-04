@@ -6,12 +6,17 @@ import underlineSvg from "../images/underline.svg?raw";
 <span class="button font-mono font-extrabold uppercase">
   <span class="button-border" set:html={buttonSvg} />
   <span class="button-underline" set:html={underlineSvg} />
-  <slot />
+  <span class="button-inner">
+    <slot />
+  </span>
 </span>
 
 <style>
   .button {
     position: relative;
+    display: inline-block;
+  }
+  .button-inner {
     display: inline-block;
     padding: 0.75em 1.5em;
   }
@@ -36,5 +41,17 @@ import underlineSvg from "../images/underline.svg?raw";
   }
   .button-underline :global(path) {
     fill: var(--color-yellow);
+  }
+  .button:hover,
+  .button:focus-within {
+    color: white;
+  }
+  .button :global(a:focus-visible),
+  .button :global(button:focus-visible) {
+    outline: none;
+  }
+  .button:hover :global(.button-border path),
+  .button:focus-within :global(.button-border path) {
+    fill: black;
   }
 </style>
