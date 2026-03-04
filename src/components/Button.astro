@@ -13,14 +13,15 @@ import underlineSvg from "../images/underline.svg?raw";
   .button {
     position: relative;
     display: inline-block;
+    padding: 0.75em 1.5em;
   }
   .button-border :global(svg),
   .button-underline :global(svg) {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: calc(100% + 3em);
-    height: calc(100% + 1.5em);
+    width: 100%;
+    height: 100%;
     transform: translate(-50%, -50%);
     z-index: -1;
   }
@@ -28,9 +29,10 @@ import underlineSvg from "../images/underline.svg?raw";
     fill: white;
   }
   .button-underline :global(svg) {
-    width: calc(100% + 1.5em);
+    width: calc(100% - 1.5em);
     height: 0.75em;
-    top: 80%;
+    top: auto;
+    bottom: 0.25em;
   }
   .button-underline :global(path) {
     fill: var(--color-yellow);
