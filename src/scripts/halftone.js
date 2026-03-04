@@ -85,8 +85,8 @@ const init = (canvas) => {
 
   const getRadius = () => {
     const minRadius = 4
-    const maxRadius = 12
-    const posInRange = mapNumToRange(sizes.width, 360, 2400)
+    const maxRadius = 10
+    const posInRange = mapNumToRange(window.innerWidth, 360, 2536)
     const r = minRadius + ((maxRadius - minRadius) * posInRange)
     return r * sizes.pixelRatio
   }
