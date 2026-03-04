@@ -9,7 +9,7 @@ interface Props {
 const { item, classes = '' } = Astro.props
 ---
 
-<div
+<a
   class={`
     flex
     flex-col
@@ -18,8 +18,14 @@ const { item, classes = '' } = Astro.props
     outline-4
     outline-white
     rounded
+    group
+    transition-colors
+    transition-150
+    hover:outline-yellow
+    focus:outline-yellow
     ${classes}
   `}
+  href={item.url}
   data-blur="true"
 >
   <div
@@ -29,6 +35,12 @@ const { item, classes = '' } = Astro.props
       py-2
       gap-0.5
       bg-code-teal-very-dark
+      transition-colors
+      transition-150
+      group-hover:bg-yellow
+      group-focus:bg-yellow
+      4xl:px-4
+      4xl:py-3
     "
   >
     <div class="w-2 h-2 rounded-full bg-code-dark-grey"></div>
@@ -46,6 +58,10 @@ const { item, classes = '' } = Astro.props
       font-mono
       bg-code-teal-dark
       text-white/[0.85]
+      transition-colors
+      transition-150
+      group-hover:bg-code-teal-very-dark
+      group-focus:bg-code-teal-very-dark
       sm:px-4
       sm:py-6
     "
@@ -84,17 +100,13 @@ const { item, classes = '' } = Astro.props
     >
       {item.description}
     </div>
-    <div class="mt-auto">
-      <a
-        href={item.url}
-        class="
-          font-bold
-          text-code-orange
-          sm:text-lg
-        "
-      >
-        [ Learn More ]
-      </a>
+    <div class="
+      mt-auto
+      font-bold
+      text-yellow
+      sm:text-lg
+    ">
+      [ Learn More ]
     </div>
   </div>
 </div>
