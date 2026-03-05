@@ -36,13 +36,13 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
         A screenshot of a composite component for sending an email. See the <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/Composer">&lt;Composer&gt;</a>.
       </Fragment>
     </Figure>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
         I designed and built a UI component library for the world's most widely used scholarly publishing software. Built with Vue.js, the library acts as a development tool, a documentation resource, and a collection of accessible components for everything from tabs to step-by-step workflows.
     </p>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       I wrote almost every component, mixin and utility in the Public Knowledge Project's <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4">UI Library</a>. This library powers the editorial backend of PKP's open-source applications, where editors triage submissions, manage peer review assignments, and publish scholarly articles, books and preprints. Their flagship software, Open Journal Systems, is used by more than <a class="link" href="https://pkp.sfu.ca/software/ojs/usage-data/">30,000 journals</a> in 100+ countries and dozens of languages.
     </p>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       The component library includes everything from simple buttons and badges to tabs and forms. I adopted third-party components wherever possible, but there weren't many that supported our localization and accessibility requirements off-the-shelf. So I often had to write bespoke components, like keyboard-friendly handles to <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/Orderer">reorder items</a>. Sometimes, I was able to use a third-party library by writing a small wrapper in order to implement accessible controls, like I did with the <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/Modal">modals</a> and <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/mixins/dialog">dialogs</a>.
     </p>
     <Figure>
@@ -57,8 +57,9 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
     <h2
       class="
         w-full
-        max-w-xl
-        text-2xl-vw
+        max-w-3xl
+        text-2xl
+        3xl:max-w-4xl
         leading-normal
         font-bold
         sm-landscape:text-2xl
@@ -73,7 +74,7 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
     >
       ListPanels
     </h2>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       One of the first components that I built for this library was the <code>&lt;ListPanel&gt;</code> (<a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel/">docs</a>, <a class="link" href="https://github.com/pkp/ui-library/blob/c7cb4e12b06dca912b9fbe21831d15feb3ad020d/src/components/ListPanel/ListPanel.vue">source</a>). There are dozens of different data models in the system and each one of them needs a slightly different UI to view and edit them. So I built the <code>&lt;ListPanel&gt;</code> to be an extensible component that would work with a lot of variations.
     </p>
     <Figure>
@@ -85,40 +86,34 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
         A flexible component to add, edit, search and filter items in a list. View <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel/">&lt;ListPanel&gt;</a>
       </Fragment>
     </Figure>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       I used slots so that my colleagues could easily adapt the lists to serve their needs, while enforcing some constraints that helped them use the component in a consistent way across the app. In it's simplest form, a <code>&lt;ListPanel&gt;</code> only needs to be passed an array of items.
     </p>
-    <div class="max-w-full">
-      <CodeBlock
-        code={listPanel}
-        lang="html"
-      >
-        A basic <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel"><code>&lt;ListPanel&gt;</code></a>
-      </CodeBlock>
-    </div>
-    <p class="max-w-xl">
+    <CodeBlock
+      code={listPanel}
+      lang="html"
+    >
+      A basic <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel"><code>&lt;ListPanel&gt;</code></a>
+    </CodeBlock>
+    <p class="max-w-3xl 3xl:max-w-4xl">
       A developer can add actions to each item by using the predefined <code>item-actions</code> slot.
     </p>
-    <div class="max-w-full">
-      <CodeBlock
-        code={listPanelItemActions}
-        lang="html"
-      >
-        A <code>&lt;ListPanel&gt;</code> with an edit button for each item. <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel/with-item-actions">Example</a>
-      </CodeBlock>
-    </div>
-    <p class="max-w-xl">
+    <CodeBlock
+      code={listPanelItemActions}
+      lang="html"
+    >
+      A <code>&lt;ListPanel&gt;</code> with an edit button for each item. <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel/with-item-actions">Example</a>
+    </CodeBlock>
+    <p class="max-w-3xl 3xl:max-w-4xl">
       There are several pre-defined slots that allow developers to change the header, add a sidebar, or override the list item completely to implement more complex features like an expandable, accordion-like list item.
     </p>
-    <div class="max-w-full">
-      <CodeBlock
-        code={listPanelExpandable}
-        lang="html"
-      >
-        A &lt;ListPanel&gt; with accordion-like expansion. <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel/with-expandable-item">Example</a>
-      </CodeBlock>
-    </div>
-    <p class="max-w-xl">
+    <CodeBlock
+      code={listPanelExpandable}
+      lang="html"
+    >
+      A &lt;ListPanel&gt; with accordion-like expansion. <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel/with-expandable-item">Example</a>
+    </CodeBlock>
+    <p class="max-w-3xl 3xl:max-w-4xl">
       Using the <code>&lt;ListPanel&gt;</code> as a base, I was able to build several composite components to <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel/components/SelectReviewerListPanel">find a peer reviewer</a>, <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel/components/SubmissionsListPanel">track submissions</a>, and <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/ListPanel/components/SubmissionFilesListPanel">upload files</a>.
     </p>
     <Figure>
@@ -133,8 +128,9 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
     <h2
       class="
         w-full
-        max-w-xl
-        text-2xl-vw
+        max-w-3xl
+        text-2xl
+        3xl:max-w-4xl
         leading-normal
         font-bold
         sm-landscape:text-2xl
@@ -149,10 +145,10 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
     >
       Autosave and Dropped Connections
     </h2>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       When I worked on a ground-up rebuild of our submission wizard, I implemented an autosave feature to make sure that authors would never lose their progress (<a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/pages/autosave">docs</a>, <a class="link" href="https://github.com/pkp/ui-library/blob/997480bb6be6188f052561a299ce81c6eb089fda/src/mixins/autosave.js">source</a>). Once we started saving data on their behalf, we had to figure out how to handle dropped connections gracefully. If an author loses connection when going through a tunnel or working on dodgy wifi, I wanted to make sure the system wouldn't fail them.
     </p>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       I solved this problem by creating a queue (<a class="link" href="https://github.com/pkp/ui-library/blob/997480bb6be6188f052561a299ce81c6eb089fda/src/mixins/autosave.js#L176-L204">source</a>). When a dirty form is detected, the autosave data is sent to the queue and the HTTP requests are processed one by one. As soon as the queue detects a lost connection, the request payload is saved to the browser's local storage and the app begins pinging the server to detect the connection status. Once the connection is restored, it will pull the autosaves out of local storage and process them. Autosaves can be replayed like this even if the user has closed the browser and returned later.
     </p>
     <Figure>
@@ -164,14 +160,15 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
         Users can keep working if they lose connection and autosaves will resume as soon as the connection is restored.
       </Fragment>
     </Figure>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       In our software, third-party plugins can add new fields, forms and custom components to the submission wizard. To support these use cases, I decoupled the autosave feature from the default forms and abstracted it into a mixin (<a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/pages/autosave">docs</a>) that allows plugins to send a payload to the autosave queue: just a data object, a timestamp, and the URL to send it to. These autosaves can be sent to any API endpoint and the UI treats them the same as autosaves triggered by the core application.
     </p>
     <h2
       class="
         w-full
-        max-w-xl
-        text-2xl-vw
+        max-w-3xl
+        text-2xl
+        3xl:max-w-4xl
         leading-normal
         font-bold
         sm-landscape:text-2xl
@@ -186,7 +183,7 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
     >
       Accessible Date Range Picker
     </h2>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       When we added a UI to view visitor statistics, we needed a way for users to select a date range. I looked into third-party date picker components, but everything in the Vue ecosystem at the time had accessibility problems. We didn't have the time to build a fully-working date picker ourselves, so I opted to implement a lightweight alternative.
     </p>
     <Figure>
@@ -198,13 +195,13 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
         A keyboard-accessible alternative for selecting a date range when ranges frequently span several months or years.
       </Fragment>
     </Figure>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       The <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/#/component/DateRange">result</a> is a simple, keyboard-accessible dropdown that lets users select from a predefined list of date ranges, like the last 90 days or the last 12 months. It also provides a basic text input for users to type in the date range. We found the presets were more intuitive for users and using the text inputs turned out to be faster than a date picker for selecting lengthy reporting periods, like a calendar year.
     </p>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       The library started with a few components and developed gradually as part of a long-term project to <a class="link" href="/code-modernization">refactor</a> an old jQuery UI. By the time I left, it had outgrown itself. The library would benefit from introducing some better abstractions to help manage a large-scale UI: state management, TypeScript, utility CSS classes, and an API abstraction for mocking server interactions in testing and development environments. The library itself could be abandoned in favor of <a class="link" href="https://storybook.js.org/">Storybook</a>. When we began, Storybook didn't work well with Vue's dev tools, so I built the library app as an alternative development and documentation tool.
     </p>
-    <p class="max-w-xl">
+    <p class="max-w-3xl 3xl:max-w-4xl">
       But code is never done — especially in an open-source project. As part of a small team, I only worked on the UI Library part time. Much of my time with the <a class="link" href="https://pkp.sfu.ca/">Public Knowledge Project</a> went into full-stack work developing new features, <a class="link" href="/code-modernization">modernizing</a> the PHP backend, and handling the technical <a class="link" href="/documentation">documentation</a> for the project. If that work doesn't interest you, take a look at a small <a class="link" href="/find-your-representatives">data-driven app</a> I wrote to find my local city councillors.
     </p>
 
