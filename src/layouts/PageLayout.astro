@@ -1,7 +1,18 @@
 ---
-import { Picture } from 'astro:assets';
 import Layout from './Layout.astro';
-import dotsImage from '../images/dots-footer.png';
+import stories from '../data/stories';
+import storyTypes from '../data/storyTypes';
+import websites from '../data/websites';
+import websiteTypes from '../data/websiteTypes';
+import apps from '../data/apps';
+import appTypes from '../data/appTypes';
+import experience from '../data/experience';
+import type { PortfolioItem } from '../scripts/portfolio-item';
+import BulletPoints from '../components/BulletPoints.astro';
+import type { Terminal } from '../scripts/terminal';
+import arrowLeftSvg from "../images/arrow-left.svg?raw";
+import arrowRightSvg from "../images/arrow-right.svg?raw";
+import SvgStack from '../components/SvgStack.astro';
 
 interface Props {
 	title: string;
@@ -16,140 +27,187 @@ const nav = [
 	{
 		href: '/',
 		text: 'Home',
-    isHome: true,
 	},
 	{
 		href: '#contact',
 		text: 'Contact',
 	}
 ]
+
+let types : string[] = []
+let prev : PortfolioItem | Terminal | null = null
+let next : PortfolioItem | Terminal | null = null
+let current : number = -1
+let total : number = -1
+for (const [key, items] of Object.entries({stories, websites, apps, experience})) {
+  const i = items.findIndex(item => item.url === Astro.url.pathname)
+  if (i > -1) {
+    if (i > 0) {
+      prev = items[i - 1]
+    }
+    if (i < items.length - 1) {
+      next = items[i + 1]
+    }
+    switch (key) {
+      case 'stories':
+        types = storyTypes
+        total = stories.length
+        break
+      case 'websites':
+        types = websiteTypes
+        total = websites.length
+        break
+      case 'apps':
+        types = appTypes
+        total = apps.length
+        break
+    }
+    current = i  +1
+    break
+  }
+}
 ---
 <Layout
   title={title}
   description={description}
   nav={nav}
 >
-  <div
-    class="
-      absolute
-      top-0
-      left-1/2
-      w-full
-      overflow-hidden
-      h-full
-      -z-10
-      -translate-x-1/2
-    "
-    slot="header-image"
-    aria-hidden="true"
-  >
-    <div
-      class="
-        absolute
-        -top-16-vw
-        left-1/2
-        -translate-x-1/2
-        rotate-180
-        w-[200%]
-        sm:w-[150%]
-        md:w-[100%]
-        md:-top-8-vw
-      "
-    >
-      <Picture
-        class="w-full"
-        src={dotsImage}
-        alt=""
-        widths={[800, 1200, 1600, 1920, 2100]}
-        quality={80}
-      />
-    </div>
-  </div>
   <article
     class="
       mt-16-vw
-      mb-[50vh]
     "
   >
     <header
       class="
-        mx-6-vw
-        py-12-vw
+        relative
+        mx-3
+        mt-8
+        mb-16
         flex
         flex-col
-        gap-6-vw
-        text-center
-        sm-landscape:max-w-screen-sm
-        sm-landscape:mx-auto
-        sm-landscape:py-12
-        sm-landscape:gap-6
-        xl:max-w-screen-md
-        xl:mx-auto
-        xl:py-24
-        xl:gap-12
+        gap-8
+        max-w-xl
+        sm:mx-8
+        md:mx-16
+        xl:mx-64
+        xl:mt-12
+        xl:max-w-3xl
+        2xl:mt-16
+        3xl:max-w-[1200px]
+        3xl:mx-auto
       "
     >
-      <h1>
-        {technical && (
-          <span>
-            How I Built It
+      <div class="
+        -ml-3
+        flex
+        items-center
+        gap
+        xl:absolute
+        xl:-top-4
+        xl:right-full
+        xl:-translate-x-12
+        xl:min-w-48
+        xl:justify-end
+      ">
+        <a
+          href={prev?.url || '/'}
+        >
+          <SvgStack svg={arrowLeftSvg} classes="w-12 h-12" aria-hidden="true" />
+          <span class="sr-only">
+            {prev?.title || 'home'}
           </span>
+        </a>
+        <span class="px-4 font-mono text-xs">
+          {current} / {total}
+        </span>
+        <a
+          href={next?.url || '/'}
+        >
+          <SvgStack svg={arrowRightSvg} classes="w-12 h-12" aria-hidden="true" />
+          <span class="sr-only">
+            {next?.title || 'home'}
+          </span>
+
+        </a>
+      </div>
+      <div class="
+        flex
+        flex-col
+        gap-3
+        xl:gap-4
+      ">
+        {types && (
+          <BulletPoints items={types} />
         )}
-        <span
+        <h1 class="
+          font-bold
+          text-3xl
+          xs:text-4xl
+          xl:text-5xl
+          4xl:text-6xl
+        ">
+          {title}
+        </h1>
+        <div
           class="
-            font-black
-            text-3xl-vw
-            leading-tight
-            sm-landscape:text-3xl
-            xl:text-7xl
-            xl:leading-none
+            text-lg
+            max-w-md
+            xl:text-xl
+            xl:max-w-xl
+            4xl:text-2xl
+            4xl:max-w-2xl
           "
         >
-          {title}
-        </span>
-      </h1>
-      <div
-        class="
-          text-xl-vw
-          sm-landscape:text-xl
-          xl:text-3xl
-          xl:leading-relaxed
-        "
-      >
-        {description}
+          {description}
+        </div>
       </div>
-      <div
-        class="
-          mt-4-vw
-          flex
-          flex-col
-          justify-center
-          items-center
-          gap-4-vw
-          text-lg-vw
-          sm-landscape:mt-4
-          md:flex-row
-          md:gap-4
-          md:text-xl
-          xl:gap-6
-        "
-      >
+      <div class="
+        self-start
+        lg:-ml-2
+      ">
         <slot name="links"></slot>
       </div>
     </header>
     <div
       class="
-        mx-6-vw
-        sm-landscape:mx-8
-        lg:mx-8
-        xl:max-w-screen-lg
-        xl:mx-auto
-        2xl:max-w-screen-xl
-        3xl:max-w-screen-2xl
+        relative
       "
-      style=`--color: ${color};`
     >
-      <slot />
+      <canvas
+        slot="header-image"
+        class="
+          absolute
+          -top-48
+          right-0
+          w-[100vw]
+          h-[100vw]
+          -z-10
+          bg-white
+          sm:w-[75vw]
+          sm:h-[75vw]
+          sm:-top-56
+          lg:-top-96
+          2xl:-top-128
+          2xl:w-[1200px]
+          2xl:h-[1200px]
+          4xl:-top-192
+          4xl:w-[1800px]
+          4xl:h-[1800px]
+        "
+        aria-hidden="true"
+        data-halftone-image="black.png"
+        data-halftone-mask="mask-left-right-2.png"
+      />
+        <div class="
+          mx-1
+          sm:mx-8
+          lg:mx-4
+          2xl:mx-16
+          3xl:max-w-[1600px]
+          3xl:mx-auto
+        ">
+          <slot />
+        </div>
     </div>
   </article>
 </Layout>

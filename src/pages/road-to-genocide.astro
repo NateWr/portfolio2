@@ -12,6 +12,7 @@ import roadToGenocideMobileSolutionImage from '../images/road-to-genocide-mobile
 import roadToGenocideFleeImage from '../images/road-to-genocide-flee.png'
 import ScreenshotCaption from "../components/ScreenshotCaption.astro"
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro"
+import Button from "../components/Button.astro"
 
 const url = 'https://roadtogenocide.law4palestine.org/'
 
@@ -23,10 +24,11 @@ const url = 'https://roadtogenocide.law4palestine.org/'
   color="#040007"
 >
   <Fragment slot="links">
-    <a class="button" href={url}>
-      View Story
-      <Fragment set:html={linkIcon} />
-    </a>
+    <Button>
+      <a href={url}>
+        View Story
+      </a>
+    </Button>
   </Fragment>
   <ScreenshotsBlock>
     <div class="col-span-4">
@@ -104,16 +106,18 @@ const url = 'https://roadtogenocide.law4palestine.org/'
     </div>
     <div
       class="
+        mt-16
         col-span-4
         flex
         justify-center
         xl:text-xl
       "
     >
-      <a class="button" href={url}>
-        View Project
-        <Fragment set:html={linkIcon} />
-      </a>
+      <Button>
+        <a href={url}>
+          View Project
+        </a>
+      </Button>
     </div>
   </ScreenshotsBlock>
 </PageLayout>

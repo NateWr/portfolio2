@@ -12,6 +12,7 @@ import learnMoreImage from '../images/antiboycott-learn-more-mobile.png'
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
 import ScreenshotCaption from "../components/ScreenshotCaption.astro";
 import HowBuilt from "../components/HowBuilt.astro";
+import Button from "../components/Button.astro";
 
 const url = `https://visualizingpalestine.org/anti-boycott-laws-interactive/`
 
@@ -23,10 +24,11 @@ const url = `https://visualizingpalestine.org/anti-boycott-laws-interactive/`
   color="#213751"
 >
   <Fragment slot="links">
-    <a class="button" href={url}>
-      View Story
-      <Fragment set:html={linkIcon} />
-    </a>
+    <Button>
+      <a href={url}>
+        View Story
+      </a>
+    </Button>
   </Fragment>
   <ScreenshotsBlock>
     <div class="col-span-4">
@@ -95,9 +97,11 @@ const url = `https://visualizingpalestine.org/anti-boycott-laws-interactive/`
   <HowBuilt>
     Learn how I managed CPU usage to create silky smooth animations in this interactive, scroll-based story.
     <Fragment slot="links">
-      <a class="button" href="/scrollytelling-vue">
-        Vue.js Scrollytelling
-      </a>
+      <Button>
+        <a href="/scrollytelling-vue">
+          Vue.js Scrollytelling
+        </a>
+      </Button>
     </Fragment>
   </HowBuilt>
 </PageLayout>

@@ -5,9 +5,12 @@ import HalftoneImageCaption from '../components/HalftoneImageCaption.astro';
 import Terminal from '../components/Terminal.astro';
 import UnderlineText from '../components/UnderlineText.astro';
 import stories from '../data/stories';
+import storyTypes from '../data/storyTypes';
 import websites from '../data/websites';
-import experience from '../data/experience';
+import websiteTypes from '../data/websiteTypes';
 import apps from '../data/apps';
+import appTypes from '../data/appTypes';
+import experience from '../data/experience';
 import githubIcon from "../images/github.svg?raw"
 import PortfolioGroup from '../components/PortfolioGroup.astro';
 
@@ -216,11 +219,7 @@ const nav = [
 		</div>
 		<PortfolioGroup
 			arrow={1}
-			bulletPoints={[
-				'Stories',
-				'Maps',
-				'Data Visualization'
-			]}
+			bulletPoints={storyTypes}
 			items={stories}
 		>
 			I make <strong class="italic font-black">engaging digital stories</strong> for journalists, campaigners and activists.
@@ -238,11 +237,7 @@ const nav = [
 	">
 		<PortfolioGroup
 			arrow={2}
-			bulletPoints={[
-				'Websites',
-				'Themes',
-				'Documentation'
-			]}
+			bulletPoints={websiteTypes}
 			items={websites}
 		>
 			I produce <strong class="italic font-black">beautiful websites</strong> that are easy for anyone to use on any device.
@@ -260,11 +255,7 @@ const nav = [
 	">
 		<PortfolioGroup
 			arrow={3}
-			bulletPoints={[
-				'Apps <span class="sr-only sm:not-sr-only">& Services</span>',
-				'Datasets',
-				'Research Tools'
-			]}
+			bulletPoints={appTypes}
 			items={apps}
 		>
 			I build <strong class="italic font-black">reliable apps</strong> to collect, manage, and analyse data.
