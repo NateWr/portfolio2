@@ -61,6 +61,9 @@ for (const [key, items] of Object.entries({stories, websites, apps, experience})
         types = appTypes
         total = apps.length
         break
+      case 'experience':
+        total = experience.length
+        break
     }
     current = i  +1
     break
@@ -97,18 +100,19 @@ for (const [key, items] of Object.entries({stories, websites, apps, experience})
         3xl:mx-auto
       "
     >
-      <div class="
+      <div class={`
         -ml-3
         flex
         items-center
         gap
+        ${!types.length && 'mt-4'}
         xl:absolute
         xl:-top-4
         xl:right-full
         xl:-translate-x-12
         xl:min-w-48
         xl:justify-end
-      ">
+      `}>
         <a
           href={prev?.url || '/'}
           class="
@@ -168,9 +172,9 @@ for (const [key, items] of Object.entries({stories, websites, apps, experience})
         gap-3
         xl:gap-4
       ">
-        {types && (
+        {types.length ? (
           <BulletPoints items={types} />
-        )}
+        ) : ''}
         <h1 class="
           font-bold
           text-3xl

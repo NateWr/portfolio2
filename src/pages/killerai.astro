@@ -1,7 +1,6 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import Screenshot from "../components/Screenshot.astro";
-import linkIcon from "../images/link-icon.svg?raw";
 import openGraphImage from "../images/killerai.png"
 import dataImage from "../images/killerai-data.png"
 import familiesImage from "../images/killerai-families.png"
@@ -9,6 +8,7 @@ import bombImage from "../images/killerai-bomb-landscape.png"
 import ImageLink from "../components/ImageLink.astro";
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
 import ScreenshotCaption from "../components/ScreenshotCaption.astro";
+import Button from "../components/Button.astro";
 
 const url = `https://stopkiller.ai`
 ---
@@ -16,13 +16,13 @@ const url = `https://stopkiller.ai`
 <PageLayout
   title="Stop Killer AI"
   description="I designed and built a web-based explainer about Israel's killing machine for Visualizing Palestine."
-  color="#4D0016"
 >
   <Fragment slot="links">
-    <a class="button" href={url}>
-      View Story
-      <Fragment set:html={linkIcon} />
-    </a>
+    <Button>
+      <a href={url}>
+        View Story
+      </a>
+    </Button>
   </Fragment>
   <ScreenshotsBlock>
     <div class="col-span-4">
@@ -65,16 +65,18 @@ const url = `https://stopkiller.ai`
     </div>
     <div
       class="
+        mt-16
         col-span-4
         flex
         justify-center
         xl:text-xl
       "
     >
-      <a class="button" href={url}>
-        View Story
-        <Fragment set:html={linkIcon} />
-      </a>
+      <Button>
+        <a href={url}>
+          View Story
+        </a>
+      </Button>
     </div>
   </ScreenshotsBlock>
 </PageLayout>

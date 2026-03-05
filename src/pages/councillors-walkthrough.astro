@@ -4,8 +4,6 @@ import ArticleWrapper from "../components/ArticleWrapper.astro"
 import Screenshot from "../components/Screenshot.astro"
 import Figure from "../components/Figure.astro"
 import CodeBlock from "../components/CodeBlock.astro";
-import linkIcon from "../images/link-icon.svg?raw"
-import githubIcon from "../images/github.svg?raw"
 import heroImage from '../images/find-your-councillors.png';
 import resizeImage from '../images/resize-images.png';
 import badImage from '../images/councillors-landscape-bad.png';
@@ -17,17 +15,16 @@ import landscapeCss from '../code-snippets/landscape-orientation.css?raw';
 <PageLayout
   title="Data Scraping with Cypress"
   description="I used Cypress and Node.js to gather data on my local city councillors and created a simple web app to find your representative by postcode."
-  color="#B50A00"
 >
   <Fragment slot="links">
-    <a class="button" href="https://natewr.github.io/edinburgh-councillors/">
-      View App
-      <Fragment set:html={linkIcon} />
-    </a>
-    <a class="button" href="https://github.com/NateWr/edinburgh-councillors">
-      View Source
-      <Fragment set:html={githubIcon} />
-    </a>
+    <span class="ml-2 flex items-center gap-4 xl:text-lg xl:gap-8">
+      <a class="link" href="https://natewr.github.io/edinburgh-councillors/">
+        View App
+      </a>
+      <a class="link" href="https://github.com/NateWr/edinburgh-councillors">
+        View Source
+      </a>
+    </span>
   </Fragment>
   <ArticleWrapper>
     <Figure>

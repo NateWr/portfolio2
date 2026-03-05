@@ -5,12 +5,12 @@ import ImageLink from "../components/ImageLink.astro";
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
 import ScreenshotCaption from "../components/ScreenshotCaption.astro";
 import HowBuilt from "../components/HowBuilt.astro";
-import linkIcon from "../images/link-icon.svg?raw";
 import uiLibrarySubmissionImage from "../images/ui-library-submission.png"
 import codeFormatImage from "../images/code-format.png"
 import uiLibraryImage from "../images/ui-library.png"
 import docsHubImage from "../images/docs-hub.png"
 import CaptionedScreenshot from "../components/CaptionedScreenshot.astro";
+import Button from "../components/Button.astro";
 
 const url = `https://pkp.sfu.ca/software/ojs/`
 ---
@@ -18,13 +18,13 @@ const url = `https://pkp.sfu.ca/software/ojs/`
 <PageLayout
   title="Scholarly Publishing Software"
   description="I was a lead developer for the world’s largest scholarly publishing platform, open-source software used by more than 30,000 journals around the world."
-  color="#002C40"
 >
   <Fragment slot="links">
-    <a class="button" href={url}>
-      View Software
-      <Fragment set:html={linkIcon} />
-    </a>
+    <Button>
+      <a href={url}>
+        View Software
+      </a>
+    </Button>
   </Fragment>
   <ScreenshotsBlock>
     <div
@@ -94,15 +94,17 @@ const url = `https://pkp.sfu.ca/software/ojs/`
   <HowBuilt>
     Learn more about the technical details and leadership experience I gained during my time with the Public Knowledge Project.
     <Fragment slot="links">
-      <a class="button" href="/ui-component-library">
-        UI Library
-      </a>
-      <a class="button" href="/code-modernization">
-        Code Modernization
-      </a>
-      <a class="button" href="/documentation">
-        Documentation
-      </a>
+      <div class="flex items-center gap-4">
+        <a class="link" href="/ui-component-library">
+          UI Library
+        </a>
+        <a class="link" href="/code-modernization">
+          Code Modernization
+        </a>
+        <a class="link" href="/documentation">
+          Documentation
+        </a>
+      </div>
     </Fragment>
   </HowBuilt>
 </PageLayout>

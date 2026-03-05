@@ -4,8 +4,6 @@ import ArticleWrapper from "../components/ArticleWrapper.astro"
 import Screenshot from "../components/Screenshot.astro"
 import Figure from "../components/Figure.astro"
 import CodeBlock from "../components/CodeBlock.astro";
-import linkIcon from "../images/link-icon.svg?raw"
-import githubIcon from "../images/github.svg?raw"
 import heroImage from '../images/ui-library-composer.png';
 import listPanelsImage from '../images/list-panels.png';
 import complexListPanels from '../images/complex-list-panels.png';
@@ -17,17 +15,16 @@ import listPanelExpandable from "../code-snippets/list-panel-expandable.html?raw
 <PageLayout
   title="UI Component Library"
   description="I designed and built a Vue.js component library for the world's most widely used scholarly publishing software."
-  color="#002C40"
 >
   <Fragment slot="links">
-    <a class="button" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/">
-      View Library
-      <Fragment set:html={linkIcon} />
-    </a>
-    <a class="button" href="https://github.com/pkp/ui-library/">
-      View Source
-      <Fragment set:html={githubIcon} />
-    </a>
+    <span class="ml-2 flex items-center gap-4 xl:text-lg xl:gap-8">
+      <a class="link" href="https://docs.pkp.sfu.ca/dev/ui-library/3.4/">
+        View Library
+      </a>
+      <a class="link" href="https://github.com/pkp/ui-library/">
+        View Source
+      </a>
+    </span>
   </Fragment>
   <ArticleWrapper>
     <Figure>

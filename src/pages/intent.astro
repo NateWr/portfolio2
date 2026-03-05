@@ -1,7 +1,6 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro"
 import Screenshot from "../components/Screenshot.astro"
-import linkIcon from "../images/link-icon.svg?raw"
 import ImageLink from "../components/ImageLink.astro"
 import intentImage from '../images/intent.png'
 import intentMobileImage from '../images/intent-mobile.png'
@@ -20,7 +19,6 @@ const url = 'https://intent.law4palestine.org/'
 <PageLayout
   title="Intent"
   description="I built an easy-to-use website to access Law for Palestine's database of Israeli statements of intent to commit genocide."
-  color="#b81e42"
 >
   <Fragment slot="links">
     <Button>
@@ -90,10 +88,11 @@ const url = 'https://intent.law4palestine.org/'
         xl:text-xl
       "
     >
-      <a class="button" href={url}>
-        View Project
-        <Fragment set:html={linkIcon} />
-      </a>
+      <Button>
+        <a href={url}>
+          View Database
+        </a>
+      </Button>
     </div>
   </ScreenshotsBlock>
 </PageLayout>

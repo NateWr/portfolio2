@@ -2,8 +2,6 @@
 import PageLayout from "../layouts/PageLayout.astro"
 import Screenshot from "../components/Screenshot.astro"
 import Figure from "../components/Figure.astro"
-import linkIcon from "../images/link-icon.svg?raw"
-import githubIcon from "../images/github.svg?raw"
 import heroImage from '../images/antiboycott-devices.png';
 import CodeBlock from "../components/CodeBlock.astro";
 import scrollProgressBasic from "../code-snippets/scroll-progress-basic.vue?raw"
@@ -19,17 +17,16 @@ const githubUrl = `https://github.com/NateWr/antiboycott`
 <PageLayout
   title="Scrollytelling with Vue.js"
   description="How I managed CPU usage in an interactive, scroll-based story using a reactive framework like Vue.js."
-  color="#213751"
 >
   <Fragment slot="links">
-    <a class="button" href={url}>
-      View Story
-      <Fragment set:html={linkIcon} />
-    </a>
-    <a class="button" href={githubUrl}>
-      View Source
-      <Fragment set:html={githubIcon} />
-    </a>
+    <span class="ml-2 flex items-center gap-4 xl:text-lg xl:gap-8">
+      <a class="link" href={url}>
+        View Story
+      </a>
+      <a class="link" href={githubUrl}>
+        View Source
+      </a>
+    </span>
   </Fragment>
   <ArticleWrapper>
 

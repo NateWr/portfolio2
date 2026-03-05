@@ -1,13 +1,13 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro"
 import Screenshot from "../components/Screenshot.astro"
-import linkIcon from "../images/link-icon.svg?raw"
 import ImageLink from "../components/ImageLink.astro"
 import faGazaImage from '../images/fa-gaza.png'
 import safeZonesImage from '../images/fa-labels-safe-zones.png'
 import labelsSatteliteImage from '../images/fa-labels-sattelite-square.png'
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro"
 import ScreenshotCaption from "../components/ScreenshotCaption.astro"
+import Button from "../components/Button.astro"
 
 const url = 'https://gaza.forensic-architecture.org/displacement'
 
@@ -16,13 +16,13 @@ const url = 'https://gaza.forensic-architecture.org/displacement'
 <PageLayout
   title="Humanitarian Violence in Gaza"
   description="I helped simplify and clarify the visual language in a complex mapping project for Forensic Architecture."
-  color="#000"
 >
   <Fragment slot="links">
-    <a class="button" href={url}>
-      View Project
-      <Fragment set:html={linkIcon} />
-    </a>
+    <Button>
+      <a href={url}>
+        View Project
+      </a>
+    </Button>
   </Fragment>
   <ScreenshotsBlock>
     <div class="col-span-4">
@@ -64,16 +64,18 @@ const url = 'https://gaza.forensic-architecture.org/displacement'
     </div>
     <div
       class="
+        mt-16
         col-span-4
         flex
         justify-center
         xl:text-xl
       "
     >
-      <a class="button" href={url}>
-        View Project
-        <Fragment set:html={linkIcon} />
-      </a>
+      <Button>
+        <a href={url}>
+          View Project
+        </a>
+      </Button>
     </div>
   </ScreenshotsBlock>
 </PageLayout>

@@ -4,8 +4,8 @@ import Screenshot from "../components/Screenshot.astro"
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
 import HowBuilt from "../components/HowBuilt.astro";
 import ImageLink from "../components/ImageLink.astro"
-import linkIcon from "../images/link-icon.svg?raw"
 import councillorsImage from '../images/find-your-councillors.png';
+import Button from "../components/Button.astro";
 
 const url = `https://natewr.github.io/edinburgh-councillors/`
 
@@ -14,13 +14,13 @@ const url = `https://natewr.github.io/edinburgh-councillors/`
 <PageLayout
   title="Find Your City Councillor"
   description="I gathered data on my city councillors and turned it into a simple app that is easy to use on any device."
-  color="#B50A00"
 >
   <Fragment slot="links">
-    <a class="button" href={url}>
-      View App
-      <Fragment set:html={linkIcon} />
-    </a>
+    <Button>
+      <a href={url}>
+        View App
+      </a>
+    </Button>
   </Fragment>
   <ScreenshotsBlock>
     <div class="col-span-4">
@@ -37,9 +37,11 @@ const url = `https://natewr.github.io/edinburgh-councillors/`
   <HowBuilt>
     I used Cypress and Node.js to gather and process the data, then built the app with Vue.js and Leaflet.
     <Fragment slot="links">
-      <a class="button" href="/councillors-walkthrough">
-        Learn More
-      </a>
+      <Button>
+        <a href="/councillors-walkthrough">
+          Learn More
+        </a>
+      </Button>
     </Fragment>
   </HowBuilt>
 </PageLayout>

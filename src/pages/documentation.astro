@@ -4,25 +4,25 @@ import ArticleWrapper from "../components/ArticleWrapper.astro"
 import Screenshot from "../components/Screenshot.astro"
 import Figure from "../components/Figure.astro"
 import CodeBlock from "../components/CodeBlock.astro";
-import linkIcon from "../images/link-icon.svg?raw"
 import heroImage from '../images/docs-hub-wide.png';
 import lifecycleImage from '../images/docs-request-lifecycle.png';
 import apiImage from '../images/api-docs.png';
 import contributorsGuideImage from '../images/docs-contributors-guide.png';
 import codeReviewImage from '../images/code-review-expectations.png';
 import publicationJson from '../code-snippets/publication.json?raw';
+import Button from "../components/Button.astro";
 ---
 
 <PageLayout
   title="Documentation"
   description="I handled developer relations for an open source project, writing documentation, a contributor's guide, and a newsletter."
-  color="#e08914"
 >
   <Fragment slot="links">
-    <a class="button" href="https://docs.pkp.sfu.ca/dev/">
-      View Docs Hub
-      <Fragment set:html={linkIcon} />
-    </a>
+    <Button>
+      <a href="https://docs.pkp.sfu.ca/dev/">
+        View Docs Hub
+      </a>
+    </Button>
   </Fragment>
   <ArticleWrapper>
     <Figure>

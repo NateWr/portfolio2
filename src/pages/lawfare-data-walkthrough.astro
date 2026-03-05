@@ -4,24 +4,24 @@ import ArticleWrapper from "../components/ArticleWrapper.astro"
 import Screenshot from "../components/Screenshot.astro"
 import Figure from "../components/Figure.astro"
 import CodeBlock from "../components/CodeBlock.astro";
-import linkIcon from "../images/link-icon.svg?raw"
 import heroImage from '../images/lawfare.png';
 import tableImage from '../images/lawfare-table.png';
 import sheetsImage from '../images/lawfare-google-sheet.png';
 import resourcesImage from '../images/lawfare-resources.png';
 import lawfareCsv from '../code-snippets/lawfare.csv?raw';
+import Button from "../components/Button.astro";
 ---
 
 <PageLayout
   title="Data Extraction from PDF/Word"
   description="I used Node.js scripts to extract research data from Word/PDF files and import it into Google spreadsheets. This helped the Foundation for Middle East Peace (FMEP) to more easily analyse and share the data with journalists, researchers, and activists."
-  color="#1F274C"
 >
   <Fragment slot="links">
-    <a class="button" href="https://lawfare.fmep.org">
-      View Website
-      <Fragment set:html={linkIcon} />
-    </a>
+    <Button>
+      <a href="https://lawfare.fmep.org">
+        View Website
+      </a>
+    </Button>
   </Fragment>
   <ArticleWrapper>
     <Figure>

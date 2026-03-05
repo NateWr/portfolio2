@@ -4,8 +4,8 @@ import Screenshot from "../components/Screenshot.astro"
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro";
 import HowBuilt from "../components/HowBuilt.astro";
 import ImageLink from "../components/ImageLink.astro"
-import linkIcon from "../images/link-icon.svg?raw"
 import heroImage from '../images/lawfare-google-sheet.png';
+import Button from "../components/Button.astro";
 
 const url= `https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuIdz0crK1P4eihpkI8/edit#gid=1808305123`
 
@@ -14,13 +14,13 @@ const url= `https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuId
 <PageLayout
   title="Lawfare Data Extraction"
   description="I extracted research data from Word/PDF files and imported it into Google spreadsheets so that FMEP could more easily analyse and share the data."
-  color="#1F274C"
 >
   <Fragment slot="links">
-    <a class="button" href={url}>
-      View Data
-      <Fragment set:html={linkIcon} />
-    </a>
+    <Button>
+      <a href={url}>
+        View Data
+      </a>
+    </Button>
   </Fragment>
   <ScreenshotsBlock>
     <div class="col-span-4">
@@ -37,9 +37,11 @@ const url= `https://docs.google.com/spreadsheets/d/1iJu-VvTGPyt76szpkkgg4lN2RuId
   <HowBuilt>
     I used Node.js scripts to extract the data and built a web-based portal with 11ty.
     <Fragment slot="links">
-      <a class="button" href="/lawfare-data-walkthrough">
-        Learn More
-      </a>
+      <Button>
+        <a href="/lawfare-data-walkthrough">
+          Learn More
+        </a>
+      </Button>
     </Fragment>
   </HowBuilt>
 </PageLayout>

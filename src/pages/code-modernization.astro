@@ -4,8 +4,6 @@ import ArticleWrapper from "../components/ArticleWrapper.astro"
 import Screenshot from "../components/Screenshot.astro"
 import Figure from "../components/Figure.astro"
 import CodeBlock from "../components/CodeBlock.astro";
-import jsIcon from "../images/icon-square-js.svg?raw"
-import phpIcon from "../images/icon-square-php.svg?raw"
 import heroImage from '../images/code-format.png';
 import vueTemplateWarningImage from '../images/vue-template-warning.png';
 import jqueryInsideVue from "../code-snippets/jquery-inside-vue.html?raw"
@@ -20,17 +18,16 @@ const sectionPhp = `php+laravel`
 <PageLayout
   title="Code Modernization"
   description="How I helped refactor and modernize a legacy PHP/jQuery application with type hints, automatic code formatting and Vue.js."
-  color="#002C40"
 >
   <Fragment slot="links">
-    <a class="button" href=`#${sectionJs}`>
-      Skip to JS
-      <Fragment set:html={jsIcon} />
-    </a>
-    <a class="button" href=`#${sectionPhp}`>
-      Skip to PHP
-      <Fragment set:html={phpIcon} />
-    </a>
+    <span class="ml-2 flex items-center gap-4 xl:text-lg xl:gap-8">
+      <a class="link" href={`#${sectionJs}`}>
+        Skip to JS
+      </a>
+      <a class="link" href={`#${sectionPhp}`}>
+        Skip to PHP
+      </a>
+    </span>
   </Fragment>
   <ArticleWrapper>
     <Figure>
