@@ -1,0 +1,124 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import Screenshot from "../components/Screenshot.astro"
+import ImageLink from "../components/ImageLink.astro"
+import datasenseImage from '../images/datasense.png'
+import datasenseMobileImage from '../images/datasense-mobile.png'
+import datasensePresentImage from '../images/datasense-present.png'
+import datasenseBanglaMobileImage from '../images/datasense-bangla-mobile.png'
+import datasenseBanglaMobileImage2 from '../images/datasense-bangla-mobile-2.png'
+import datasenseBanglaMobileImage3 from '../images/datasense-bangla-mobile-3.png'
+import ScreenshotCaption from "../components/ScreenshotCaption.astro"
+import ScreenshotsBlock from "../components/ScreenshotsBlock.astro"
+import Button from "../components/Button.astro"
+
+const url = 'https://oaa.datasense.services/'
+
+---
+
+<PageLayout
+  title="Navigating the Digital Safety Net"
+  description="I helped researchers in Bangladesh and the University of Edinburgh turn their findings into a clear, compelling story for policymakers."
+>
+  <Fragment slot="links">
+    <Button>
+      <a href={url}>
+        View Story
+      </a>
+    </Button>
+  </Fragment>
+  <ScreenshotsBlock>
+    <div class="col-span-4">
+      <ImageLink
+        href={datasenseImage.src}
+      >
+        <Screenshot
+          image={datasenseImage}
+          alt="Screenshot of the title screen showing a line drawing of a rural Bangladeshi woman"
+        />
+      </ImageLink>
+    </div>
+    <ScreenshotCaption>
+      <div class="flex flex-col gap-4">
+        <p>We decided to illustrate their findings through the story of one applicant, Sharma, and the challenges she faced seeking old age allowance.</p>
+      </div>
+    </ScreenshotCaption>
+    <ImageLink
+      href={datasenseMobileImage.src}
+    >
+      <Screenshot
+        image={datasenseMobileImage}
+        alt="Screenshot of a research insight frame of the story as viewed on a mobile phone"
+      />
+    </ImageLink>
+    <Screenshot>
+      <video class="max-w-full" controls="true" autoplay="true" loop="true">
+        <source src="/videos/datasense-animation.mp4" type="video/mp4">
+      </video>
+    </Screenshot>
+    <div class="self-end">
+      <ScreenshotCaption>
+        I used animated line drawings to bring her story to life.
+      </ScreenshotCaption>
+    </div>
+    <div class="self-end">
+      <ScreenshotCaption>
+        A special mode without any visible navigation allowed the <a class="link" href="https://datasense.services">DataSense</a> researchers to use the story in presentations with local government officials.
+      </ScreenshotCaption>
+    </div>
+    <div class="col-span-3">
+      <ImageLink
+        href={datasensePresentImage.src}
+      >
+        <Screenshot
+          image={datasensePresentImage}
+          alt="Screenshot of the presentation mode showing the story without the page navigation"
+        />
+      </ImageLink>
+    </div>
+    <ImageLink
+      href={datasenseBanglaMobileImage.src}
+    >
+      <Screenshot
+        image={datasenseBanglaMobileImage}
+        alt="Screenshot of the homepage in Bangla"
+      />
+    </ImageLink>
+    <ImageLink
+      href={datasenseBanglaMobileImage2.src}
+    >
+      <Screenshot
+        image={datasenseBanglaMobileImage2}
+        alt="Screenshot of a research finding in Bangla"
+      />
+    </ImageLink>
+    <ImageLink
+      href={datasenseBanglaMobileImage3.src}
+    >
+      <Screenshot
+        image={datasenseBanglaMobileImage3}
+        alt="Screenshot of a narrative element in Bangla"
+      />
+    </ImageLink>
+    <div class="self-end">
+      <ScreenshotCaption>
+        The story was adapted for English and Bangla, reflecting the language prefences of both central and provincial audiences.
+      </ScreenshotCaption>
+    </div>
+    <div
+      class="
+        mt-16
+        col-span-4
+        flex
+        justify-center
+        xl:text-xl
+      "
+    >
+      <Button>
+        <a href={url}>
+          View Story
+        </a>
+      </Button>
+    </div>
+  </ScreenshotsBlock>
+</PageLayout>

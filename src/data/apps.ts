@@ -1,10 +1,19 @@
 import type { PortfolioItem } from "../scripts/portfolio-item"
+import bdsImage from '../images/bds-data.png'
 import uiLibraryImage from '../images/ui-library-submission-wide.png';
 import intentImage from '../images/intent.png';
 import councillorsImage from '../images/find-your-councillors.png';
 import lawfareImage from '../images/lawfare-google-sheet.png';
 
 const stories : PortfolioItem[] = [
+  {
+    title: "Growth of a Movement",
+    client: "Visualizing Palestine",
+    date: "Oct 2025",
+    url: "/bds",
+    image: bdsImage,
+    alt: "Screenshot of a timeline of events with options to search, filter and scroll through them",
+  },
   {
     title: "Scholarly Publishing Software",
     client: "Public Knowledge Project",
