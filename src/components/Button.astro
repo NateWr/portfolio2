@@ -6,9 +6,7 @@ import underlineSvg from "../images/underline.svg?raw";
 <span class="button font-mono font-extrabold uppercase">
   <span class="button-border" set:html={buttonSvg} />
   <span class="button-underline" set:html={underlineSvg} />
-  <span class="button-inner">
-    <slot />
-  </span>
+  <slot />
 </span>
 
 <style>
@@ -16,7 +14,8 @@ import underlineSvg from "../images/underline.svg?raw";
     position: relative;
     display: inline-block;
   }
-  .button-inner {
+  .button :global(a),
+  .button :global(button) {
     display: inline-block;
     padding: 0.75em 1.5em;
   }
