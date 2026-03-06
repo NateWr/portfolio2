@@ -20,11 +20,11 @@ const url = 'https://github.com/NateWr/individualizeTheme'
 
 <PageLayout
   title="Individualize OJS Theme"
-  description="I was hired by SLUB Dresden to design and build a theme that could adapt to dozens of diverse scholarly journals."
+  description="I designed and built an OJS theme for SLUB Dresden that could adapt to the needs of their diverse scholarly journal collection."
 >
   <Fragment slot="links">
     <Button>
-      <a href={url}>
+      <a href={url} target="_blank">
         View Theme
       </a>
     </Button>
@@ -50,7 +50,8 @@ const url = 'https://github.com/NateWr/individualizeTheme'
             This theme was built for SLUB Dresden's open publishing service,
             Publia, which uses the open-source scholarly publishing platform <a
               class="link"
-              href="/scholarly-publishing">Open Journal Systems</a
+              href="/scholarly-publishing"
+              target="_blank">Open Journal Systems</a
             > to publish more than a dozen journals in multiple languages.
           </ScreenshotCaption>
         </div>
@@ -61,7 +62,6 @@ const url = 'https://github.com/NateWr/individualizeTheme'
             <Screenshot
               image={slubArrayImage}
               alt="Screenshot of a sample black and white music journal"
-              color="#000"
             />
           </ImageLink>
         </div>
@@ -78,7 +78,6 @@ const url = 'https://github.com/NateWr/individualizeTheme'
             <Screenshot
               image={slubMusicImage}
               alt="Screenshot of a sample bright musicology journal"
-              color="#E3000B"
             />
           </ImageLink>
         </div>
@@ -87,7 +86,6 @@ const url = 'https://github.com/NateWr/individualizeTheme'
             <Screenshot
               image={slubSustainabilityImage}
               alt="Screenshot of a sample ecological journal showing a mountain vista with wind turbines"
-              color="#FFF7E4"
             />
           </ImageLink>
         </div>
@@ -96,7 +94,6 @@ const url = 'https://github.com/NateWr/individualizeTheme'
             <Screenshot
               image={slubMicrobiologyImage}
               alt="Screenshot of a sample microbiology journal"
-              color="#462100"
             />
           </ImageLink>
         </div>
@@ -105,7 +102,6 @@ const url = 'https://github.com/NateWr/individualizeTheme'
             <Screenshot
               image={slubAilingImage}
               alt="Screenshot of a sample journal on AI Linguistics"
-              color="#CD0061"
             />
           </ImageLink>
         </div>
@@ -115,7 +111,6 @@ const url = 'https://github.com/NateWr/individualizeTheme'
           <Screenshot
             image={slubArcticEcologyImage}
             alt="Screenshot of a sample ecological journal"
-            color="#003946"
           />
         </ImageLink>
         <ScreenshotCaption slot="caption">
@@ -128,7 +123,6 @@ const url = 'https://github.com/NateWr/individualizeTheme'
           <Screenshot
             image={slubCdatpImage}
             alt="Screenshot of the the article page for the CDATP journal"
-            color="#00305E"
           />
         </ImageLink>
         <ScreenshotCaption slot="caption">

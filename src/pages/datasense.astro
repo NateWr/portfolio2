@@ -10,22 +10,26 @@ import datasenseBanglaMobileImage2 from '../images/datasense-bangla-mobile-2.png
 import datasenseBanglaMobileImage3 from '../images/datasense-bangla-mobile-3.png'
 import ScreenshotCaption from "../components/ScreenshotCaption.astro"
 import ScreenshotsBlock from "../components/ScreenshotsBlock.astro"
-import Button from "../components/Button.astro"
 
-const url = 'https://oaa.datasense.services/'
-
+// const url = 'https://oaa.datasense.services/'
 ---
 
 <PageLayout
   title="Navigating the Digital Safety Net"
-  description="I helped researchers in Bangladesh and the University of Edinburgh turn their findings into a clear, compelling story for policymakers."
+  description="I helped researchers in Bangladesh and from the University of Edinburgh turn their findings into a clear, compelling story for policymakers."
 >
   <Fragment slot="links">
-    <Button>
-      <a href={url}>
-        View Story
-      </a>
-    </Button>
+    <div
+      class="
+        font-extrabold
+        uppercase
+        tracking-widest
+        text-lg
+        xl:text-xl
+      "
+    >
+      2025
+    </div>
   </Fragment>
   <ScreenshotsBlock>
     <div class="col-span-4">
@@ -63,7 +67,7 @@ const url = 'https://oaa.datasense.services/'
     </div>
     <div class="self-end">
       <ScreenshotCaption>
-        A special mode without any visible navigation allowed the <a class="link" href="https://datasense.services">DataSense</a> researchers to use the story in presentations with local government officials.
+        A special mode without any visible navigation allowed the <a class="link" href="https://datasense.com.bd/" target="_blank">DataSense</a> researchers to use the story in presentations with local government officials.
       </ScreenshotCaption>
     </div>
     <div class="col-span-3">
@@ -104,21 +108,6 @@ const url = 'https://oaa.datasense.services/'
       <ScreenshotCaption>
         The story was adapted for English and Bangla, reflecting the language prefences of both central and provincial audiences.
       </ScreenshotCaption>
-    </div>
-    <div
-      class="
-        mt-16
-        col-span-4
-        flex
-        justify-center
-        xl:text-xl
-      "
-    >
-      <Button>
-        <a href={url}>
-          View Story
-        </a>
-      </Button>
     </div>
   </ScreenshotsBlock>
 </PageLayout>
