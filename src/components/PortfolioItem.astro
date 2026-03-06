@@ -29,6 +29,15 @@ const { title, client, date, url, image, alt = '' } = Astro.props;
   <Screenshot
     image={image}
     alt={alt}
+    sizes="
+      (width <= 359px) 340px,
+      (width <= 639px) 680px,
+      (width <= 1279px) 480px,
+      (width <= 1535px) 350px,
+      (width <= 1919px) 450px,
+      (width <= 2559px) 540px,
+      700px,
+    "
   />
   <div class="
     py-2
