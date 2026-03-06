@@ -51,6 +51,7 @@ p > code {
 
   .tab-focus:focus-visible {
     outline: 0.25em solid black;
+    outline-offset: 0;
     background: black;
     color: white;
   }
