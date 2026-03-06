@@ -17,11 +17,9 @@ import SvgStack from '../components/SvgStack.astro';
 interface Props {
 	title: string;
 	description: string;
-  technical?: boolean;
-  color?: string;
 }
 
-const { title, description, technical = false, color = '#000' } = Astro.props;
+const { title, description } = Astro.props;
 
 const nav = [
 	{
