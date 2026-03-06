@@ -22,7 +22,7 @@ const { item, classes = '' } = Astro.props
     transition-colors
     transition-150
     hover:outline-yellow
-    focus:outline-yellow
+    focus-visible:outline-yellow
     ${classes}
   `}
   href={item.url}
@@ -38,7 +38,7 @@ const { item, classes = '' } = Astro.props
       transition-colors
       transition-150
       group-hover:bg-yellow
-      group-focus:bg-yellow
+      group-focus-visible:bg-yellow
       4xl:px-4
       4xl:py-3
     "
@@ -61,7 +61,7 @@ const { item, classes = '' } = Astro.props
       transition-colors
       transition-150
       group-hover:bg-code-teal-very-dark
-      group-focus:bg-code-teal-very-dark
+      group-focus-visible:bg-code-teal-very-dark
       sm:px-4
       sm:py-6
     "
