@@ -22,8 +22,8 @@ const getMaskFile = (masks) => {
 }
 
 const init = (canvas) => {
-  const image = canvas.dataset.halftoneImage
-  const mask = canvas.dataset.halftoneMask
+  const image = '/' + canvas.dataset.halftoneImage.replace(/^\//, '')
+  const mask = '/' + canvas.dataset.halftoneMask.replace(/^\//, '')
   if (!image || !mask) {
     return
   }
