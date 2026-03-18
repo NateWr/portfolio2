@@ -2,24 +2,15 @@
 
 interface Props {
   href: string;
-  classes?: string;
 }
 
-const { href, classes = '' } = Astro.props;
-
-let temp = ''
-if (href) {
-  temp = ''
-}
+const { href } = Astro.props;
 ---
 
-<div
-  class:list={[
-    'link',
-    classes,
-    temp
-  ]}
-  data-image
+<a
+  class="focus-visible:outline-4 outline-black"
+  data-lightbox="true"
+  href={href}
 >
   <slot />
 </div>
